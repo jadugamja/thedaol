@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>THE DAOL DNC | Join the Future</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Asta+Sans:wght@300..800&family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-deep: #050a14;
+        --main-teal: #2eaaa0;
+        --sub-cyan: #4fc3f7;
+        --text-slate: #8c9bab;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--bg-deep);
+        color: #fff;
+        overflow: hidden;
+        font-family: "Asta Sans", "Noto Sans KR", sans-serif;
+      }
+
+      /* [Layer 1] 배경 파티클 (먼지 효과) */
+      #bg-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2; /* 가장 뒤 */
+        opacity: 0.3;
+        pointer-events: none;
+      }
+
+      /* [Layer 2] 메인 구체 (네트워크 망) */
+      #sphere-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1; /* 배경보단 위, 글자보단 아래 */
+        pointer-events: none;
+      }
+
+      /* [Layer 3] 히어로 컨텐츠 */
+      .hero {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        z-index: 10; /* 가장 위 */
+      }
+
+      /* --- 타이포그래피 스타일 --- */
+      .badge {
+        background: rgba(46, 170, 160, 0.1);
+        color: var(--main-teal);
+        padding: 0.6rem 1.4rem;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        border: 1px solid rgba(46, 170, 160, 0.3);
+        margin-bottom: 2rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      h1.slogan {
+        font-family: "Archivo Black", sans-serif;
+        font-size: clamp(3rem, 9vw, 6.5rem);
+        line-height: 1;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* "Join the" 부분 */
+      h1.slogan span:first-child {
+        font-size: 0.4em; /* FUTURE 대비 작게 */
+        font-weight: 400;
+        letter-spacing: 2px;
+        margin-bottom: 0.2em;
+        opacity: 0.9;
+      }
+
+      /* "FUTURE" 부분 강조 */
+      .highlight {
+        background: linear-gradient(
+          to right,
+          #fff 20%,
+          var(--sub-cyan),
+          var(--main-teal)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        /* 장평을 넓혀서 꽉 찬 느낌 (폰트 자체 변형) */
+        transform: scaleX(1.25);
+        transform-origin: center;
+
+        /* 중요: 늘어난 글자가 레이아웃 흐트러지지 않게 */
+        display: block;
+        width: 100%;
+        margin-top: 5px;
+      }
+
+      .sub-title {
+        font-size: 1.15rem;
+        color: var(--text-slate);
+        max-width: 580px;
+        line-height: 1.6;
+        margin-bottom: 3.5rem;
+        font-weight: 500;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* 구체 위 가독성 확보 */
+      }
+
+      /* --- 버튼 그룹 --- */
+      .cta-group {
+        display: flex;
+        gap: 1.2rem;
+      }
+
+      .btn {
+        padding: 1rem 2.4rem;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      .btn-primary {
+        background: var(--main-teal);
+        color: var(--bg-deep);
+        box-shadow: 0 0 25px rgba(46, 170, 160, 0.2);
+      }
+      .btn-primary:hover {
+        box-shadow: 0 10px 30px rgba(46, 170, 160, 0.3);
+        background: #39c5bb;
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.05);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="bg-canvas"></canvas>
+
+    <canvas id="sphere-canvas"></canvas>
+
+    <section class="hero">
+      <div class="badge">Connecting the Future</div>
+
+      <h1 class="slogan">
+        <span>Join the</span>
+        <span class="highlight">FUTURE.</span>
+      </h1>
+
+      <p class="sub-title">
+        더다올디앤씨는 지능형 AI 솔루션과 데이터 기술을 통해<br />
+        비즈니스의 경계를 넘어 새로운 가치를 연결합니다.
+      </p>
+
+      <div class="cta-group">
+        <a href="#" class="btn btn-primary">프로젝트 문의하기</a>
+        <a href="#" class="btn btn-secondary">회사소개서 다운로드</a>
+      </div>
+    </section>
+
+    <script>
+      // 1. 배경 파티클
+      const bgCanvas = document.getElementById("bg-canvas");
+      const bgCtx = bgCanvas.getContext("2d");
+      let bgParticles = [];
+
+      function initBg() {
+        bgCanvas.width = window.innerWidth;
+        bgCanvas.height = window.innerHeight;
+        bgParticles = [];
+        for (let i = 0; i < 60; i++) {
+          bgParticles.push({
+            x: Math.random() * bgCanvas.width,
+            y: Math.random() * bgCanvas.height,
+            r: Math.random() * 1.5,
+            d: Math.random() * Math.PI * 2,
+            v: Math.random() * 0.2 + 0.1,
+          });
+        }
+      }
+
+      function drawBg() {
+        bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+        bgCtx.fillStyle = "rgba(79, 195, 247, 0.3)"; // 은은한 하늘색
+        bgParticles.forEach(p => {
+          p.x += Math.cos(p.d) * p.v;
+          p.y += Math.sin(p.d) * p.v;
+          if (p.x < 0) p.x = bgCanvas.width;
+          if (p.x > bgCanvas.width) p.x = 0;
+          if (p.y < 0) p.y = bgCanvas.height;
+          if (p.y > bgCanvas.height) p.y = 0;
+          bgCtx.beginPath();
+          bgCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          bgCtx.fill();
+        });
+      }
+
+      // 2. Hero > 반구
+      const spCanvas = document.getElementById("sphere-canvas");
+      const spCtx = spCanvas.getContext("2d");
+
+      let points = [];
+      const GLOBE_RADIUS = 550; // 구 반지름 (거대하게)
+      const NODE_COUNT = 250; // 점 개수 (촘촘하게)
+      const CONNECTION_DIST = 100; // 연결 거리
+      let angleY = 0;
+      let angleX = 0;
+
+      function initSphere() {
+        spCanvas.width = window.innerWidth;
+        spCanvas.height = window.innerHeight;
+        points = [];
+
+        // 구 표면에 점 생성 (Fibonacci Sphere Algorithm for even distribution)
+        const phi = Math.PI * (3 - Math.sqrt(5));
+        for (let i = 0; i < NODE_COUNT; i++) {
+          const y = 1 - (i / (NODE_COUNT - 1)) * 2;
+          const radius = Math.sqrt(1 - y * y);
+          const theta = phi * i;
+          const x = Math.cos(theta) * radius;
+          const z = Math.sin(theta) * radius;
+
+          points.push({
+            x: x * GLOBE_RADIUS,
+            y: y * GLOBE_RADIUS,
+            z: z * GLOBE_RADIUS,
+          });
+        }
+
+        // for (let i = 0; i < NODE_COUNT; i++) {
+        //   const y = 1 - (i / (NODE_COUNT - 1)) * 2;
+        //   const radius = Math.sqrt(1 - y * y);
+        //   const theta = phi * i;
+        //   const x = Math.cos(theta) * radius;
+        //   const z = Math.sin(theta) * radius;
+
+        //   points.push({
+        //     baseX: x * GLOBE_RADIUS, // 원래 위치 저장
+        //     baseY: y * GLOBE_RADIUS,
+        //     baseZ: z * GLOBE_RADIUS,
+        //     // 각 점마다 다른 위상과 속도로 미세하게 떨리게 함
+        //     phase: Math.random() * Math.PI * 2,
+        //     speed: 0.005 + Math.random() * 0.005
+        //   });
+        // }
+      }
+
+      function drawSphere() {
+        spCtx.clearRect(0, 0, spCanvas.width, spCanvas.height);
+
+        // 구 위치
+        const cx = spCanvas.width / 2; // 화면 중앙
+        const cy = spCanvas.height * 0.9; // 화면 하단 90% 지점에 중심
+
+        // 전체 회전
+        angleY += 0.001;
+        angleX = 0.1; // 기울임
+
+        // 점 투영 계산
+        let projectedPoints = points.map(p => {
+          // Y축 회전
+          let x1 = p.x * Math.cos(angleY) - p.z * Math.sin(angleY);
+          let z1 = p.x * Math.sin(angleY) + p.z * Math.cos(angleY);
+          // X축 회전 (약간 기울기)
+          let y1 = p.y * Math.cos(angleX) - z1 * Math.sin(angleX);
+          let z2 = p.y * Math.sin(angleX) + z1 * Math.cos(angleX);
+
+          // 3D -> 2D 투영 (Perspective)
+          const scale = 1000 / (1000 + z2);
+          return {
+            x: x1 * scale + cx,
+            y: y1 * scale + cy,
+            z: z2,
+            scale: scale,
+          };
+        });
+
+        // 선 그리기 (연결망)
+        // 성능 최적화를 위해 z값이 양수(화면 앞쪽)인 점들 위주로 그리기
+        spCtx.lineWidth = 0.3; // 아주 얇은 선
+
+        for (let i = 0; i < projectedPoints.length; i++) {
+          const p1 = projectedPoints[i];
+          // 뒤쪽에 있는 점은 흐리게
+          if (p1.scale < 0.6) continue;
+
+          // 인접한 점 연결
+          for (let j = i + 1; j < projectedPoints.length; j++) {
+            const p2 = projectedPoints[j];
+            const dx = p1.x - p2.x;
+            const dy = p1.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < CONNECTION_DIST) {
+              // 거리에 따른 투명도 조절
+              const alpha = (1 - dist / CONNECTION_DIST) * 0.9;
+              spCtx.strokeStyle = `rgba(140, 230, 230, ${alpha})`; // 청록빛 화이트
+              spCtx.beginPath();
+              spCtx.moveTo(p1.x, p1.y);
+              spCtx.lineTo(p2.x, p2.y);
+              spCtx.stroke();
+            }
+          }
+
+          // 점(Node) 그리기
+          spCtx.fillStyle = `rgba(90, 108, 125, ${p1.scale - 0.2})`;
+          spCtx.beginPath();
+          spCtx.arc(p1.x, p1.y, 1.5 * p1.scale, 0, Math.PI * 2);
+          spCtx.fill();
+        }
+      }
+
+      // 실행 및 리사이즈
+      function loop() {
+        drawBg();
+        drawSphere();
+        requestAnimationFrame(loop);
+      }
+
+      window.addEventListener("resize", () => {
+        initBg();
+        initSphere();
+      });
+
+      // 시작
+      initBg();
+      initSphere();
+      loop();
+    </script>
+  </body>
+</html>
