@@ -1,0 +1,17 @@
+.bg-grid-mask-light {
+  mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(
+    circle at center,
+    black 40%,
+    transparent 80%
+  );
+}
+
+/* card */
+.card-hover-effect:hover .card-overlay {
+  opacity: 1;
+}
+
+.card-hover-effect:hover .card-image {
+  transform: scale(1.05);
+}
