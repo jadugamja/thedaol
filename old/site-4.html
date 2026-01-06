@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Korean IT Solutions - About Us</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&amp;family=Montserrat:wght@400;600;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#00BCD4", // Cyan from the collage pop
+              "primary-dark": "#0097A7",
+              "background-light": "#F5F5F5",
+              "background-dark": "#121212",
+              "paper-light": "#FFFFFF",
+              "paper-dark": "#1E1E1E",
+              "text-light": "#333333",
+              "text-dark": "#E0E0E0",
+            },
+            fontFamily: {
+              sans: ['"Noto Sans KR"', "sans-serif"],
+              display: ['"Montserrat"', "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0px", // Sharp edges usually fit the brutalist/collage aesthetic better, but I'll use minor rounding for UI elements
+              md: "4px",
+              lg: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .collage-clip {
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      }
+      .text-vertical {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-sans transition-colors duration-300"
+  >
+    <nav
+      class="fixed w-full z-50 bg-paper-light/90 dark:bg-paper-dark/90 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <div class="flex-shrink-0 flex items-center gap-2">
+            <div
+              class="w-8 h-8 bg-black dark:bg-white flex items-center justify-center"
+            >
+              <span
+                class="text-white dark:text-black font-bold font-display text-lg"
+                >K</span
+              >
+            </div>
+            <span class="font-display font-bold text-xl tracking-tight"
+              >K-TECH SOLUTIONS</span
+            >
+          </div>
+          <div class="hidden md:flex space-x-8 items-center">
+            <a
+              class="text-sm font-medium hover:text-primary transition-colors"
+              href="#about"
+              >회사 소개 (About)</a
+            >
+            <a
+              class="text-sm font-medium hover:text-primary transition-colors"
+              href="#vision"
+              >비전 (Vision)</a
+            >
+            <a
+              class="text-sm font-medium hover:text-primary transition-colors"
+              href="#services"
+              >서비스 (Service)</a
+            >
+            <a
+              class="text-sm font-medium hover:text-primary transition-colors"
+              href="#projects"
+              >프로젝트 (Projects)</a
+            >
+            <a
+              class="px-5 py-2 bg-black dark:bg-white text-white dark:text-black text-sm font-bold hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition-all"
+              href="#contact"
+              >문의하기</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+    <header
+      class="relative h-screen flex items-center justify-center overflow-hidden"
+    >
+      <div class="absolute inset-0 z-0">
+        <img
+          alt="Chicago Skyline B&amp;W"
+          class="w-full h-full object-cover grayscale opacity-40 dark:opacity-20"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQOe9nDQ68TynZxK815zbEYRNmMOfvYaD_2aNlkY_MENxEg1ilLCzFyvpD5QkkIrzgFrJ-C6u0Qb_BrfSZRTDjgzN19JNVUxDmmwki1yM1jcSie6gipMYlhRS5GsWWpGRGYKQ2oQEWYn4oHBGTpzJrjb-gSlvSSZlrGRBKJrm3s3kJ_xUo_pM0yF0-RUEgzTc1VgJz1Cn0tCYU9PwP06cR5S9dYosfV2H1iEXWA9r9DlyHaa7YNGZodwauxBV76cHoDkRYRF4d-g"
+        />
+        <div
+          class="absolute top-1/4 left-1/4 w-64 h-40 bg-primary/40 mix-blend-multiply backdrop-blur-[2px] hidden md:block animate-pulse"
+        ></div>
+        <div
+          class="absolute bottom-1/3 right-1/4 w-40 h-80 bg-primary/30 mix-blend-multiply backdrop-blur-[1px] hidden md:block"
+        ></div>
+      </div>
+      <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+        <h1
+          class="font-display text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight"
+        >
+          <span class="block text-black dark:text-white">일상에 생명력을,</span>
+          <span class="block text-primary">기술로 더하다.</span>
+        </h1>
+        <p
+          class="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto font-light"
+        >
+          우리는 흑백 같은 복잡한 도시의 일상 속에, 혁신적인 기술이라는 색채를
+          입혀 새로운 활력을 불어넣습니다.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            class="px-8 py-4 bg-black dark:bg-white text-white dark:text-black font-bold hover:bg-primary dark:hover:bg-primary hover:text-white dark:hover:text-white transition-colors"
+            href="#about"
+          >
+            더 알아보기
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <section
+      class="py-24 bg-white dark:bg-paper-dark relative overflow-hidden"
+      id="about"
+    >
+      <div
+        class="absolute top-0 right-0 w-1/3 h-full bg-gray-50 dark:bg-black/20 z-0"
+      ></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="relative">
+            <div
+              class="relative w-full aspect-[4/5] bg-gray-200 overflow-hidden"
+            >
+              <img
+                alt="Meeting in office"
+                class="w-full h-full object-cover grayscale contrast-125"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVCkf0pPmA_TGlGh8ZhCfnbmMXQwya5TLTLXvcs6oKGm03XFw50-xvrgmKxftZAMd6Jgq3-vSG1ykjp7uvyNLQ9lHuM7MyY-fADsHI9rlNdUWKKaJuDT2HKQWsV_fzs2UTYWKvYXj44apC6WRdZyu9h5zheuzbuR_iUmwbkE8eCGvKNizF_KhgcvvMGo6C8lGtS5bmyG8vMNa6xSewsYHGt_BzEMTFVzzTxaENTApHjQkDI1oVFKyoyZ-NjEvm148sh5t_axcs-Q"
+              />
+              <div
+                class="absolute bottom-10 left-10 w-2/3 h-1/3 bg-primary mix-blend-multiply opacity-80"
+              ></div>
+              <div
+                class="absolute top-10 right-10 w-24 h-24 border-4 border-white dark:border-black"
+              ></div>
+            </div>
+            <div
+              class="absolute -bottom-6 -right-6 bg-white dark:bg-paper-dark p-6 shadow-xl border border-gray-100 dark:border-gray-800 max-w-xs"
+            >
+              <p class="font-display font-bold text-4xl text-primary mb-1">
+                12+
+              </p>
+              <p class="text-sm text-gray-500 dark:text-gray-400">
+                Years of Experience<br />Since 2012
+              </p>
+            </div>
+          </div>
+          <div>
+            <h2
+              class="text-sm font-bold text-primary tracking-widest uppercase mb-4 font-display"
+            >
+              About Us
+            </h2>
+            <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+              기술 그 이상의 가치,<br />
+              <span class="text-gray-400 dark:text-gray-600"
+                >사람을 향한 혁신.</span
+              >
+            </h3>
+            <div
+              class="space-y-6 text-gray-600 dark:text-gray-300 leading-relaxed font-light"
+            >
+              <p>
+                K-TECH SOLUTIONS는 단순한 시스템 통합(SI)과 관리(SM)를 넘어,
+                인공지능(AI) 기반의 솔루션을 통해 기업과 개인의 일상을
+                혁신합니다. 우리는 기술이 차가운 코드가 아닌, 사람들의 삶을
+                따뜻하게 비추는 빛이 되어야 한다고 믿습니다.
+              </p>
+              <p>
+                흑백 사진 속에서 강렬한 색채가 시선을 사로잡듯, 우리는 정체된
+                비즈니스 환경에 창의적인 기술적 해답을 제시하여 고객의 잠재력을
+                극대화합니다. 서울을 기점으로 아시아 전역으로 뻗어나가는 우리의
+                기술력은 언제나 '사람'을 중심에 둡니다.
+              </p>
+            </div>
+            <div class="mt-10 grid grid-cols-2 gap-6">
+              <div class="border-l-4 border-primary pl-4">
+                <h4 class="font-bold text-lg mb-1">SI / SM Expertise</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400">
+                  안정적인 시스템 구축 및 운영
+                </p>
+              </div>
+              <div class="border-l-4 border-gray-300 dark:border-gray-700 pl-4">
+                <h4 class="font-bold text-lg mb-1">AI Solution</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400">
+                  데이터 기반 미래 예측
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="py-20 bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-800"
+      id="vision"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold font-display mb-4">Our Vision</h2>
+          <div class="w-16 h-1 bg-primary mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="bg-white dark:bg-paper-dark p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 group border border-transparent hover:border-primary"
+          >
+            <div
+              class="w-12 h-12 bg-gray-100 dark:bg-gray-800 text-primary flex items-center justify-center rounded mb-6 group-hover:bg-primary group-hover:text-white transition-colors"
+            >
+              <span class="material-icons-outlined">light_mode</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Vitality (생명력)</h3>
+            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+              정체된 프로세스에 활력을 불어넣어 기업의 생태계를 건강하게
+              만듭니다.
+            </p>
+          </div>
+          <div
+            class="bg-white dark:bg-paper-dark p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 group border border-transparent hover:border-primary"
+          >
+            <div
+              class="w-12 h-12 bg-gray-100 dark:bg-gray-800 text-primary flex items-center justify-center rounded mb-6 group-hover:bg-primary group-hover:text-white transition-colors"
+            >
+              <span class="material-icons-outlined">all_inclusive</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Connection (연결)</h3>
+            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+              단절된 기술과 사람, 현재와 미래를 잇는 교두보 역할을 수행합니다.
+            </p>
+          </div>
+          <div
+            class="bg-white dark:bg-paper-dark p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 group border border-transparent hover:border-primary"
+          >
+            <div
+              class="w-12 h-12 bg-gray-100 dark:bg-gray-800 text-primary flex items-center justify-center rounded mb-6 group-hover:bg-primary group-hover:text-white transition-colors"
+            >
+              <span class="material-icons-outlined">auto_awesome</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Innovation (혁신)</h3>
+            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+              AI와 빅데이터를 통해 기존의 한계를 뛰어넘는 새로운 가치를
+              창출합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-black text-white relative" id="services">
+      <div class="absolute inset-0 opacity-20">
+        <img
+          alt="Tech Background"
+          class="w-full h-full object-cover"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4Dq5VIQCn26_ZaP--Vt3qD0_DcN1zxRW-4XAjs-fJB1sQGgv25rLN1s5gmRXqqVqq-OSGGtjurRhSeC_sTHxIEi7r2oL9J0TU20EWt3QDlY1bd0s3zMdvo-47u1O0gnhpIfV7fY26uT_sr1NN7OU8-5afNnnOOFjJVGSMgvZf1dzntrpkMSLNVMtn4y50dDK4pKOFZLAUkc9YhFN8HueOq-4M2RHVgf5P1i2mCTL8dY5UCJCecz44nYt9gcz94LHgZ3ietCeWQA"
+        />
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div
+          class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-gray-700 pb-8"
+        >
+          <div>
+            <h2 class="text-sm text-primary font-bold mb-2 tracking-widest">
+              BUSINESS AREAS
+            </h2>
+            <h3 class="text-4xl md:text-5xl font-bold font-display">
+              Our Services
+            </h3>
+          </div>
+          <p class="text-gray-400 max-w-md mt-4 md:mt-0 text-right">
+            우리는 모든 산업 분야에 걸쳐 최적화된 IT 서비스를 제공합니다.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div
+            class="group relative bg-gray-900 border border-gray-800 p-8 hover:bg-gray-800 transition-colors"
+          >
+            <div
+              class="absolute top-0 left-0 w-1 h-0 bg-primary group-hover:h-full transition-all duration-300"
+            ></div>
+            <h4 class="text-2xl font-bold mb-4 flex items-center">
+              <span class="text-primary mr-3">01</span> System Integration
+            </h4>
+            <p class="text-gray-400 mb-6">
+              금융, 공공, 제조 분야의 대규모 시스템 통합 구축 서비스
+            </p>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li>• 차세대 시스템 구축</li>
+              <li>• 클라우드 마이그레이션</li>
+            </ul>
+          </div>
+          <div
+            class="group relative bg-gray-900 border border-gray-800 p-8 hover:bg-gray-800 transition-colors"
+          >
+            <div
+              class="absolute top-0 left-0 w-1 h-0 bg-primary group-hover:h-full transition-all duration-300"
+            ></div>
+            <h4 class="text-2xl font-bold mb-4 flex items-center">
+              <span class="text-primary mr-3">02</span> AI &amp; Big Data
+            </h4>
+            <p class="text-gray-400 mb-6">
+              데이터 분석 및 인공지능 모델링을 통한 인사이트 도출
+            </p>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li>• 예측 분석 솔루션</li>
+              <li>• 자연어 처리(NLP) 엔진 개발</li>
+            </ul>
+          </div>
+          <div
+            class="group relative bg-gray-900 border border-gray-800 p-8 hover:bg-gray-800 transition-colors"
+          >
+            <div
+              class="absolute top-0 left-0 w-1 h-0 bg-primary group-hover:h-full transition-all duration-300"
+            ></div>
+            <h4 class="text-2xl font-bold mb-4 flex items-center">
+              <span class="text-primary mr-3">03</span> System Management
+            </h4>
+            <p class="text-gray-400 mb-6">
+              안정적인 IT 인프라 운영 및 유지보수
+            </p>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li>• 24/365 모니터링</li>
+              <li>• 성능 최적화 튜닝</li>
+            </ul>
+          </div>
+          <div
+            class="group relative bg-gray-900 border border-gray-800 p-8 hover:bg-gray-800 transition-colors"
+          >
+            <div
+              class="absolute top-0 left-0 w-1 h-0 bg-primary group-hover:h-full transition-all duration-300"
+            ></div>
+            <h4 class="text-2xl font-bold mb-4 flex items-center">
+              <span class="text-primary mr-3">04</span> UX/UI Design
+            </h4>
+            <p class="text-gray-400 mb-6">
+              사용자 경험 중심의 인터페이스 설계 및 디자인
+            </p>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li>• 웹/모바일 앱 디자인</li>
+              <li>• 디자인 시스템 구축</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="py-24 bg-background-light dark:bg-background-dark"
+      id="projects"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center mb-12">
+          <h2
+            class="text-3xl font-bold font-display text-gray-900 dark:text-white"
+          >
+            Recent Projects
+          </h2>
+          <a class="text-primary font-bold hover:underline" href="#"
+            >All Projects -&gt;</a
+          >
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            class="group relative aspect-video bg-gray-200 overflow-hidden cursor-pointer"
+          >
+            <img
+              alt="Finance Dashboard Project"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaZajQSxLBf8CAJ2f3MwaiMtorDLOQeudJoGJFMR_gWmy1tg5eEzXFFkb5eFH-sl5JB79cU5dVQbkoCO_wP6hDnT-INeHUW8s6Z3J6BufeyUanjA5Db9F0YL0yWzZVHj5uGIXT7jrfXVIS92Vgy1EAfv3lIVnKgJeGSoEG094368ScPH2gVVDfKJLYtvSgWtOzX81YMcLCgGIqwg6i9njP_US_LsSo7H-uodBkUZLuNqzeEzM9zfQ_uDfGQ3xbN7q429ome4Fbmg"
+            />
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4"
+            >
+              <h4
+                class="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+              >
+                H-Finance Dashboard
+              </h4>
+              <p
+                class="text-primary text-sm mt-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75"
+              >
+                Data Visualization System
+              </p>
+            </div>
+          </div>
+          <div
+            class="group relative aspect-video bg-gray-200 overflow-hidden cursor-pointer"
+          >
+            <img
+              alt="Smart Factory Project"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB98ljdOSf7DpYGQsmDqYItHp6FT3Een6MV_L6ZSiN95jeffbc5oGjkJQy7W06RLkiExTfpNXH92HiJmfQMbdlt8FSXtOgqMOEMydLViykehffE5uDi3O82mqORhEwEK3Wnj3CMN_mrooCY4azCl288kscwNuQlPoESX6h5aFFB6k6LL12uUNra_9e8bRlrXV55Xt2Y2nukKQ-LidaHi3-fFSDr9emviXpfxIT_YARZ1jsim1ydk8cIIy6Z1Rj85zYGgDqcjUCjSQ"
+            />
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4"
+            >
+              <h4
+                class="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+              >
+                S-Manufacturing AI
+              </h4>
+              <p
+                class="text-primary text-sm mt-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75"
+              >
+                Predictive Maintenance
+              </p>
+            </div>
+          </div>
+          <div
+            class="group relative aspect-video bg-gray-200 overflow-hidden cursor-pointer"
+          >
+            <img
+              alt="Logistics Project"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcu9qfgfP8IgxkMxQpRju4jKyHNVHHzn2GJVMDPkPHf7lhzsadwtYBP5GKjpJLw19Sfo_xdKB4JImSTFJcNndNxc9uj7NSyd7cKAk-LPBmOdtmL8eN4of4N84s7eiaOgUnhSAvPm5nqpXF-lGvaoi21MZle2mgVvtPBRpCCGsSU0n8B_FE2olIo9qIiyrJ6iQMKCs7wZIJ_tvW9HdQsn9fjcPTwmmEVKx4ykmmiTya743RPUbk96UINf1Jzc_WMy_xzCoJFNlVJg"
+            />
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4"
+            >
+              <h4
+                class="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+              >
+                K-Logistics ERP
+              </h4>
+              <p
+                class="text-primary text-sm mt-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75"
+              >
+                Supply Chain Optimization
+              </p>
+            </div>
+          </div>
+          <div
+            class="group relative aspect-video bg-gray-200 overflow-hidden cursor-pointer"
+          >
+            <img
+              alt="Remote Work Tool Project"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCF0J_c5buDf5jBfB7JxnFgrPjSJ5yd2ejpmA_sA_MEyapm2B7l4ld0j5qQEfg6jJiUgDX8F9wnFCXZ83Ldmgq1p5n8n2skQQPW5SrSkJib0MZCJFUha44ugu8EnZsiwGYzedM9la7Xp7zBtRxuorXSvDL8EdLBouip-bxTw8svxZOiiNnVKCnQaPRaxF7syqd1qUXw3TCdukma6HPYATwBpzQCkCzhpmxk62cwH2LDlN0Rj41IPtwWSDGiF3omeeQZ5MivTfEpaA"
+            />
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4"
+            >
+              <h4
+                class="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+              >
+                Collab-Works
+              </h4>
+              <p
+                class="text-primary text-sm mt-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75"
+              >
+                Enterprise Collaboration Tool
+              </p>
+            </div>
+          </div>
+          <div
+            class="group relative aspect-video bg-gray-200 overflow-hidden cursor-pointer"
+          >
+            <img
+              alt="Retail App Project"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7h30nu3n6GBdnK6mpfQY9f1lyedrbexce8bdo2GvKTmhkhcACD-EU54TxV6lZaaV5rwHZJqBmU_MxVlZb5GpxoHwTrsWdNp5TBdkbBWWhT3SRoDvOaf1DZeDgYt7GIE_4I-sropenOszGaJ4PT7dQyXH0CVRgMavHhze7YeF2kvjRsZUSGNvXbkGytCIAfnYF8DUFQ3qsokTpZSfM8GXbibXoRn8G2I3zv3ceRv6JeipOWOl5h5xldFyMeu4T7rtIygD4WYb2pA"
+            />
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4"
+            >
+              <h4
+                class="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+              >
+                L-Retail Platform
+              </h4>
+              <p
+                class="text-primary text-sm mt-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75"
+              >
+                O2O Commerce Solution
+              </p>
+            </div>
+          </div>
+          <div
+            class="group relative aspect-video bg-gray-200 overflow-hidden cursor-pointer"
+          >
+            <img
+              alt="Cloud Infra Project"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJGm36m6O2EuUzOR3qWS6E9QyYRU7KsANRzSjdVfrh8iz5lW5Es21mvzQSXV-NltauDFI-5J_-rvWd64B08K8b4MJyy6SO_2utyFpYbXtHmKngr74pP3wqbjoQ116ELMc0o-xkOVSl8VcWHwJy127pBdtnj1pWT3FTuhEhCMATeiEKOdwtCJSdRVoRTbNi7qSMZLX6w9rbmlIQfob46aAHqhw8cYj6ech4lFcV8s8MIz4gHP3xUqNBN5HLQIvknlb_9TkfAO9KUA"
+            />
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4"
+            >
+              <h4
+                class="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+              >
+                G-Cloud Migration
+              </h4>
+              <p
+                class="text-primary text-sm mt-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75"
+              >
+                Cloud Infrastructure Setup
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="py-24 bg-white dark:bg-paper-dark border-t border-gray-200 dark:border-gray-800"
+      id="contact"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div>
+            <h2 class="text-4xl font-bold font-display mb-6">Contact Us</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-8">
+              프로젝트에 대해 논의하고 싶거나 궁금한 점이 있으신가요?<br />
+              언제든지 연락해 주세요. 전문가 팀이 도와드리겠습니다.
+            </p>
+            <div class="space-y-4 mb-8">
+              <div class="flex items-start gap-4">
+                <span class="material-icons-outlined text-primary mt-1"
+                  >location_on</span
+                >
+                <div>
+                  <h5 class="font-bold">Address</h5>
+                  <p class="text-gray-500 text-sm">
+                    서울시 강남구 테헤란로 123, 테크타워 15층
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <span class="material-icons-outlined text-primary mt-1"
+                  >email</span
+                >
+                <div>
+                  <h5 class="font-bold">Email</h5>
+                  <p class="text-gray-500 text-sm">
+                    contact@k-techsolutions.com
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <span class="material-icons-outlined text-primary mt-1"
+                  >phone</span
+                >
+                <div>
+                  <h5 class="font-bold">Phone</h5>
+                  <p class="text-gray-500 text-sm">02-1234-5678</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <form
+            class="bg-gray-50 dark:bg-gray-800/50 p-8 border border-gray-200 dark:border-gray-700"
+          >
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label class="block text-sm font-medium mb-2" for="name"
+                  >이름</label
+                >
+                <input
+                  class="w-full px-4 py-3 bg-white dark:bg-black border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                  id="name"
+                  type="text"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2" for="email"
+                  >이메일</label
+                >
+                <input
+                  class="w-full px-4 py-3 bg-white dark:bg-black border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                  id="email"
+                  type="email"
+                />
+              </div>
+            </div>
+            <div class="mb-6">
+              <label class="block text-sm font-medium mb-2" for="subject"
+                >제목</label
+              >
+              <input
+                class="w-full px-4 py-3 bg-white dark:bg-black border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                id="subject"
+                type="text"
+              />
+            </div>
+            <div class="mb-6">
+              <label class="block text-sm font-medium mb-2" for="message"
+                >문의 내용</label
+              >
+              <textarea
+                class="w-full px-4 py-3 bg-white dark:bg-black border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                id="message"
+                rows="4"
+              ></textarea>
+            </div>
+            <button
+              class="w-full py-4 bg-black dark:bg-white text-white dark:text-black font-bold hover:bg-primary dark:hover:bg-primary hover:text-white dark:hover:text-white transition-all"
+              type="button"
+            >
+              메시지 보내기
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <footer class="bg-gray-900 text-gray-400 py-16 border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <div class="col-span-1 md:col-span-1">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-6 h-6 bg-white flex items-center justify-center">
+                <span class="text-black font-bold font-display text-sm">K</span>
+              </div>
+              <span class="text-white font-bold text-lg">K-TECH SOLUTIONS</span>
+            </div>
+            <p class="text-sm leading-relaxed mb-6">
+              기술로 세상을 더 가치있게 만듭니다.<br />
+              신뢰할 수 있는 파트너가 되겠습니다.
+            </p>
+          </div>
+          <div>
+            <h4
+              class="text-white font-bold mb-4 uppercase text-sm tracking-wider"
+            >
+              Company
+            </h4>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a class="hover:text-primary transition-colors" href="#about"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#vision"
+                  >Vision</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Careers</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              class="text-white font-bold mb-4 uppercase text-sm tracking-wider"
+            >
+              Services
+            </h4>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a class="hover:text-primary transition-colors" href="#services"
+                  >System Integration</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#services"
+                  >AI Solution</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#services"
+                  >Maintenance</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              class="text-white font-bold mb-4 uppercase text-sm tracking-wider"
+            >
+              Connect
+            </h4>
+            <div class="flex space-x-4">
+              <a
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+                href="#"
+              >
+                <span class="text-xs">FB</span>
+              </a>
+              <a
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+                href="#"
+              >
+                <span class="text-xs">LI</span>
+              </a>
+              <a
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+                href="#"
+              >
+                <span class="text-xs">IG</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm"
+        >
+          <p>© 2024 K-TECH SOLUTIONS. All rights reserved.</p>
+          <div class="flex space-x-6 mt-4 md:mt-0">
+            <a class="hover:text-white transition-colors" href="#"
+              >개인정보처리방침</a
+            >
+            <a class="hover:text-white transition-colors" href="#">이용약관</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

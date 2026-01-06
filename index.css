@@ -15,3 +15,12 @@
 .card-hover-effect:hover .card-image {
   transform: scale(1.05);
 }
+
+.collage-clip {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.text-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}

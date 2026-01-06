@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="dark" lang="ko">
+<html lang="ko">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -39,6 +39,10 @@
               "vision-dark-bg": "#1a2625",
               "text-main": "#1e293b",
               "text-sub": "#64748b",
+              "paper-light": "#FFFFFF",
+              "paper-dark": "#1E1E1E",
+              "text-light": "#333333",
+              "text-dark": "#E0E0E0",
             },
             fontFamily: {
               display: ["Space Grotesk", "sans-serif"],
@@ -87,24 +91,24 @@
           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[100px] z-0"
         ></div>
       </div>
-
+      <!-- GNB -->
       <header
-        class="relative z-50 w-full bg-white/50 backdrop-blur-md border-b border-gray-200"
+        class="fixed z-50 w-full bg-white/50 backdrop-blur-md border-b border-gray-200"
       >
         <div
-          class="max-w-7xl mx-auto py-5 px-6 min-h-9 flex items-center justify-between"
+          class="max-w-5xl mx-auto py-5 px-6 min-h-9 flex items-center justify-between"
         >
           <a class="flex items-center gap-2" href="#">
             <img
               alt="Company Logo"
               class="h-5 w-auto"
-              src="./images/logo.png"
+              src="./images/logo-icon.png"
             />
             <div class="flex flex-col leading-none">
               <img
                 alt="Company Logo"
                 class="h-4 w-auto"
-                src="./images/text_bk.png"
+                src="./images/logo-black.png"
               />
             </div>
           </a>
@@ -119,13 +123,14 @@
       <main class="flex-grow">
         <!-- 1. Hero -->
         <section
-          class="relative z-40 h-[calc(100vh-60px)] flex-grow flex items-center justify-center px-6 py-20 lg:pt-[10.5rem] lg:pb-32 overflow-hidden"
+          class="relative z-40 h-screen flex-grow flex items-center justify-center px-6 py-20 lg:pt-[12.5rem] lg:pb-32 overflow-hidden"
         >
           <div
             class="absolute inset-0 flex items-center justify-center z-0 pointer-events-none select-none"
           >
+            <!-- 도형 크기 -->
             <div
-              class="relative size-[25rem] md:size-[43.75rem] lg:size-[56rem] animate-spin-slow"
+              class="relative size-[25rem] md:size-[43.75rem] lg:size-[50rem] animate-spin-slow"
             >
               <div
                 class="absolute top-0 left-1/2 -translate-x-1/2 w-[55%] h-[55%] border border-primary/20 bg-primary/5 rounded-full"
@@ -190,7 +195,8 @@
             <div
               class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full pt-4"
             >
-              <button
+              <a
+                href="#contact"
                 class="group relative flex items-center justify-center h-14 px-10 w-full sm:w-auto bg-primary hover:bg-primary-dark text-white text-base font-bold rounded-xl transition-all shadow-lg shadow-primary/30 hover:shadow-primary/50 overflow-hidden"
               >
                 <span class="relative z-10">프로젝트 문의하기</span>
@@ -201,7 +207,7 @@
                 <div
                   class="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent z-0"
                 ></div>
-              </button>
+              </a>
               <button
                 class="group flex items-center justify-center h-14 px-10 w-full sm:w-auto bg-white border border-gray-200 hover:text-gray-500 text-text-sub text-base font-bold rounded-xl transition-all shadow-sm hover:shadow-md"
               >
@@ -215,64 +221,444 @@
           </div>
         </section>
 
-        <!-- 2. 회사 소개 -->
-        <section id="about" class="relative z-20 py-32 px-[5%] bg-white">
-          <div class="max-w-[75rem] mx-auto">
-            <div class="about-grid grid grid-cols-1 gap-20 items-center">
+        <!-- 2. About ver.1 -->
+        <section
+          class="py-24 bg-white dark:bg-paper-dark relative overflow-hidden"
+          id="about"
+        >
+          <!-- <div
+            class="absolute top-0 right-0 w-1/3 h-full bg-gray-50 dark:bg-black/20 z-0"
+          ></div> -->
+          <div
+            class="absolute top-20 left-80 w-64 h-64 bg-primary/5 rounded-full blur-3xl z-0"
+          ></div>
+          <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                <span class="text-teal-600 text-base font-extrabold"
-                  >회사 소개</span
+                <h2
+                  class="text-sm font-bold text-primary tracking-widest uppercase mb-4 font-display"
                 >
-                <h2 class="sec-title">Technology for <br />Better Tomorrow</h2>
-                <p class="sec-desc">
-                  더다올디앤씨는 고객의 비즈니스 환경에 최적화된 IT 솔루션을
-                  제공합니다.
-                  <br />
-                  단순한 개발을 넘어, <strong>SI/SM 시스템 통합</strong>과
-                  <strong>AI 기술 도입</strong>을 통해 기업의 디지털 경쟁력을
-                  강화합니다. 우리는 기술의 난이도가 아닌, 고객이 얻게 될 가치를
-                  최우선으로 생각합니다.
-                </p>
+                  About Us
+                </h2>
+                <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+                  기술 그 이상의 가치,<br />
+                  <span class="text-[#66748d] dark:text-gray-600"
+                    >사람을 향한 혁신
+                  </span>
+                </h3>
+                <div
+                  class="text-text-sub text-lg leading-relaxed space-y-6 font-body"
+                >
+                  <p>
+                    더다올디앤씨는 고객의 비즈니스 환경에 최적화된 <br />
+                    IT 솔루션을 제공합니다.
+                  </p>
+                  <p>
+                    단순한 개발을 넘어,
+                    <strong
+                      class="text-text-main font-bold decoration-primary/30 underline decoration-2 underline-offset-4"
+                      >SI/SM 시스템 통합</strong
+                    >과
+                    <strong
+                      class="text-text-main font-bold decoration-primary/30 underline decoration-2 underline-offset-4"
+                      >AI 기술 도입</strong
+                    >을 통해 기업의 디지털 경쟁력을 강화합니다.
+                  </p>
+                  <p>
+                    우리는 기술의 난이도가 아닌, 고객이 얻게 될 가치를
+                    최우선으로 생각하며 신뢰할 수 있는 파트너로서 함께
+                    성장합니다.
+                  </p>
+                </div>
+                <!-- <div
+                  class="space-y-6 text-gray-600 dark:text-gray-300 leading-relaxed font-light"
+                >
+                  <p>
+                    K-TECH SOLUTIONS는 단순한 시스템 통합(SI)과 관리(SM)를 넘어,
+                    인공지능(AI) 기반의 솔루션을 통해 기업과 개인의 일상을
+                    혁신합니다. 우리는 기술이 차가운 코드가 아닌, 사람들의 삶을
+                    따뜻하게 비추는 빛이 되어야 한다고 믿습니다.
+                  </p>
+                  <p>
+                    흑백 사진 속에서 강렬한 색채가 시선을 사로잡듯, 우리는
+                    정체된 비즈니스 환경에 창의적인 기술적 해답을 제시하여
+                    고객의 잠재력을 극대화합니다. 서울을 기점으로 아시아
+                    전역으로 뻗어나가는 우리의 기술력은 언제나 '사람'을 중심에
+                    둡니다.
+                  </p>
+                </div> -->
+                <!-- <div class="mt-10 grid grid-cols-2 gap-6">
+                  <div class="border-l-4 border-primary pl-4">
+                    <h4 class="font-bold text-lg mb-1">SI / SM Expertise</h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                      안정적인 시스템 구축 및 운영
+                    </p>
+                  </div>
+                  <div
+                    class="border-l-4 border-gray-300 dark:border-gray-700 pl-4"
+                  >
+                    <h4 class="font-bold text-lg mb-1">AI Solution</h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                      데이터 기반 미래 예측
+                    </p>
+                  </div>
+                </div> -->
               </div>
-              <div class="identity-visual">
-                <div class="iv-back"></div>
-                <div class="iv-front"></div>
-                <div class="iv-box">
-                  <h4>THE DAOL DNC</h4>
-                  <p>Your Best IT Partner</p>
+              <div class="relative">
+                <div
+                  class="absolute top-0 -right-0 h-[29.5rem] w-full bg-gradient-to-br from-white to-gray-400/10 rounded-3xl -z-10 transform rotate-2"
+                ></div>
+                <div
+                  class="relative h-[29.5rem] w-full aspect-[4/5] bg-transparent overflow-hidden rounded-3xl shadow-sm"
+                >
+                  <img
+                    alt="Meeting in office"
+                    class="size-full object-contain grayscale contrast-100 rounded-md"
+                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80"
+                  />
+
+                  <!-- src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" -->
+                  <!-- src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" -->
+                  <div
+                    class="absolute top-[7.2rem] left-[10.5rem] w-1/5 h-1/6 bg-primary mix-blend-multiply opacity-80"
+                  ></div>
+                  <!-- <div
+                    class="absolute top-10 right-10 w-24 h-24 border-4 border-white dark:border-black"
+                  ></div> -->
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- 3. 회사 소개 -->
-        <!-- 5. 프로젝트 목록 -->
+        <!-- 2. About ver.2 -->
+        <!-- <section
+          id="about"
+          class="relative z-20 py-24 lg:py-32 px-[5%] bg-white border-t border-[#edeeef]"
+        >
+          <div class="max-w-5xl mx-auto">
+            <div
+              class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center"
+            >
+              <div class="order-2 lg:order-1">
+                <div class="inline-flex items-center gap-2 mb-4">
+                  <span
+                    class="text-primary font-bold text-sm tracking-[0.15em] uppercase"
+                    >About Us</span
+                  >
+                </div>
+
+                <h2
+                  class="text-3xl md:text-4xl font-bold text-text-main leading-loose mb-6 font-display"
+                >
+                  기술 그 이상의 가치,<br />
+                  <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+                    >사람을 향한 혁신</span
+                  >
+                </h2>
+
+                <div
+                  class="text-text-sub text-lg leading-relaxed space-y-6 font-body"
+                >
+                  <p>
+                    더다올디앤씨는 고객의 비즈니스 환경에 최적화된 IT 솔루션을
+                    제공하는 전문 기업입니다.
+                  </p>
+                  <p>
+                    단순한 개발을 넘어,
+                    <strong
+                      class="text-text-main font-bold decoration-primary/30 underline decoration-2 underline-offset-4"
+                      >SI/SM 시스템 통합</strong
+                    >과
+                    <strong
+                      class="text-text-main font-bold decoration-primary/30 underline decoration-2 underline-offset-4"
+                      >AI 기술 도입</strong
+                    >을 통해 기업의 디지털 경쟁력을 강화합니다.
+                  </p>
+                  <p>
+                    우리는 기술의 난이도가 아닌, 고객이 얻게 될 가치를
+                    최우선으로 생각하며 신뢰할 수 있는 파트너로서 함께
+                    성장합니다.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="relative w-full h-[400px] lg:h-[500px] order-1 lg:order-2"
+              >
+                <div
+                  class="absolute top-0 left-0 w-[90%] h-[90%] rounded-2xl overflow-hidden bg-slate-100 border border-slate-200"
+                >
+                  <img
+                    src="https://source.unsplash.com/random/800x800/?coding,server"
+                    alt="Background Tech"
+                    class="w-full h-full object-cover opacity-60 grayscale mix-blend-multiply"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-br from-white/20 to-primary/10"
+                  ></div>
+                </div>
+
+                <div
+                  class="absolute bottom-0 right-0 w-[60%] h-[60%] bg-[#131f1e] rounded-2xl shadow-2xl shadow-slate-400/20 border border-primary/30 flex flex-col justify-center items-center text-center p-8"
+                >
+                  <div class="mb-3">
+                    <span class="text-2xl font-bold text-white font-display"
+                      >THE DAOL <span class="text-primary">DNC</span></span
+                    >
+                  </div>
+                  <p
+                    class="text-slate-400 text-sm font-medium tracking-wide uppercase"
+                  >
+                    Your Best IT Partner
+                  </p>
+
+                  <div
+                    class="absolute -top-3 -right-3 w-12 h-12 border-t-2 border-r-2 border-primary rounded-tr-xl"
+                  ></div>
+                  <div
+                    class="absolute -bottom-3 -left-3 w-12 h-12 border-b-2 border-l-2 border-primary rounded-bl-xl"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section> -->
+
+        <!-- 3. Business -->
+        <section
+          id="vision"
+          class="relative z-20 py-24 lg:py-32 px-[5%] bg-background-light"
+        >
+          <div class="max-w-5xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+              <h2
+                class="text-sm font-bold text-primary tracking-widest uppercase mb-4 font-display"
+              >
+                Services
+              </h2>
+              <h3
+                class="text-3xl md:text-4xl font-bold text-text-main font-display"
+              >
+                핵심 사업 영역
+              </h3>
+              <p class="mt-4 text-text-sub text-lg">
+                최첨단 기술과 안정적인 운영 노하우로 비즈니스의 핵심 가치를
+                창출합니다.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div
+                class="group relative bg-white p-8 lg:p-10 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden"
+              >
+                <div
+                  class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+                ></div>
+
+                <div
+                  class="w-14 h-14 bg-primary/10 text-primary rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300"
+                >
+                  <span class="material-symbols-outlined">psychology</span>
+                </div>
+                <h3 class="text-xl font-bold text-text-main mb-4 font-display">
+                  AI Solution
+                </h3>
+                <p class="text-text-sub leading-relaxed text-sm">
+                  데이터 분석 및 머신러닝 기반의 예측 모델링.
+                  <br class="hidden xl:block" />
+                  업무 자동화(RPA)와 지능형 챗봇 구축을 통해 비즈니스 효율성을
+                  극대화합니다.
+                </p>
+              </div>
+
+              <div
+                class="group relative bg-white p-8 lg:p-10 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden"
+              >
+                <div
+                  class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+                ></div>
+
+                <div
+                  class="w-14 h-14 bg-primary/10 text-primary rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300"
+                >
+                  <span class="material-symbols-outlined">hub</span>
+                </div>
+                <h3 class="text-xl font-bold text-text-main mb-4 font-display">
+                  SI / ITO
+                </h3>
+                <p class="text-text-sub leading-relaxed text-sm">
+                  공공/금융/제조 등 다양한 산업군의 시스템 통합 구축.
+                  <br class="hidden xl:block" />
+                  안정적인 시스템 운영(SM)과 유지보수 서비스를 제공합니다.
+                </p>
+              </div>
+
+              <div
+                class="group relative bg-white p-8 lg:p-10 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden"
+              >
+                <div
+                  class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+                ></div>
+
+                <div
+                  class="w-14 h-14 bg-primary/10 text-primary rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300"
+                >
+                  <span class="material-symbols-outlined">lightbulb</span>
+                </div>
+                <h3 class="text-xl font-bold text-text-main mb-4 font-display">
+                  IT Consulting
+                </h3>
+                <p class="text-text-sub leading-relaxed text-sm">
+                  기업의 디지털 전환(DX)을 위한 인프라 진단.
+                  <br class="hidden xl:block" />
+                  최적의 IT 로드맵 수립 및 아키텍처 설계를 지원합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. Service -->
+        <section
+          id="service"
+          class="relative z-20 py-24 lg:py-32 px-[5%] bg-white border-t border-slate-100"
+        >
+          <div class="max-w-5xl mx-auto">
+            <div
+              class="flex flex-col md:flex-row md:items-end justify-between mb-12"
+            >
+              <div>
+                <span
+                  class="text-primary font-bold text-xs tracking-widest uppercase mb-2 block"
+                  >Service Offerings</span
+                >
+                <h2
+                  class="text-3xl md:text-4xl font-bold text-text-main font-display"
+                >
+                  What We Do
+                </h2>
+              </div>
+              <p
+                class="text-text-sub mt-4 md:mt-0 text-sm md:text-base max-w-md text-right hidden md:block"
+              >
+                고객의 성공을 위해 준비된<br />다양한 전문 서비스를
+                확인해보세요.
+              </p>
+            </div>
+
+            <div class="flex flex-col border-t border-slate-200">
+              <div
+                class="group flex items-center justify-between py-10 border-b border-slate-200 hover:bg-slate-50 transition-colors duration-300 cursor-pointer px-4"
+              >
+                <div
+                  class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12"
+                >
+                  <span
+                    class="text-3xl font-bold text-slate-200 group-hover:text-primary transition-colors font-display"
+                    >01</span
+                  >
+                  <div>
+                    <h3
+                      class="text-2xl font-bold text-text-main mb-2 group-hover:text-primary transition-colors"
+                    >
+                      Smart Factory System
+                    </h3>
+                    <p class="text-text-sub text-sm">
+                      제조 현장 데이터 수집 및 실시간 모니터링 시스템 구축
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-gray-400 group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all duration-300 transform group-hover:rotate-45"
+                >
+                  <span class="material-symbols-outlined">arrow_outward</span>
+                </div>
+              </div>
+
+              <div
+                class="group flex items-center justify-between py-10 border-b border-slate-200 hover:bg-slate-50 transition-colors duration-300 cursor-pointer px-4"
+              >
+                <div
+                  class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12"
+                >
+                  <span
+                    class="text-3xl font-bold text-slate-200 group-hover:text-primary transition-colors font-display"
+                    >02</span
+                  >
+                  <div>
+                    <h3
+                      class="text-2xl font-bold text-text-main mb-2 group-hover:text-primary transition-colors"
+                    >
+                      Financial Platform
+                    </h3>
+                    <p class="text-text-sub text-sm">
+                      대규모 트래픽 처리가 가능한 고성능 금융 플랫폼 설계
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-gray-400 group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all duration-300 transform group-hover:rotate-45"
+                >
+                  <span class="material-symbols-outlined">arrow_outward</span>
+                </div>
+              </div>
+
+              <div
+                class="group flex items-center justify-between py-10 border-b border-slate-200 hover:bg-slate-50 transition-colors duration-300 cursor-pointer px-4"
+              >
+                <div
+                  class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12"
+                >
+                  <span
+                    class="text-3xl font-bold text-slate-200 group-hover:text-primary transition-colors font-display"
+                    >03</span
+                  >
+                  <div>
+                    <h3
+                      class="text-2xl font-bold text-text-main mb-2 group-hover:text-primary transition-colors"
+                    >
+                      Cloud Migration
+                    </h3>
+                    <p class="text-text-sub text-sm">
+                      Legacy 시스템의 클라우드(AWS, Azure) 전환 및 인프라 구축
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-gray-400 group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all duration-300 transform group-hover:rotate-45"
+                >
+                  <span class="material-symbols-outlined">arrow_outward</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. 프로젝트 목록 (Portfolio) -->
         <section
           class="relative w-full overflow-hidden px-4 py-16 sm:px-6 lg:px-8"
         >
-          <div class="mx-auto max-w-7xl">
+          <div class="mx-auto max-w-5xl">
             <div class="mb-12 flex flex-col items-center text-center">
-              <span
-                class="mb-3 inline-flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary"
-              >
-                <span class="material-symbols-outlined text-sm">
-                  rocket_launch
-                </span>
-                Our Portfolio
-              </span>
               <h2
-                class="mb-4 text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white sm:text-4xl md:text-5xl"
+                class="text-sm font-bold text-primary tracking-widest uppercase mb-4 font-display"
               >
-                Delivering Excellence<br />Across Industries
+                Projects
               </h2>
+              <h3
+                class="mb-4 text-3xl md:text-4xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white sm:text-4xl"
+              >
+                주요 프로젝트
+              </h3>
               <p
                 class="max-w-2xl text-lg text-gray-500 dark:text-gray-400 font-body"
               >
-                Discover how we leverage AI, System Integration, and reliable
-                maintenance to drive innovation for global enterprises.
+                금융, 정부, 공공기관 등 다양한 산업군의 핵심 시스템 구축 경험
               </p>
             </div>
+            <!-- tab buttons -->
             <div class="mb-12 flex flex-wrap justify-center gap-3">
               <button
                 class="group relative flex h-10 items-center justify-center rounded-full bg-primary px-6 text-sm font-medium text-white shadow-md transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-[#131f1e]"
@@ -295,13 +681,14 @@
                 Maintenance
               </button>
             </div>
+
             <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               <div
-                class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-primary/50"
+                class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-gray-200"
               >
-                <div class="relative h-56 overflow-hidden">
+                <div class="relative h-52 overflow-hidden">
                   <div
-                    class="card-image h-full w-full bg-cover bg-center transition-transform duration-500"
+                    class="card-image size-full bg-cover bg-center transition-transform duration-500"
                     data-alt="Abstract blue digital network connections representing AI analytics"
                     style="
                       background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAPCG1GThDo0Rd2JGqWs7OZCSCMQkgypqfAXSXHxzWBrZd0qKJM4IleCQafZ8_1oiy4g8k4IS1_6JdeFe1yDRV4KVyn1YLWzO83fbRDCeBusUcBIbORfgjXPx6QFGYk1gNggNOVaadiOOkyxcrYsQKOSIgUqco32eZQEOIDqABI-POPHnui8ko9_VcLDMBesB5E3qVwDw_fjknZ-XgFnN-JJMQS2YM3vm8SQ2hGZrDxUSr2gatA5N2dWwP0JzBWkpP2quksoWVR7Q');
@@ -312,29 +699,29 @@
                   ></div>
                   <div class="absolute bottom-4 left-4">
                     <span
-                      class="inline-flex items-center rounded-md bg-white/90 dark:bg-black/80 px-2.5 py-1 text-xs font-semibold text-primary backdrop-blur-sm"
+                      class="inline-flex items-center rounded-md bg-white/90 dark:bg-black/80 px-2.5 py-1 text-xs font-semibold text-gray-900 backdrop-blur-sm"
                     >
                       AI Solution
                     </span>
                   </div>
                 </div>
-                <div class="flex flex-1 flex-col p-6">
+                <div class="flex flex-1 flex-col p-5">
                   <h3
                     class="mb-2 text-xl font-bold text-gray-900 dark:text-white"
                   >
-                    Predictive Analytics Engine
+                    국회 e-의안시스템 차세대
                   </h3>
                   <p
                     class="mb-4 flex-1 text-sm leading-relaxed text-gray-500 dark:text-gray-400 font-body"
                   >
-                    Optimizing supply chain logic for global logistics using
-                    advanced neural networks to predict shortages.
+                    국회 입법 프로세스의 디지털 혁신을 위한 차세대 시스템 분석
+                    및 설계
                   </p>
                   <a
                     class="inline-flex items-center text-sm font-semibold text-primary transition-colors group-hover:text-[#258a82]"
                     href="#"
                   >
-                    View Case Study
+                    더 알아보기
                     <span
                       class="material-symbols-outlined ml-1 text-base transition-transform group-hover:translate-x-1"
                       >arrow_forward</span
@@ -343,9 +730,9 @@
                 </div>
               </div>
               <div
-                class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-primary/50"
+                class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-gray-200"
               >
-                <div class="relative h-56 overflow-hidden">
+                <div class="relative h-52 overflow-hidden">
                   <div
                     class="card-image h-full w-full bg-cover bg-center transition-transform duration-500"
                     data-alt="Futuristic cloud server data center with blue lights"
@@ -358,29 +745,28 @@
                   ></div>
                   <div class="absolute bottom-4 left-4">
                     <span
-                      class="inline-flex items-center rounded-md bg-white/90 dark:bg-black/80 px-2.5 py-1 text-xs font-semibold text-primary backdrop-blur-sm"
+                      class="inline-flex items-center rounded-md bg-white/90 dark:bg-black/80 px-2.5 py-1 text-xs font-semibold text-gray-900 backdrop-blur-sm"
                     >
                       System Integration
                     </span>
                   </div>
                 </div>
-                <div class="flex flex-1 flex-col p-6">
+                <div class="flex flex-1 flex-col p-5">
                   <h3
                     class="mb-2 text-xl font-bold text-gray-900 dark:text-white"
                   >
-                    Cloud Migration Initiative
+                    관세청 상용솔루션 기능 검증
                   </h3>
                   <p
                     class="mb-4 flex-1 text-sm leading-relaxed text-gray-500 dark:text-gray-400 font-body"
                   >
-                    Seamless transition of legacy banking systems to hybrid
-                    cloud architecture with zero downtime.
+                    관세청 시스템의 안정성 및 기능 검증 수행
                   </p>
                   <a
                     class="inline-flex items-center text-sm font-semibold text-primary transition-colors group-hover:text-[#258a82]"
                     href="#"
                   >
-                    View Case Study
+                    더 알아보기
                     <span
                       class="material-symbols-outlined ml-1 text-base transition-transform group-hover:translate-x-1"
                       >arrow_forward</span
@@ -389,9 +775,9 @@
                 </div>
               </div>
               <div
-                class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-primary/50"
+                class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-gray-200"
               >
-                <div class="relative h-56 overflow-hidden">
+                <div class="relative h-52 overflow-hidden">
                   <div
                     class="card-image h-full w-full bg-cover bg-center transition-transform duration-500"
                     data-alt="Dashboard monitor showing server uptime statistics"
@@ -404,29 +790,28 @@
                   ></div>
                   <div class="absolute bottom-4 left-4">
                     <span
-                      class="inline-flex items-center rounded-md bg-white/90 dark:bg-black/80 px-2.5 py-1 text-xs font-semibold text-primary backdrop-blur-sm"
+                      class="inline-flex items-center rounded-md bg-white/90 dark:bg-black/80 px-2.5 py-1 text-xs font-semibold text-gray-900 backdrop-blur-sm"
                     >
                       Maintenance
                     </span>
                   </div>
                 </div>
-                <div class="flex flex-1 flex-col p-6">
+                <div class="flex flex-1 flex-col p-5">
                   <h3
                     class="mb-2 text-xl font-bold text-gray-900 dark:text-white"
                   >
-                    24/7 Server Monitoring
+                    두나무 Next Steppers 플랫폼
                   </h3>
                   <p
                     class="mb-4 flex-1 text-sm leading-relaxed text-gray-500 dark:text-gray-400 font-body"
                   >
-                    Ensuring 99.99% uptime for critical healthcare
-                    infrastructure through proactive incident management.
+                    금융위기 청년지원 사업을 위한 통합 플랫폼 구축
                   </p>
                   <a
                     class="inline-flex items-center text-sm font-semibold text-primary transition-colors group-hover:text-[#258a82]"
                     href="#"
                   >
-                    View Case Study
+                    더 알아보기
                     <span
                       class="material-symbols-outlined ml-1 text-base transition-transform group-hover:translate-x-1"
                       >arrow_forward</span
@@ -435,9 +820,9 @@
                 </div>
               </div>
               <div
-                class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-primary/50"
+                class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-gray-200"
               >
-                <div class="relative h-56 overflow-hidden">
+                <div class="relative h-52 overflow-hidden">
                   <div
                     class="card-image h-full w-full bg-cover bg-center transition-transform duration-500"
                     data-alt="Industrial robot arm in a modern smart factory"
@@ -450,13 +835,13 @@
                   ></div>
                   <div class="absolute bottom-4 left-4">
                     <span
-                      class="inline-flex items-center rounded-md bg-white/90 dark:bg-black/80 px-2.5 py-1 text-xs font-semibold text-primary backdrop-blur-sm"
+                      class="inline-flex items-center rounded-md bg-white/90 dark:bg-black/80 px-2.5 py-1 text-xs font-semibold text-gray-900 backdrop-blur-sm"
                     >
                       Machine Learning
                     </span>
                   </div>
                 </div>
-                <div class="flex flex-1 flex-col p-6">
+                <div class="flex flex-1 flex-col p-5">
                   <h3
                     class="mb-2 text-xl font-bold text-gray-900 dark:text-white"
                   >
@@ -472,7 +857,7 @@
                     class="inline-flex items-center text-sm font-semibold text-primary transition-colors group-hover:text-[#258a82]"
                     href="#"
                   >
-                    View Case Study
+                    더 알아보기
                     <span
                       class="material-symbols-outlined ml-1 text-base transition-transform group-hover:translate-x-1"
                       >arrow_forward</span
@@ -481,9 +866,9 @@
                 </div>
               </div>
               <div
-                class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-primary/50"
+                class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-gray-200"
               >
-                <div class="relative h-56 overflow-hidden">
+                <div class="relative h-52 overflow-hidden">
                   <div
                     class="card-image h-full w-full bg-cover bg-center transition-transform duration-500"
                     data-alt="Developer code on multiple screens with matrix effect"
@@ -496,13 +881,13 @@
                   ></div>
                   <div class="absolute bottom-4 left-4">
                     <span
-                      class="inline-flex items-center rounded-md bg-white/90 dark:bg-black/80 px-2.5 py-1 text-xs font-semibold text-primary backdrop-blur-sm"
+                      class="inline-flex items-center rounded-md bg-white/90 dark:bg-black/80 px-2.5 py-1 text-xs font-semibold text-gray-900 backdrop-blur-sm"
                     >
                       DevOps
                     </span>
                   </div>
                 </div>
-                <div class="flex flex-1 flex-col p-6">
+                <div class="flex flex-1 flex-col p-5">
                   <h3
                     class="mb-2 text-xl font-bold text-gray-900 dark:text-white"
                   >
@@ -518,7 +903,7 @@
                     class="inline-flex items-center text-sm font-semibold text-primary transition-colors group-hover:text-[#258a82]"
                     href="#"
                   >
-                    View Case Study
+                    더 알아보기
                     <span
                       class="material-symbols-outlined ml-1 text-base transition-transform group-hover:translate-x-1"
                       >arrow_forward</span
@@ -527,9 +912,9 @@
                 </div>
               </div>
               <div
-                class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-primary/50"
+                class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-gray-200"
               >
-                <div class="relative h-56 overflow-hidden">
+                <div class="relative h-52 overflow-hidden">
                   <div
                     class="card-image h-full w-full bg-cover bg-center transition-transform duration-500"
                     data-alt="Global business map network connections"
@@ -542,13 +927,13 @@
                   ></div>
                   <div class="absolute bottom-4 left-4">
                     <span
-                      class="inline-flex items-center rounded-md bg-white/90 dark:bg-black/80 px-2.5 py-1 text-xs font-semibold text-primary backdrop-blur-sm"
+                      class="inline-flex items-center rounded-md bg-white/90 dark:bg-black/80 px-2.5 py-1 text-xs font-semibold text-gray-900 backdrop-blur-sm"
                     >
                       Enterprise ERP
                     </span>
                   </div>
                 </div>
-                <div class="flex flex-1 flex-col p-6">
+                <div class="flex flex-1 flex-col p-5">
                   <h3
                     class="mb-2 text-xl font-bold text-gray-900 dark:text-white"
                   >
@@ -564,7 +949,7 @@
                     class="inline-flex items-center text-sm font-semibold text-primary transition-colors group-hover:text-[#258a82]"
                     href="#"
                   >
-                    View Case Study
+                    더 알아보기
                     <span
                       class="material-symbols-outlined ml-1 text-base transition-transform group-hover:translate-x-1"
                       >arrow_forward</span
@@ -578,7 +963,7 @@
                 class="group inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-[#131f1e] dark:bg-white px-8 font-semibold text-white dark:text-[#131f1e] transition-all hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white"
                 href="#"
               >
-                <span>View All Case Studies</span>
+                <span>프로젝트 전체 보기</span>
                 <span
                   class="material-symbols-outlined transition-transform group-hover:translate-x-1"
                   >arrow_right_alt</span
@@ -587,6 +972,151 @@
             </div>
           </div>
         </section>
+
+        <!-- 6. 문의 폼 -->
+        <section
+          id="contact"
+          class="relative z-20 py-24 lg:py-32 px-[5%] bg-white border-t border-slate-100"
+        >
+          <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-24">
+              <div class="lg:col-span-2">
+                <h2
+                  class="mb-4 text-3xl md:text-4xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white sm:text-4xl"
+                >
+                  문의하기
+                </h2>
+                <p class="text-text-sub mb-10 leading-relaxed font-body">
+                  프로젝트 문의나 기술 상담이 필요하시다면 언제든 연락주세요.<br />
+                  담당자가 확인 후 신속하게 답변 드리겠습니다.
+                </p>
+
+                <div class="space-y-8 mt-10">
+                  <div class="border-l-2 border-primary pl-5">
+                    <span
+                      class="block text-sm font-bold text-primary mb-1 uppercase tracking-wide font-display"
+                      >이메일</span
+                    >
+                    <span class="text-lg font-bold text-text-main font-display"
+                      >contact@daoldnc.com</span
+                    >
+                  </div>
+                  <div class="border-l-2 border-primary pl-5">
+                    <span
+                      class="block text-sm font-bold text-primary mb-1 uppercase tracking-wide font-display"
+                      >전화번호</span
+                    >
+                    <span class="text-lg font-bold text-text-main font-display"
+                      >02-1234-5678</span
+                    >
+                  </div>
+                  <div class="border-l-2 border-primary pl-5">
+                    <span
+                      class="block text-sm font-bold text-primary mb-1 uppercase tracking-wide font-display"
+                      >주소</span
+                    >
+                    <span class="text-lg font-bold text-text-main font-display"
+                      >서울특별시 금천구 가산디지털1로 204, 8층 802호</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="lg:col-span-3">
+                <form
+                  class="bg-white p-8 lg:p-10 rounded-2xl border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
+                >
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="space-y-2">
+                      <label
+                        class="block text-sm font-medium text-text-main font-body"
+                        >성함 (Name)</label
+                      >
+                      <input
+                        type="text"
+                        class="w-full px-4 py-3.5 bg-background-light border border-slate-200 rounded-md text-text-main text-base transition-all duration-300 focus:outline-none focus:border-primary focus:bg-white font-body"
+                        placeholder="홍길동"
+                      />
+                    </div>
+                    <div class="space-y-2">
+                      <label
+                        class="block text-sm font-medium text-text-main font-body"
+                        >이메일 (Email)</label
+                      >
+                      <input
+                        type="email"
+                        class="w-full px-4 py-3.5 bg-background-light border border-slate-200 rounded-md text-text-main text-base transition-all duration-300 focus:outline-none focus:border-primary focus:bg-white font-body"
+                        placeholder="example@company.com"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="mb-6 space-y-2">
+                    <label
+                      class="block text-sm font-medium text-text-main font-body"
+                      >문의 제목 (Subject)</label
+                    >
+                    <input
+                      type="text"
+                      class="w-full px-4 py-3.5 bg-background-light border border-slate-200 rounded-md text-text-main text-base transition-all duration-300 focus:outline-none focus:border-primary focus:bg-white font-body"
+                      placeholder="프로젝트 문의합니다."
+                    />
+                  </div>
+
+                  <div class="mb-6 space-y-2">
+                    <label
+                      class="block text-sm font-medium text-text-main font-body"
+                      >문의 내용 (Message)</label
+                    >
+                    <textarea
+                      rows="5"
+                      class="w-full px-4 py-3.5 bg-background-light border border-slate-200 rounded-md text-text-main text-base transition-all duration-300 focus:outline-none focus:border-primary focus:bg-white resize-none font-body"
+                      placeholder="프로젝트 내용이나 궁금하신 점을 적어주세요."
+                    ></textarea>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="w-full py-4 bg-primary text-white font-bold text-lg rounded-md transition-colors duration-300 hover:bg-primary-dark mt-2 font-display"
+                  >
+                    문의하기
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 푸터 -->
+        <footer
+          class="relative z-20 bg-background-dark text-[#94a3b8] py-20 border-t border-white/10 font-body h-full"
+        >
+          <div
+            class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-start"
+          >
+            <div class="mb-8 md:mb-0">
+              <div class="text-sm leading-loose space-y-1">
+                <p>
+                  (주)더다올디앤씨 | 대표: 박규원 | 사업자등록번호: 000-00-00000
+                </p>
+                <p>주소: 서울특별시 금천구 가산디지털1로 204, 8층 802호</p>
+                <p>Tel: 02-1234-5678 | Email: contact@daoldnc.com</p>
+              </div>
+            </div>
+            <div class="h-24 flex flex-col justify-between">
+              <div class="mb-2 flex justify-end">
+                <img
+                  alt="Company Logo"
+                  class="h-5 w-auto"
+                  src="./images/logo-white.png"
+                />
+              </div>
+              <div class="pt-2 border-t border-white/10 text-xs text-[#64748b]">
+                Copyright © 2024 THE DAOL DNC. All Rights Reserved.
+              </div>
+            </div>
+          </div>
+        </footer>
       </main>
     </div>
 

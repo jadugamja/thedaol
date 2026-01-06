@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>THE DAOL DNC</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Asta+Sans:wght@300..800&family=Noto+Sans+KR:wght@100..900&family=Syne:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* [1. 기존 변수 및 설정 유지 + 추가 스타일] */
+      :root {
+        --bg-deep: #050a14;
+        --bg-section: #0b121e; /* 섹션 구분을 위한 약간 밝은 네이비 */
+        --main-teal: #2eaaa0;
+        --sub-cyan: #4fc3f7;
+        --text-white: #ffffff;
+        --text-slate: #94a3b8;
+        --border-line: rgba(255, 255, 255, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* 리스트 스타일 제거 (요청사항 반영) */
+      ul,
+      ol,
+      li {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: 0.3s;
+      }
+
+      body {
+        background-color: var(--bg-deep);
+        color: #fff;
+        font-family: "Asta Sans", "Noto Sans KR", sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* [기존 GNB 스타일 유지] */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        padding: 0 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+        background: rgba(5, 10, 20, 0.8);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .logo {
+        font-family: "Archivo Black", sans-serif;
+        font-size: 1.3rem;
+        color: #fff;
+        letter-spacing: -0.5px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .logo span {
+        color: var(--main-teal);
+      }
+      .gnb-menu {
+        display: flex;
+        gap: 1.8rem;
+      }
+      .gnb-menu a {
+        color: #fff;
+        font-weight: 500;
+        font-size: 1rem;
+        opacity: 0.7;
+        transition: 0.2s;
+      }
+      .gnb-menu a:hover {
+        opacity: 1;
+        color: var(--main-teal);
+      }
+
+      /* [기존 배경 캔버스 스타일 유지] */
+      #bg-canvas,
+      #sphere-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      #bg-canvas {
+        z-index: -2;
+        opacity: 0.3;
+      }
+      #sphere-canvas {
+        z-index: -1;
+      }
+
+      /* [기존 Hero 스타일 유지] */
+      .hero {
+        position: relative;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        z-index: 10;
+        padding-top: 70px;
+      }
+      .badge {
+        background: rgba(46, 170, 160, 0.1);
+        color: var(--main-teal);
+        padding: 0.5rem 1.2rem;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        border: 1px solid rgba(46, 170, 160, 0.3);
+        margin-bottom: 2rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      h1.slogan {
+        font-family: "Archivo Black", sans-serif;
+        font-size: clamp(3rem, 8vw, 6rem);
+        line-height: 1;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      h1.slogan span:first-child {
+        font-size: 0.4em;
+        font-weight: 400;
+        letter-spacing: 2px;
+        margin-bottom: 0.2em;
+        opacity: 0.9;
+      }
+      .highlight {
+        background: linear-gradient(
+          to right,
+          #fff 20%,
+          var(--sub-cyan),
+          var(--main-teal)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transform: scaleX(1.25);
+        transform-origin: center;
+        display: block;
+        width: 100%;
+        margin-top: 5px;
+      }
+      .sub-title {
+        font-size: 1.2rem;
+        color: var(--text-slate);
+        max-width: 580px;
+        line-height: 1.6;
+        margin-bottom: 3.5rem;
+        font-weight: 500;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+      }
+      .cta-group {
+        display: flex;
+        gap: 1rem;
+      }
+      .btn {
+        padding: 1rem 2.2rem;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .btn-primary {
+        background: var(--main-teal);
+        color: var(--bg-deep);
+        box-shadow: 0 0 25px rgba(46, 170, 160, 0.2);
+      }
+      .btn-primary:hover {
+        background: #3ce0d3;
+        box-shadow: 0 0 40px rgba(46, 170, 160, 0.4);
+        transform: translateY(-2px);
+      }
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.05);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+      }
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: #fff;
+        transform: translateY(-2px);
+      }
+
+      /* [새로 추가 및 수정된 섹션 스타일] */
+      .content-section {
+        position: relative;
+        z-index: 20;
+        padding: 120px 5%;
+        /* 캔버스 가리기 위해 배경색 지정 */
+        background-color: var(--bg-deep);
+        border-top: 1px solid var(--border-line);
+      }
+      /* 격자 배경 효과 */
+      .content-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(
+            rgba(255, 255, 255, 0.03) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 40px 40px;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .sec-label {
+        display: inline-block;
+        color: var(--main-teal);
+        font-weight: 700;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        position: relative;
+        padding-left: 15px;
+      }
+      .sec-label::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 6px;
+        background: var(--main-teal);
+        border-radius: 50%;
+      }
+      .sec-title {
+        font-size: 2.8rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        color: #fff;
+      }
+      .sec-desc {
+        color: var(--text-slate);
+        font-size: 1.1rem;
+        line-height: 1.7;
+        max-width: 600px;
+      }
+
+      /* WHO WE ARE - 이미지 레이아웃 */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .identity-visual {
+        position: relative;
+        width: 100%;
+        height: 450px;
+      }
+      /* 뒤쪽: 기술적 배경 */
+      .iv-back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 90%;
+        height: 90%;
+        background: linear-gradient(
+            135deg,
+            rgba(10, 25, 41, 0.8),
+            rgba(46, 170, 160, 0.2)
+          ),
+          url("https://source.unsplash.com/random/800x800/?server,data,code")
+            no-repeat center/cover;
+        border-radius: 8px;
+        border: 1px solid var(--border-line);
+      }
+      /* 앞쪽: 정체성 강조 */
+      .iv-front {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 55%;
+        height: 60%;
+        background: #0f1f33;
+        border: 1px solid var(--main-teal);
+        border-radius: 8px;
+        box-shadow: -20px -20px 40px rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        text-align: center;
+      }
+      .iv-logo-text {
+        font-family: "Archivo Black";
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+      }
+      .iv-tag {
+        font-family: "Syne";
+        color: var(--main-teal);
+        font-size: 1rem;
+        letter-spacing: 1px;
+      }
+
+      /* VISION */
+      .bg-darker {
+        background-color: var(--bg-section);
+      } /* 교차 배경 */
+      .vision-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-top: 60px;
+      }
+      .v-card {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--border-line);
+        padding: 40px 30px;
+        border-radius: 12px;
+        transition: 0.4s;
+        position: relative;
+        overflow: hidden;
+      }
+      .v-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--main-teal);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .v-icon {
+        font-size: 1.5rem;
+        color: var(--main-teal);
+        margin-bottom: 20px;
+        font-family: "Syne";
+        font-weight: 700;
+      }
+      .v-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #fff;
+      }
+      .v-text {
+        font-size: 1rem;
+        color: var(--text-slate);
+        line-height: 1.6;
+      }
+
+      /* SERVICES (리스트형 그리드) */
+      .service-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-top: 50px;
+      }
+      .s-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 30px;
+        border: 1px solid var(--border-line);
+        border-radius: 8px;
+        transition: 0.3s;
+        background: rgba(255, 255, 255, 0.01);
+      }
+      .s-item:hover {
+        border-color: var(--sub-cyan);
+        background: rgba(79, 195, 247, 0.05);
+      }
+      .s-num {
+        font-family: "Syne";
+        font-size: 2rem;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.1);
+        line-height: 1;
+      }
+      .s-content h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+      .s-content p {
+        font-size: 0.95rem;
+        color: var(--text-slate);
+      }
+
+      /* PROJECTS */
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-top: 50px;
+      }
+      .p-card {
+        background: var(--bg-deep);
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border-line);
+      }
+      .p-thumb {
+        width: 100%;
+        height: 280px;
+        background: #1e293b;
+        overflow: hidden;
+      }
+      .p-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.5s;
+        opacity: 0.8;
+      }
+      .p-card:hover .p-thumb img {
+        transform: scale(1.05);
+        opacity: 1;
+      }
+      .p-info {
+        padding: 30px;
+      }
+      .p-tag {
+        font-size: 0.8rem;
+        color: var(--sub-cyan);
+        border: 1px solid rgba(79, 195, 247, 0.3);
+        padding: 4px 10px;
+        border-radius: 20px;
+        margin-bottom: 15px;
+        display: inline-block;
+      }
+      .p-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      .p-desc {
+        color: var(--text-slate);
+        font-size: 0.95rem;
+      }
+
+      /* CONTACT FORM */
+      .contact-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 60px;
+        margin-top: 50px;
+      }
+      .contact-info p {
+        color: var(--text-slate);
+        margin-bottom: 30px;
+      }
+      .info-box {
+        margin-bottom: 20px;
+        padding-left: 20px;
+        border-left: 2px solid var(--main-teal);
+      }
+      .ib-label {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--sub-cyan);
+        margin-bottom: 5px;
+      }
+      .ib-value {
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+
+      .contact-form {
+        background: var(--bg-section);
+        padding: 40px;
+        border-radius: 12px;
+        border: 1px solid var(--border-line);
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+        color: var(--text-slate);
+      }
+      .form-input,
+      .form-textarea {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border-line);
+        padding: 15px;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 1rem;
+        transition: 0.3s;
+      }
+      .form-input:focus,
+      .form-textarea:focus {
+        outline: none;
+        border-color: var(--main-teal);
+        background: rgba(46, 170, 160, 0.05);
+      }
+      .form-textarea {
+        height: 150px;
+        resize: none;
+      }
+      .submit-btn {
+        width: 100%;
+        padding: 15px;
+        background: var(--main-teal);
+        color: var(--bg-deep);
+        border: none;
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 20px;
+      }
+      .submit-btn:hover {
+        background: #3ce0d3;
+      }
+
+      /* Footer */
+      footer {
+        border-top: 1px solid var(--border-line);
+        padding: 60px 5%;
+        margin-top: 0;
+        background: var(--bg-deep);
+        color: var(--text-slate);
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo">THE DAOL <span>DNC</span></a>
+      <nav class="gnb-menu">
+        <a href="#about">About</a>
+        <a href="#vision">Service</a>
+        <a href="#project">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <canvas id="bg-canvas"></canvas>
+    <canvas id="sphere-canvas"></canvas>
+
+    <section class="hero">
+      <div class="badge">Connecting the Future</div>
+      <h1 class="slogan">
+        <span>Join the</span>
+        <span class="highlight">FUTURE.</span>
+      </h1>
+      <p class="sub-title">
+        더다올디앤씨는 지능형 AI 솔루션과 데이터 기술을 통해<br />
+        비즈니스의 경계를 넘어 새로운 가치를 연결합니다.
+      </p>
+      <div class="cta-group">
+        <a href="#contact" class="btn btn-primary">프로젝트 문의하기</a>
+        <a href="#" class="btn btn-secondary">회사소개서 다운로드</a>
+      </div>
+    </section>
+
+    <section id="about" class="content-section">
+      <div class="container">
+        <div class="about-grid">
+          <div>
+            <span class="sec-label">Who We Are</span>
+            <h2 class="sec-title">Technology for <br />Better Tomorrow</h2>
+            <p class="sec-desc">
+              더다올디앤씨는 고객의 비즈니스 환경에 최적화된 IT 솔루션을
+              제공하는 전문 기업입니다. 단순한 개발을 넘어,
+              <strong>SI/SM 시스템 통합</strong>과
+              <strong>AI 기술 도입</strong>을 통해 기업의 디지털 경쟁력을
+              강화합니다. <br /><br />
+              우리는 기술의 난이도가 아닌, 고객이 얻게 될 가치를 최우선으로
+              생각합니다.
+            </p>
+          </div>
+
+          <div class="identity-visual">
+            <div class="iv-back"></div>
+            <div class="iv-front">
+              <div class="iv-logo-text">THE DAOL <span>DNC</span></div>
+              <div class="iv-tag">Your Best IT Partner</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vision" class="content-section bg-darker">
+      <div class="container">
+        <span class="sec-label">Our Vision</span>
+        <h2 class="sec-title">Core Competency</h2>
+
+        <div class="vision-cards">
+          <div class="v-card">
+            <div class="v-icon">AI</div>
+            <h3 class="v-title">AI Solution</h3>
+            <p class="v-text">
+              데이터 기반의 의사결정을 지원하는 맞춤형 인공지능 모델 설계 및
+              구축
+            </p>
+          </div>
+          <div class="v-card">
+            <div class="v-icon">SI</div>
+            <h3 class="v-title">SI / ITO</h3>
+            <p class="v-text">
+              공공 및 기업 시스템 통합 구축과 안정적인 운영 유지보수 서비스 제공
+            </p>
+          </div>
+          <div class="v-card">
+            <div class="v-icon">DX</div>
+            <h3 class="v-title">Consulting</h3>
+            <p class="v-text">
+              디지털 전환(DX)을 위한 IT 인프라 진단 및 로드맵 수립 컨설팅
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        <span class="sec-label">Service Area</span>
+        <h2 class="sec-title">What We Do</h2>
+
+        <div class="service-list">
+          <div class="s-item">
+            <div class="s-num">01</div>
+            <div class="s-content">
+              <h3>Smart Factory</h3>
+              <p>제조 현장 데이터 수집 및 실시간 모니터링 시스템</p>
+            </div>
+          </div>
+          <div class="s-item">
+            <div class="s-num">02</div>
+            <div class="s-content">
+              <h3>Financial Platform</h3>
+              <p>대규모 트래픽 처리가 가능한 금융 서비스 플랫폼</p>
+            </div>
+          </div>
+          <div class="s-item">
+            <div class="s-num">03</div>
+            <div class="s-content">
+              <h3>Cloud Migration</h3>
+              <p>기존 레거시 시스템의 클라우드(AWS, Azure) 전환</p>
+            </div>
+          </div>
+          <div class="s-item">
+            <div class="s-num">04</div>
+            <div class="s-content">
+              <h3>Big Data Analysis</h3>
+              <p>대용량 데이터 수집, 가공 및 시각화 대시보드 구현</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="project" class="content-section bg-darker">
+      <div class="container">
+        <span class="sec-label">Portfolio</span>
+        <h2 class="sec-title">Featured Projects</h2>
+
+        <div class="project-grid">
+          <div class="p-card">
+            <div class="p-thumb">
+              <img
+                src="https://source.unsplash.com/random/800x600/?code,screen"
+                alt="project"
+              />
+            </div>
+            <div class="p-info">
+              <span class="p-tag">Public Sector</span>
+              <h3 class="p-title">A공사 차세대 통합 시스템</h3>
+              <p class="p-desc">
+                MSA 기반 시스템 재구축 및 데이터 마이그레이션
+              </p>
+            </div>
+          </div>
+          <div class="p-card">
+            <div class="p-thumb">
+              <img
+                src="https://source.unsplash.com/random/800x600/?finance,chart"
+                alt="project"
+              />
+            </div>
+            <div class="p-info">
+              <span class="p-tag">AI / Data</span>
+              <h3 class="p-title">B금융 이상거래 탐지(FDS)</h3>
+              <p class="p-desc">
+                AI 머신러닝 알고리즘을 활용한 실시간 탐지 모델
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="content-section">
+      <div class="container">
+        <span class="sec-label">Get In Touch</span>
+        <h2 class="sec-title">Ready to Start?</h2>
+
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <p class="sec-desc">
+              프로젝트 문의나 기술 상담이 필요하시다면 언제든 연락주세요.<br />
+              담당자가 확인 후 신속하게 답변 드리겠습니다.
+            </p>
+            <div class="info-box">
+              <span class="ib-label">Email</span>
+              <span class="ib-value">contact@daoldnc.com</span>
+            </div>
+            <div class="info-box">
+              <span class="ib-label">Phone</span>
+              <span class="ib-value">02-1234-5678</span>
+            </div>
+            <div class="info-box">
+              <span class="ib-label">Office</span>
+              <span class="ib-value"
+                >서울특별시 IT밸리로 123, 디지털타워 10층</span
+              >
+            </div>
+          </div>
+
+          <form class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label>성함 (Name)</label>
+                <input type="text" class="form-input" placeholder="홍길동" />
+              </div>
+              <div class="form-group">
+                <label>이메일 (Email)</label>
+                <input
+                  type="email"
+                  class="form-input"
+                  placeholder="example@company.com"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>문의 제목 (Subject)</label>
+              <input
+                type="text"
+                class="form-input"
+                placeholder="프로젝트 문의합니다."
+              />
+            </div>
+            <div class="form-group">
+              <label>문의 내용 (Message)</label>
+              <textarea
+                class="form-textarea"
+                placeholder="프로젝트 내용이나 궁금하신 점을 적어주세요."
+              ></textarea>
+            </div>
+            <button type="button" class="submit-btn">문의하기</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+          "
+        >
+          <div>
+            <h3
+              style="
+                font-family: 'Archivo Black';
+                font-size: 1.5rem;
+                color: #fff;
+                margin-bottom: 15px;
+              "
+            >
+              THE DAOL DNC
+            </h3>
+            <p>
+              (주)더다올디앤씨 | 대표: 홍길동 | 사업자등록번호: 000-00-00000
+            </p>
+            <p>Copyright © 2024 THE DAOL DNC. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      /* [스크립트 기존 유지: 파티클 및 구체 애니메이션] */
+      const bgCanvas = document.getElementById("bg-canvas");
+      const bgCtx = bgCanvas.getContext("2d");
+      let bgParticles = [];
+
+      function initBg() {
+        bgCanvas.width = window.innerWidth;
+        bgCanvas.height = window.innerHeight;
+        bgParticles = [];
+        for (let i = 0; i < 60; i++) {
+          bgParticles.push({
+            x: Math.random() * bgCanvas.width,
+            y: Math.random() * bgCanvas.height,
+            r: Math.random() * 1.5,
+            d: Math.random() * Math.PI * 2,
+            v: Math.random() * 0.2 + 0.1,
+          });
+        }
+      }
+
+      function drawBg() {
+        bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+        bgCtx.fillStyle = "rgba(79, 195, 247, 0.3)";
+        bgParticles.forEach((p) => {
+          p.x += Math.cos(p.d) * p.v;
+          p.y += Math.sin(p.d) * p.v;
+          if (p.x < 0) p.x = bgCanvas.width;
+          if (p.x > bgCanvas.width) p.x = 0;
+          if (p.y < 0) p.y = bgCanvas.height;
+          if (p.y > bgCanvas.height) p.y = 0;
+          bgCtx.beginPath();
+          bgCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          bgCtx.fill();
+        });
+      }
+
+      const spCanvas = document.getElementById("sphere-canvas");
+      const spCtx = spCanvas.getContext("2d");
+      let points = [];
+      const GLOBE_RADIUS = 550;
+      const NODE_COUNT = 250;
+      const CONNECTION_DIST = 100;
+      let angleY = 0;
+      let angleX = 0;
+
+      function initSphere() {
+        spCanvas.width = window.innerWidth;
+        spCanvas.height = window.innerHeight;
+        points = [];
+        const phi = Math.PI * (3 - Math.sqrt(5));
+        for (let i = 0; i < NODE_COUNT; i++) {
+          const y = 1 - (i / (NODE_COUNT - 1)) * 2;
+          const radius = Math.sqrt(1 - y * y);
+          const theta = phi * i;
+          const x = Math.cos(theta) * radius;
+          const z = Math.sin(theta) * radius;
+          points.push({
+            x: x * GLOBE_RADIUS,
+            y: y * GLOBE_RADIUS,
+            z: z * GLOBE_RADIUS,
+          });
+        }
+      }
+
+      function drawSphere() {
+        spCtx.clearRect(0, 0, spCanvas.width, spCanvas.height);
+        const cx = spCanvas.width / 2;
+        const cy = spCanvas.height * 0.9;
+        angleY += 0.001;
+        angleX = 0.1;
+
+        let projectedPoints = points.map((p) => {
+          let x1 = p.x * Math.cos(angleY) - p.z * Math.sin(angleY);
+          let z1 = p.x * Math.sin(angleY) + p.z * Math.cos(angleY);
+          let y1 = p.y * Math.cos(angleX) - z1 * Math.sin(angleX);
+          let z2 = p.y * Math.sin(angleX) + z1 * Math.cos(angleX);
+          const scale = 1000 / (1000 + z2);
+          return {
+            x: x1 * scale + cx,
+            y: y1 * scale + cy,
+            z: z2,
+            scale: scale,
+          };
+        });
+
+        spCtx.lineWidth = 0.3;
+        for (let i = 0; i < projectedPoints.length; i++) {
+          const p1 = projectedPoints[i];
+          if (p1.scale < 0.6) continue;
+          for (let j = i + 1; j < projectedPoints.length; j++) {
+            const p2 = projectedPoints[j];
+            const dx = p1.x - p2.x;
+            const dy = p1.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < CONNECTION_DIST) {
+              const alpha = (1 - dist / CONNECTION_DIST) * 0.9;
+              spCtx.strokeStyle = `rgba(140, 230, 230, ${alpha})`;
+              spCtx.beginPath();
+              spCtx.moveTo(p1.x, p1.y);
+              spCtx.lineTo(p2.x, p2.y);
+              spCtx.stroke();
+            }
+          }
+          spCtx.fillStyle = `rgba(90, 108, 125, ${p1.scale - 0.2})`;
+          spCtx.beginPath();
+          spCtx.arc(p1.x, p1.y, 1.5 * p1.scale, 0, Math.PI * 2);
+          spCtx.fill();
+        }
+      }
+
+      function loop() {
+        drawBg();
+        drawSphere();
+        requestAnimationFrame(loop);
+      }
+      window.addEventListener("resize", () => {
+        initBg();
+        initSphere();
+      });
+      initBg();
+      initSphere();
+      loop();
+    </script>
+  </body>
+</html>
