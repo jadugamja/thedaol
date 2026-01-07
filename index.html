@@ -20,8 +20,8 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
       rel="stylesheet"
     />
-
     <link href="./index.css" rel="stylesheet" />
+    <!-- tailwindcss -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
       tailwind.config = {
@@ -77,6 +77,11 @@
         },
       };
     </script>
+    <!-- emailjs -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
     <script src="index.js" defer></script>
   </head>
   <body
@@ -131,7 +136,7 @@
           <div
             class="absolute inset-0 flex items-center justify-center z-0 pointer-events-none select-none"
           >
-            <!-- 도형 크기 -->
+            <!-- background 도형 -->
             <div
               class="relative size-[25rem] md:size-[43.75rem] lg:size-[50rem] animate-spin-slow"
             >
@@ -225,7 +230,7 @@
           </div>
         </section>
 
-        <!-- 2. About ver.1 -->
+        <!-- 2. About -->
         <section
           class="py-24 bg-white dark:bg-paper-dark relative overflow-hidden"
           id="about"
@@ -422,7 +427,7 @@
 
             <div class="flex flex-col border-t border-slate-200">
               <div
-                class="group flex items-center justify-between py-10 border-b border-slate-200 hover:bg-slate-50 transition-colors duration-300 cursor-pointer px-4"
+                class="group flex items-center justify-between py-10 border-b border-slate-200 hover:bg-slate-50 transition-colors duration-300 px-4"
               >
                 <div
                   class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12"
@@ -442,15 +447,10 @@
                     </p>
                   </div>
                 </div>
-                <div
-                  class="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-gray-400 group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all duration-300 transform group-hover:rotate-45"
-                >
-                  <span class="material-symbols-outlined">arrow_outward</span>
-                </div>
               </div>
 
               <div
-                class="group flex items-center justify-between py-10 border-b border-slate-200 hover:bg-slate-50 transition-colors duration-300 cursor-pointer px-4"
+                class="group flex items-center justify-between py-10 border-b border-slate-200 hover:bg-slate-50 transition-colors duration-300 px-4"
               >
                 <div
                   class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12"
@@ -470,15 +470,10 @@
                     </p>
                   </div>
                 </div>
-                <div
-                  class="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-gray-400 group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all duration-300 transform group-hover:rotate-45"
-                >
-                  <span class="material-symbols-outlined">arrow_outward</span>
-                </div>
               </div>
 
               <div
-                class="group flex items-center justify-between py-10 border-b border-slate-200 hover:bg-slate-50 transition-colors duration-300 cursor-pointer px-4"
+                class="group flex items-center justify-between py-10 border-b border-slate-200 hover:bg-slate-50 transition-colors duration-300 px-4"
               >
                 <div
                   class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12"
@@ -497,11 +492,6 @@
                       Legacy 시스템의 클라우드(AWS, Azure) 전환 및 인프라 구축
                     </p>
                   </div>
-                </div>
-                <div
-                  class="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-gray-400 group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all duration-300 transform group-hover:rotate-45"
-                >
-                  <span class="material-symbols-outlined">arrow_outward</span>
                 </div>
               </div>
             </div>
@@ -530,7 +520,7 @@
                 금융, 정부, 공공기관 등 다양한 산업군의 핵심 시스템 구축 경험
               </p>
             </div>
-            <!-- tab buttons -->
+            <!-- badge buttons -->
             <!-- <div class="mb-12 flex flex-wrap justify-center gap-3">
               <button
                 class="group relative flex h-10 items-center justify-center rounded-full bg-primary px-6 text-sm font-medium text-white shadow-md transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-[#131f1e]"
@@ -571,7 +561,7 @@
                     <span
                       class="inline-flex items-center rounded-md bg-white/90 dark:bg-black/80 px-2.5 py-1 text-xs font-semibold text-gray-900 backdrop-blur-sm"
                     >
-                      고도화
+                      System Integration
                     </span>
                   </div>
                 </div>
@@ -626,14 +616,13 @@
                 </div>
               </div>
 
-              <!-- project3 -->
               <div
                 class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-gray-200"
               >
                 <div class="relative h-52 overflow-hidden rounded-t-xl">
                   <div
-                    class="card-image h-full w-full bg-cover bg-center transition-transform duration-500 rounded-t-xl"
-                    data-alt="Dashboard monitor showing server uptime statistics"
+                    class="card-image h-full w-full bg-cover bg-center ml-1 transition-transform duration-500 rounded-t-xl"
+                    data-alt="NH AML 시스템"
                     style="background-image: url('./images/thumbnail-3.png')"
                   ></div>
                   <div
@@ -643,7 +632,7 @@
                     <span
                       class="inline-flex items-center rounded-md bg-white/90 dark:bg-black/80 px-2.5 py-1 text-xs font-semibold text-gray-900 backdrop-blur-sm"
                     >
-                      Maintenance
+                      System Integration
                     </span>
                   </div>
                 </div>
@@ -662,7 +651,6 @@
                 </div>
               </div>
 
-              <!-- 4 -->
               <div
                 class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-gray-200"
               >
@@ -679,7 +667,7 @@
                     <span
                       class="inline-flex items-center rounded-md bg-white/90 dark:bg-black/80 px-2.5 py-1 text-xs font-semibold text-gray-900 backdrop-blur-sm"
                     >
-                      고도화
+                      System Integration
                     </span>
                   </div>
                 </div>
@@ -698,17 +686,14 @@
                 </div>
               </div>
 
-              <!-- 5 -->
               <div
                 class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-gray-200"
               >
                 <div class="relative h-52 overflow-hidden">
                   <div
-                    class="card-image h-full w-full bg-cover bg-center transition-transform duration-500"
+                    class="card-image size-full bg-cover bg-center ml-1 transition-transform duration-500"
                     data-alt="Developer code on multiple screens with matrix effect"
-                    style="
-                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBK7l3no1EW0DmxIfcs1P6_-6db1pT8uPSxWU3F2RDR0Gf7VvsETxNMbNleXWSanQRQ4ryacJgipXsnaYSev6tdBiI8oxEylPRIqyDeILIExWjNPaYJ_nV6K-ulcVXYbKztncE3uUabajm8QC0mLGzhRQ7IVObMKw-324rTKoDJnyD4kGJfYab1Zy9vMuG-9RNeFWZugAShkgAhr1hbjO4ve-b847aO0ZCWVaUx7do2vddv2LQr_X3dh67UZyG8z2f82bw0DOYMyQ');
-                    "
+                    style="background-image: url('images/thumbnail-5.png')"
                   ></div>
                   <div
                     class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"
@@ -717,7 +702,7 @@
                     <span
                       class="inline-flex items-center rounded-md bg-white/90 dark:bg-black/80 px-2.5 py-1 text-xs font-semibold text-gray-900 backdrop-blur-sm"
                     >
-                      DevOps
+                      System Integration
                     </span>
                   </div>
                 </div>
@@ -736,7 +721,6 @@
                 </div>
               </div>
 
-              <!-- 6 -->
               <div
                 class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-gray-200"
               >
@@ -744,9 +728,7 @@
                   <div
                     class="card-image h-full w-full bg-cover bg-center transition-transform duration-500"
                     data-alt="Global business map network connections"
-                    style="
-                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCujEOqfhLC29zB2V389yidl-n6maINA6Kfae6S38AEwf8JlwOudJBrzKea6IEJQKQWnqdSvwKcb89m16d7Acl1jHlgy6W5pWcIAM5EA3CzIqC0Rf2PBkjteOJgSMSYEleSYPIWNF1i4TNcB8rDFi4KTsnqpGalf0XdKsrfI06xxyRKI1Vngxjosd3vWU9PujBYP9m6reWt84SmAvtNKIqCC70wwitQPWXgDrUxIkTTpgX0flCdXNuaQwjI-f4DKmb8klHICtn1Uw');
-                    "
+                    style="background-image: url('images/thumbnail-6.png')"
                   ></div>
                   <div
                     class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"
@@ -755,7 +737,7 @@
                     <span
                       class="inline-flex items-center rounded-md bg-white/90 dark:bg-black/80 px-2.5 py-1 text-xs font-semibold text-gray-900 backdrop-blur-sm"
                     >
-                      Enterprise ERP
+                      System Integration
                     </span>
                   </div>
                 </div>
@@ -763,17 +745,19 @@
                   <h3
                     class="mb-2 text-xl font-bold text-gray-900 dark:text-white"
                   >
-                    Global ERP Rollout
+                    포스코 DX 스마트 팩토리 통합 관제 시스템 구축
                   </h3>
                   <p
                     class="flex-1 text-sm leading-relaxed text-gray-500 dark:text-gray-400 font-body"
                   >
-                    Unifying data streams across 12 international branches into
-                    a single source of truth.
+                    제조 현장의 데이터를 실시간으로 수집·분석하여, 가상 공간에서
+                    공정 상황을 시뮬레이션 및 제어 서비스 지원
                   </p>
                 </div>
               </div>
             </div>
+
+            <!-- 프로젝트 전체보기 -->
             <!-- <div class="mt-16 flex justify-center">
               <a
                 class="group inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-[#131f1e] dark:bg-white px-8 font-semibold text-white dark:text-[#131f1e] transition-all hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white"
@@ -820,7 +804,7 @@
                       이메일
                     </div>
                     <span class="text-lg font-bold text-text-main font-display"
-                      >contact@thedaol.com</span
+                      >business@thedaol.com</span
                     >
                   </div>
                   <div class="border-l-2 border-primary pl-5">
@@ -870,30 +854,36 @@
 
               <div class="lg:col-span-3">
                 <form
+                  id="contact-form"
                   class="bg-white p-8 lg:p-10 rounded-2xl border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
                 >
+                  <p class="text-right text-xs text-primary mb-4 font-medium">
+                    * 표시된 항목은 필수 입력 항목입니다.
+                  </p>
                   <div
                     class="grid grid-cols-1 md:md:grid-cols-[3.5fr_6.5fr] gap-6 mb-6"
                   >
                     <div class="space-y-2">
                       <label
                         class="block text-sm font-medium text-text-main font-body"
-                        >성함</label
+                        >*성함</label
                       >
                       <input
                         type="text"
-                        class="w-full px-4 py-3.5 bg-background-light border border-slate-200 rounded-md text-text-main text-base transition-all duration-300 focus:outline-none focus:border-primary focus:bg-white font-body"
+                        name="name"
+                        class="w-full px-4 py-3 bg-background-light border border-slate-200 rounded-md text-text-main text-base transition-all duration-300 focus:outline-none focus:border-primary focus:bg-white font-body"
                         placeholder="홍길동"
                       />
                     </div>
                     <div class="space-y-2">
                       <label
                         class="block text-sm font-medium text-text-main font-body"
-                        >이메일</label
+                        >*이메일</label
                       >
                       <input
                         type="email"
-                        class="w-full px-4 py-3.5 bg-background-light border border-slate-200 rounded-md text-text-main text-base transition-all duration-300 focus:outline-none focus:border-primary focus:bg-white font-body"
+                        name="email"
+                        class="w-full px-4 py-3 bg-background-light border border-slate-200 rounded-md text-text-main text-base transition-all duration-300 focus:outline-none focus:border-primary focus:bg-white font-body"
                         placeholder="example@company.com"
                       />
                     </div>
@@ -902,11 +892,12 @@
                   <div class="mb-6 space-y-2">
                     <label
                       class="block text-sm font-medium text-text-main font-body"
-                      >문의 제목</label
+                      >*제목</label
                     >
                     <input
                       type="text"
-                      class="w-full px-4 py-3.5 bg-background-light border border-slate-200 rounded-md text-text-main text-base transition-all duration-300 focus:outline-none focus:border-primary focus:bg-white font-body"
+                      name="title"
+                      class="w-full px-4 py-3 bg-background-light border border-slate-200 rounded-md text-text-main text-base transition-all duration-300 focus:outline-none focus:border-primary focus:bg-white font-body"
                       placeholder="프로젝트 문의합니다."
                     />
                   </div>
@@ -914,18 +905,20 @@
                   <div class="mb-6 space-y-2">
                     <label
                       class="block text-sm font-medium text-text-main font-body"
-                      >문의 내용</label
+                      >*문의 내용</label
                     >
                     <textarea
+                      name="message"
                       rows="5"
-                      class="w-full px-4 py-3.5 bg-background-light border border-slate-200 rounded-md text-text-main text-base transition-all duration-300 focus:outline-none focus:border-primary focus:bg-white resize-none font-body"
+                      class="w-full px-4 py-3 bg-background-light border border-slate-200 rounded-md text-text-main text-base transition-all duration-300 focus:outline-none focus:border-primary focus:bg-white resize-none font-body"
                       placeholder="프로젝트 내용이나 궁금하신 점을 적어주세요."
                     ></textarea>
                   </div>
 
                   <button
-                    type="button"
-                    class="w-full py-4 bg-primary text-white font-bold text-lg rounded-md transition-colors duration-300 hover:bg-primary-dark mt-2 font-display"
+                    id="submit-btn"
+                    type="submit"
+                    class="max-h-12 w-full py-3.5 bg-primary text-white font-bold text-lg rounded-md transition-colors duration-300 hover:bg-primary-dark mt-2 font-display flex justify-center items-center"
                   >
                     문의하기
                   </button>
@@ -953,7 +946,7 @@
                 </p>
                 <p>
                   Tel: 02-2088-6058 | Fax: 0503-8379-3581 | Email:
-                  contact@thedaol.com
+                  business@thedaol.com
                 </p>
               </div>
             </div>
@@ -966,13 +959,37 @@
                 />
               </div>
               <div class="pt-2 border-t border-white/10 text-xs text-[#64748b]">
-                Copyright © 2024 THE DAOL DNC. All Rights Reserved.
+                Copyright © 2026 THE DAOL DNC. All Rights Reserved.
               </div>
             </div>
           </div>
         </footer>
       </main>
     </div>
+
+    <!-- spinner svg -->
+    <template id="spinner-template">
+      <svg
+        class="animate-spin size-5 text-white"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle
+          class="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          stroke-width="4"
+        ></circle>
+        <path
+          class="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+        ></path>
+      </svg>
+    </template>
 
     <script>
       tailwind.config.theme.extend.keyframes = {
