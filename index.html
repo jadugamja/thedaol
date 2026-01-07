@@ -46,6 +46,7 @@
               "text-dark": "#E0E0E0",
             },
             fontFamily: {
+              sans: ['"Noto Sans KR"', "Inter", "sans-serif"],
               display: ["Space Grotesk", "sans-serif"],
               body: ["Noto Sans KR", "sans-serif"],
             },
@@ -76,6 +77,7 @@
         },
       };
     </script>
+    <script src="index.js" defer></script>
   </head>
   <body
     class="bg-background-light font-body text-text-main antialiased overflow-x-hidden selection:bg-primary/20 selection:text-secondary"
@@ -124,7 +126,7 @@
       <main class="flex-grow">
         <!-- 1. Hero -->
         <section
-          class="relative z-40 h-screen flex-grow flex items-center justify-center px-6 py-20 lg:pt-[12.5rem] lg:pb-32 overflow-hidden"
+          class="relative z-40 mt-0 lg:mt-6 h-screen flex-grow flex items-center justify-center px-6 py-20 lg:pt-[12.5rem] lg:pb-32 overflow-hidden"
         >
           <div
             class="absolute inset-0 flex items-center justify-center z-0 pointer-events-none select-none"
@@ -178,17 +180,18 @@
               <h1
                 class="text-secondary text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight font-display drop-shadow-sm"
               >
-                Smart
+                Next
                 <span
                   class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
-                  >Innovation</span
-                >,<br />
-                Secure Future.
+                  >Innovation,
+                </span>
+                <br />
+                Better Tomorrow.
               </h1>
               <p
                 class="text-text-sub text-lg md:text-xl font-normal leading-relaxed max-w-2xl mx-auto"
               >
-                안전하고 신뢰할 수 있는 시스템 통합, 끊김 없는 SM 서비스, <br />
+                안전하고 신뢰할 수 있는 시스템 구축 및 운영 관리, <br />
                 그리고 혁신적인 AI 기술로<br class="hidden md:block" />
                 귀사의 비즈니스 미래를 함께 열어갑니다.
               </p>
@@ -248,62 +251,29 @@
                   </span>
                 </h3>
                 <div
-                  class="text-text-sub text-lg leading-relaxed space-y-6 font-body"
+                  class="text-text-sub text-lg leading-relaxed space-y-6 font-body break-keep"
                 >
                   <p>
-                    더다올디앤씨는 고객의 비즈니스 환경에 최적화된 <br />
-                    IT 솔루션을 제공합니다.
+                    더다올디앤씨는 고객의 비즈니스 환경에 최적화된 IT 솔루션을
+                    제공합니다.
                   </p>
                   <p>
-                    단순한 개발을 넘어,
+                    단순한 개발을 넘어
                     <strong
                       class="text-text-main font-bold decoration-primary/30 underline decoration-2 underline-offset-4"
-                      >SI/SM 시스템 통합</strong
-                    >과
+                      >안정적인 SI/SM</strong
+                    >서비스와 <br />
                     <strong
                       class="text-text-main font-bold decoration-primary/30 underline decoration-2 underline-offset-4"
-                      >AI 기술 도입</strong
-                    >을 통해 기업의 디지털 경쟁력을 강화합니다.
+                      >AI 기술 도입
+                    </strong>
+                    을 통해 기업의 디지털 경쟁력을 강화합니다.
                   </p>
                   <p>
-                    우리는 기술의 난이도가 아닌, 고객이 얻게 될 가치를
-                    최우선으로 생각하며 신뢰할 수 있는 파트너로서 함께
-                    성장합니다.
+                    기술의 난이도가 아닌 고객이 얻게 될 가치를 최우선으로
+                    생각하며 신뢰할 수 있는 파트너로서 함께 성장합니다.
                   </p>
                 </div>
-                <!-- <div
-                  class="space-y-6 text-gray-600 dark:text-gray-300 leading-relaxed font-light"
-                >
-                  <p>
-                    K-TECH SOLUTIONS는 단순한 시스템 통합(SI)과 관리(SM)를 넘어,
-                    인공지능(AI) 기반의 솔루션을 통해 기업과 개인의 일상을
-                    혁신합니다. 우리는 기술이 차가운 코드가 아닌, 사람들의 삶을
-                    따뜻하게 비추는 빛이 되어야 한다고 믿습니다.
-                  </p>
-                  <p>
-                    흑백 사진 속에서 강렬한 색채가 시선을 사로잡듯, 우리는
-                    정체된 비즈니스 환경에 창의적인 기술적 해답을 제시하여
-                    고객의 잠재력을 극대화합니다. 서울을 기점으로 아시아
-                    전역으로 뻗어나가는 우리의 기술력은 언제나 '사람'을 중심에
-                    둡니다.
-                  </p>
-                </div> -->
-                <!-- <div class="mt-10 grid grid-cols-2 gap-6">
-                  <div class="border-l-4 border-primary pl-4">
-                    <h4 class="font-bold text-lg mb-1">SI / SM Expertise</h4>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">
-                      안정적인 시스템 구축 및 운영
-                    </p>
-                  </div>
-                  <div
-                    class="border-l-4 border-gray-300 dark:border-gray-700 pl-4"
-                  >
-                    <h4 class="font-bold text-lg mb-1">AI Solution</h4>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">
-                      데이터 기반 미래 예측
-                    </p>
-                  </div>
-                </div> -->
               </div>
               <div class="relative">
                 <div
@@ -317,115 +287,16 @@
                     class="size-full object-contain grayscale contrast-100 rounded-md"
                     src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80"
                   />
-
                   <!-- src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" -->
                   <!-- src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" -->
                   <div
                     class="absolute top-[7.2rem] left-[10.5rem] w-1/5 h-1/6 bg-primary mix-blend-multiply opacity-80"
                   ></div>
-                  <!-- <div
-                    class="absolute top-10 right-10 w-24 h-24 border-4 border-white dark:border-black"
-                  ></div> -->
                 </div>
               </div>
             </div>
           </div>
         </section>
-
-        <!-- 2. About ver.2 -->
-        <!-- <section
-          id="about"
-          class="relative z-20 py-24 lg:py-32 px-[5%] bg-white border-t border-[#edeeef]"
-        >
-          <div class="max-w-5xl mx-auto">
-            <div
-              class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center"
-            >
-              <div class="order-2 lg:order-1">
-                <div class="inline-flex items-center gap-2 mb-4">
-                  <span
-                    class="text-primary font-bold text-sm tracking-[0.15em] uppercase"
-                    >About Us</span
-                  >
-                </div>
-
-                <h2
-                  class="text-3xl md:text-4xl font-bold text-text-main leading-loose mb-6 font-display"
-                >
-                  기술 그 이상의 가치,<br />
-                  <span
-                    class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
-                    >사람을 향한 혁신</span
-                  >
-                </h2>
-
-                <div
-                  class="text-text-sub text-lg leading-relaxed space-y-6 font-body"
-                >
-                  <p>
-                    더다올디앤씨는 고객의 비즈니스 환경에 최적화된 IT 솔루션을
-                    제공하는 전문 기업입니다.
-                  </p>
-                  <p>
-                    단순한 개발을 넘어,
-                    <strong
-                      class="text-text-main font-bold decoration-primary/30 underline decoration-2 underline-offset-4"
-                      >SI/SM 시스템 통합</strong
-                    >과
-                    <strong
-                      class="text-text-main font-bold decoration-primary/30 underline decoration-2 underline-offset-4"
-                      >AI 기술 도입</strong
-                    >을 통해 기업의 디지털 경쟁력을 강화합니다.
-                  </p>
-                  <p>
-                    우리는 기술의 난이도가 아닌, 고객이 얻게 될 가치를
-                    최우선으로 생각하며 신뢰할 수 있는 파트너로서 함께
-                    성장합니다.
-                  </p>
-                </div>
-              </div>
-
-              <div
-                class="relative w-full h-[400px] lg:h-[500px] order-1 lg:order-2"
-              >
-                <div
-                  class="absolute top-0 left-0 w-[90%] h-[90%] rounded-2xl overflow-hidden bg-slate-100 border border-slate-200"
-                >
-                  <img
-                    src="https://source.unsplash.com/random/800x800/?coding,server"
-                    alt="Background Tech"
-                    class="w-full h-full object-cover opacity-60 grayscale mix-blend-multiply"
-                  />
-                  <div
-                    class="absolute inset-0 bg-gradient-to-br from-white/20 to-primary/10"
-                  ></div>
-                </div>
-
-                <div
-                  class="absolute bottom-0 right-0 w-[60%] h-[60%] bg-[#131f1e] rounded-2xl shadow-2xl shadow-slate-400/20 border border-primary/30 flex flex-col justify-center items-center text-center p-8"
-                >
-                  <div class="mb-3">
-                    <span class="text-2xl font-bold text-white font-display"
-                      >THE DAOL <span class="text-primary">DNC</span></span
-                    >
-                  </div>
-                  <p
-                    class="text-slate-400 text-sm font-medium tracking-wide uppercase"
-                  >
-                    Your Best IT Partner
-                  </p>
-
-                  <div
-                    class="absolute -top-3 -right-3 w-12 h-12 border-t-2 border-r-2 border-primary rounded-tr-xl"
-                  ></div>
-                  <div
-                    class="absolute -bottom-3 -left-3 w-12 h-12 border-b-2 border-l-2 border-primary rounded-bl-xl"
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> -->
 
         <!-- 3. Business -->
         <section
@@ -466,8 +337,8 @@
                 <h3 class="text-xl font-bold text-text-main mb-4 font-display">
                   AI Solution
                 </h3>
-                <p class="text-text-sub leading-relaxed text-sm">
-                  데이터 분석 및 머신러닝 기반의 예측 모델링.
+                <p class="text-text-sub leading-relaxed text-sm break-keep">
+                  데이터 분석 및 머신러닝 기반의 예측 모델링
                   <br class="hidden xl:block" />
                   업무 자동화(RPA)와 지능형 챗봇 구축을 통해 비즈니스 효율성을
                   극대화합니다.
@@ -487,10 +358,10 @@
                   <span class="material-symbols-outlined">hub</span>
                 </div>
                 <h3 class="text-xl font-bold text-text-main mb-4 font-display">
-                  SI / ITO
+                  SI / SM
                 </h3>
-                <p class="text-text-sub leading-relaxed text-sm">
-                  공공/금융/제조 등 다양한 산업군의 시스템 통합 구축.
+                <p class="text-text-sub leading-relaxed text-sm break-keep">
+                  공공/금융/제조 등 다양한 산업군의 시스템 통합 구축 및 유지보수
                   <br class="hidden xl:block" />
                   안정적인 시스템 운영(SM)과 유지보수 서비스를 제공합니다.
                 </p>
@@ -511,8 +382,8 @@
                 <h3 class="text-xl font-bold text-text-main mb-4 font-display">
                   IT Consulting
                 </h3>
-                <p class="text-text-sub leading-relaxed text-sm">
-                  기업의 디지털 전환(DX)을 위한 인프라 진단.
+                <p class="text-text-sub leading-relaxed text-sm break-keep">
+                  기업의 디지털 전환(DX)을 위한 인프라 진단
                   <br class="hidden xl:block" />
                   최적의 IT 로드맵 수립 및 아키텍처 설계를 지원합니다.
                 </p>
@@ -660,7 +531,7 @@
               </p>
             </div>
             <!-- tab buttons -->
-            <div class="mb-12 flex flex-wrap justify-center gap-3">
+            <!-- <div class="mb-12 flex flex-wrap justify-center gap-3">
               <button
                 class="group relative flex h-10 items-center justify-center rounded-full bg-primary px-6 text-sm font-medium text-white shadow-md transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-[#131f1e]"
               >
@@ -681,19 +552,17 @@
               >
                 Maintenance
               </button>
-            </div>
+            </div> -->
 
             <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               <div
                 class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-gray-200"
               >
-                <div class="relative h-52 overflow-hidden">
+                <div class="relative h-52 overflow-hidden rounded-t-xl">
                   <div
-                    class="card-image size-full bg-cover bg-center transition-transform duration-500"
-                    data-alt="Abstract blue digital network connections representing AI analytics"
-                    style="
-                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAPCG1GThDo0Rd2JGqWs7OZCSCMQkgypqfAXSXHxzWBrZd0qKJM4IleCQafZ8_1oiy4g8k4IS1_6JdeFe1yDRV4KVyn1YLWzO83fbRDCeBusUcBIbORfgjXPx6QFGYk1gNggNOVaadiOOkyxcrYsQKOSIgUqco32eZQEOIDqABI-POPHnui8ko9_VcLDMBesB5E3qVwDw_fjknZ-XgFnN-JJMQS2YM3vm8SQ2hGZrDxUSr2gatA5N2dWwP0JzBWkpP2quksoWVR7Q');
-                    "
+                    class="card-image size-full bg-cover bg-center transition-transform duration-500 rounded-t-xl grayscale-0"
+                    data-alt="National Assembly Building"
+                    style="background-image: url('./images/thumbnail-1.png')"
                   ></div>
                   <div
                     class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"
@@ -702,7 +571,7 @@
                     <span
                       class="inline-flex items-center rounded-md bg-white/90 dark:bg-black/80 px-2.5 py-1 text-xs font-semibold text-gray-900 backdrop-blur-sm"
                     >
-                      AI Solution
+                      고도화
                     </span>
                   </div>
                 </div>
@@ -710,36 +579,26 @@
                   <h3
                     class="mb-2 text-xl font-bold text-gray-900 dark:text-white"
                   >
-                    국회 e-의안시스템 차세대
+                    국회 e-의안지원시스템 차세대
                   </h3>
                   <p
-                    class="mb-4 flex-1 text-sm leading-relaxed text-gray-500 dark:text-gray-400 font-body"
+                    class="flex-1 text-sm leading-relaxed text-gray-500 dark:text-gray-400 font-body"
                   >
                     국회 입법 프로세스의 디지털 혁신을 위한 차세대 시스템 분석
                     및 설계
                   </p>
-                  <a
-                    class="inline-flex items-center text-sm font-semibold text-primary transition-colors group-hover:text-[#258a82]"
-                    href="#"
-                  >
-                    더 알아보기
-                    <span
-                      class="material-symbols-outlined ml-1 text-base transition-transform group-hover:translate-x-1"
-                      >arrow_forward</span
-                    >
-                  </a>
                 </div>
               </div>
+
+              <!-- project2 -->
               <div
                 class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-gray-200"
               >
-                <div class="relative h-52 overflow-hidden">
+                <div class="relative h-52 overflow-hidden rounded-t-xl">
                   <div
-                    class="card-image h-full w-full bg-cover bg-center transition-transform duration-500"
-                    data-alt="Futuristic cloud server data center with blue lights"
-                    style="
-                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBMFdJfBbsgr6q4aNtTjPJ7GCGvYSNbb993Eh3qBPGLlcGP3pKVR9GWiPGprJ1AVtPhZrAE8bnIScQLvbE0wZaViiTCQxekb-wLg-kqdD41tS5auto6zid4WSXEe-HTAKeT_djTTVAaC8KpOK2zP8yGCBuVxHHfN4EncMhdpq952266rCVkTUysUAt--To47vuGjnJwe_J2Nip5MPJ_now2lnrIeQuWNgeyd1kuYbji1LxNIh3yjlF0Wb19B-9hxN52ebOTOn9Yew');
-                    "
+                    class="card-image size-full bg-cover bg-center transition-transform duration-500 rounded-t-xl"
+                    data-alt="dunamu next steppers"
+                    style="background-image: url('./images/thumbnail-2.jpg')"
                   ></div>
                   <div
                     class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"
@@ -756,35 +615,26 @@
                   <h3
                     class="mb-2 text-xl font-bold text-gray-900 dark:text-white"
                   >
-                    관세청 상용솔루션 기능 검증
+                    두나무 Next Steppers 플랫폼 구축
                   </h3>
                   <p
-                    class="mb-4 flex-1 text-sm leading-relaxed text-gray-500 dark:text-gray-400 font-body"
+                    class="flex-1 text-sm leading-relaxed text-gray-500 dark:text-gray-400 font-body"
                   >
-                    관세청 시스템의 안정성 및 기능 검증 수행
+                    금융위기 청년의 신용 회복과 자산 형성을 돕는 자립 지원
+                    플랫폼 구축
                   </p>
-                  <a
-                    class="inline-flex items-center text-sm font-semibold text-primary transition-colors group-hover:text-[#258a82]"
-                    href="#"
-                  >
-                    더 알아보기
-                    <span
-                      class="material-symbols-outlined ml-1 text-base transition-transform group-hover:translate-x-1"
-                      >arrow_forward</span
-                    >
-                  </a>
                 </div>
               </div>
+
+              <!-- project3 -->
               <div
                 class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-gray-200"
               >
-                <div class="relative h-52 overflow-hidden">
+                <div class="relative h-52 overflow-hidden rounded-t-xl">
                   <div
-                    class="card-image h-full w-full bg-cover bg-center transition-transform duration-500"
+                    class="card-image h-full w-full bg-cover bg-center transition-transform duration-500 rounded-t-xl"
                     data-alt="Dashboard monitor showing server uptime statistics"
-                    style="
-                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDCyLLeiCh02RFJkZTqh_JUL_paMh2bEkifrsV_F5HovaAC53CTPxv7wnSpxVWuc4yrnWBQGmEHyrQ62wiUt20oOO1PS-D72Ky8vMrnE4hDeCakqnC39fs9wku661arbsrm2lRh_pigxpx0G9yqkE_6GXmX8hWdYjKkXAJ2C8vxHt9hL86gQ01geSo7kxBjuk5AKSSm15PDkHhrXVQzvrdCj1Fl_TjU_bwaJI_scaIxBhpsiiMTcL7Z7bpnJiUGQvA2j-pKy3L3Hw');
-                    "
+                    style="background-image: url('./images/thumbnail-3.png')"
                   ></div>
                   <div
                     class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"
@@ -801,35 +651,26 @@
                   <h3
                     class="mb-2 text-xl font-bold text-gray-900 dark:text-white"
                   >
-                    두나무 Next Steppers 플랫폼
+                    NH AML 시스템 고도화
                   </h3>
                   <p
-                    class="mb-4 flex-1 text-sm leading-relaxed text-gray-500 dark:text-gray-400 font-body"
+                    class="flex-1 text-sm leading-relaxed text-gray-500 dark:text-gray-400 font-body"
                   >
-                    금융위기 청년지원 사업을 위한 통합 플랫폼 구축
+                    금융 리스크 선제적 대응을 위한 자금세탁방지(AML) 모니터링
+                    시스템 고도화
                   </p>
-                  <a
-                    class="inline-flex items-center text-sm font-semibold text-primary transition-colors group-hover:text-[#258a82]"
-                    href="#"
-                  >
-                    더 알아보기
-                    <span
-                      class="material-symbols-outlined ml-1 text-base transition-transform group-hover:translate-x-1"
-                      >arrow_forward</span
-                    >
-                  </a>
                 </div>
               </div>
+
+              <!-- 4 -->
               <div
                 class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-gray-200"
               >
                 <div class="relative h-52 overflow-hidden">
                   <div
-                    class="card-image h-full w-full bg-cover bg-center transition-transform duration-500"
-                    data-alt="Industrial robot arm in a modern smart factory"
-                    style="
-                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBRhbi0mI-Eq3TUWzRqLeBt0_6t3pn0yvY9gjsd1p1VYMJ4wb6aJZpbBF9WogK1Eit7Z4CJUbozdiYbJU2puEdUbx95NNRwkl-Fy1Gc5cqS9vS8aHenk7Z752WHZ_VmwODJ4-lkjaMmRyZeyk1VblxDGUNKi5qnG6Wivv2Pt1V8I2VKxCdKadKyTODOzeeeZeaeupOJDyv3tHucjR5E5djhMxcICGHUfoQl-a1aaBYSElQp7gXCe18e_TNLK70ltPQ2A7WjV9-eWg');
-                    "
+                    class="card-image size-full bg-cover bg-center ml-1 transition-transform duration-500"
+                    data-alt="BNK 종합감사시스템 화면"
+                    style="background-image: url('./images/thumbnail-4.png')"
                   ></div>
                   <div
                     class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"
@@ -838,7 +679,7 @@
                     <span
                       class="inline-flex items-center rounded-md bg-white/90 dark:bg-black/80 px-2.5 py-1 text-xs font-semibold text-gray-900 backdrop-blur-sm"
                     >
-                      Machine Learning
+                      고도화
                     </span>
                   </div>
                 </div>
@@ -846,26 +687,18 @@
                   <h3
                     class="mb-2 text-xl font-bold text-gray-900 dark:text-white"
                   >
-                    Vision Recognition Beta
+                    BNK 종합감사시스템 고도화
                   </h3>
                   <p
-                    class="mb-4 flex-1 text-sm leading-relaxed text-gray-500 dark:text-gray-400 font-body"
+                    class="flex-1 text-sm leading-relaxed text-gray-500 dark:text-gray-400 font-body"
                   >
-                    Automated quality control for manufacturing lines using
-                    computer vision to detect micro-defects.
+                    데이터 기반 상시 모니터링 시스템 구축 및 선제적 내부통제
+                    시스템 고도화
                   </p>
-                  <a
-                    class="inline-flex items-center text-sm font-semibold text-primary transition-colors group-hover:text-[#258a82]"
-                    href="#"
-                  >
-                    더 알아보기
-                    <span
-                      class="material-symbols-outlined ml-1 text-base transition-transform group-hover:translate-x-1"
-                      >arrow_forward</span
-                    >
-                  </a>
                 </div>
               </div>
+
+              <!-- 5 -->
               <div
                 class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-gray-200"
               >
@@ -892,26 +725,18 @@
                   <h3
                     class="mb-2 text-xl font-bold text-gray-900 dark:text-white"
                   >
-                    CI/CD Pipeline Automation
+                    BNK FATCA/CRS 시스템 고도화
                   </h3>
                   <p
-                    class="mb-4 flex-1 text-sm leading-relaxed text-gray-500 dark:text-gray-400 font-body"
+                    class="flex-1 text-sm leading-relaxed text-gray-500 dark:text-gray-400 font-body"
                   >
-                    Accelerating deployment cycles for fintech startups by
-                    automating testing and integration workflows.
+                    글로벌 및 국내 금융 규제 이행을 위한 정보 보고 체계 통합
+                    고도화
                   </p>
-                  <a
-                    class="inline-flex items-center text-sm font-semibold text-primary transition-colors group-hover:text-[#258a82]"
-                    href="#"
-                  >
-                    더 알아보기
-                    <span
-                      class="material-symbols-outlined ml-1 text-base transition-transform group-hover:translate-x-1"
-                      >arrow_forward</span
-                    >
-                  </a>
                 </div>
               </div>
+
+              <!-- 6 -->
               <div
                 class="card-hover-effect group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1c2a29] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 border border-gray-100 dark:border-gray-800 hover:border-gray-200"
               >
@@ -941,25 +766,15 @@
                     Global ERP Rollout
                   </h3>
                   <p
-                    class="mb-4 flex-1 text-sm leading-relaxed text-gray-500 dark:text-gray-400 font-body"
+                    class="flex-1 text-sm leading-relaxed text-gray-500 dark:text-gray-400 font-body"
                   >
                     Unifying data streams across 12 international branches into
                     a single source of truth.
                   </p>
-                  <a
-                    class="inline-flex items-center text-sm font-semibold text-primary transition-colors group-hover:text-[#258a82]"
-                    href="#"
-                  >
-                    더 알아보기
-                    <span
-                      class="material-symbols-outlined ml-1 text-base transition-transform group-hover:translate-x-1"
-                      >arrow_forward</span
-                    >
-                  </a>
                 </div>
               </div>
             </div>
-            <div class="mt-16 flex justify-center">
+            <!-- <div class="mt-16 flex justify-center">
               <a
                 class="group inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-[#131f1e] dark:bg-white px-8 font-semibold text-white dark:text-[#131f1e] transition-all hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white"
                 href="#"
@@ -970,7 +785,7 @@
                   >arrow_right_alt</span
                 >
               </a>
-            </div>
+            </div> -->
           </div>
         </section>
 
@@ -987,38 +802,68 @@
                 >
                   문의하기
                 </h2>
-                <p class="text-text-sub mb-10 leading-relaxed font-body">
+                <p
+                  class="text-text-sub mb-10 leading-relaxed font-body break-keep"
+                >
                   프로젝트 문의나 기술 상담이 필요하시다면 언제든 연락주세요.<br />
                   담당자가 확인 후 신속하게 답변 드리겠습니다.
                 </p>
 
                 <div class="space-y-8 mt-10">
                   <div class="border-l-2 border-primary pl-5">
-                    <span
-                      class="block text-sm font-bold text-primary mb-1 uppercase tracking-wide font-display"
-                      >이메일</span
+                    <div
+                      class="flex items-center gap-x-1 text-sm font-bold text-primary mb-1 uppercase tracking-wide font-display"
                     >
+                      <span class="material-symbols-outlined text-lg"
+                        >mail</span
+                      >
+                      이메일
+                    </div>
                     <span class="text-lg font-bold text-text-main font-display"
-                      >contact@daoldnc.com</span
+                      >contact@thedaol.com</span
                     >
                   </div>
                   <div class="border-l-2 border-primary pl-5">
-                    <span
-                      class="block text-sm font-bold text-primary mb-1 uppercase tracking-wide font-display"
-                      >전화번호</span
+                    <div
+                      class="flex items-center gap-x-1 text-sm font-bold text-primary mb-1 uppercase tracking-wide font-display"
                     >
+                      <span
+                        class="material-symbols-outlined text-lg text-primary"
+                        >call
+                      </span>
+                      전화번호
+                    </div>
                     <span class="text-lg font-bold text-text-main font-display"
-                      >02-1234-5678</span
+                      >02-2088-6058</span
                     >
                   </div>
                   <div class="border-l-2 border-primary pl-5">
-                    <span
-                      class="block text-sm font-bold text-primary mb-1 uppercase tracking-wide font-display"
-                      >주소</span
+                    <div
+                      class="flex items-center gap-x-1 text-sm font-bold text-primary mb-1 uppercase tracking-wide font-display"
                     >
+                      <span
+                        class="material-symbols-outlined text-lg text-primary"
+                        >print
+                      </span>
+                      팩스
+                    </div>
                     <span class="text-lg font-bold text-text-main font-display"
-                      >서울특별시 금천구 가산디지털1로 204, 8층 802호</span
+                      >0503-8379-3581
+                    </span>
+                  </div>
+                  <div class="border-l-2 border-primary pl-5">
+                    <div
+                      class="flex items-center gap-x-1 text-sm font-bold text-primary mb-1 uppercase tracking-wide font-display"
                     >
+                      <span class="material-symbols-outlined text-lg"
+                        >location_on</span
+                      >
+                      주소
+                    </div>
+                    <span
+                      class="text-lg font-bold text-text-main font-display break-keep"
+                      >서울특별시 금천구 가산디지털1로 204, 아이비밸리 8층 802호
+                    </span>
                   </div>
                 </div>
               </div>
@@ -1027,11 +872,13 @@
                 <form
                   class="bg-white p-8 lg:p-10 rounded-2xl border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
                 >
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div
+                    class="grid grid-cols-1 md:md:grid-cols-[3.5fr_6.5fr] gap-6 mb-6"
+                  >
                     <div class="space-y-2">
                       <label
                         class="block text-sm font-medium text-text-main font-body"
-                        >성함 (Name)</label
+                        >성함</label
                       >
                       <input
                         type="text"
@@ -1042,7 +889,7 @@
                     <div class="space-y-2">
                       <label
                         class="block text-sm font-medium text-text-main font-body"
-                        >이메일 (Email)</label
+                        >이메일</label
                       >
                       <input
                         type="email"
@@ -1055,7 +902,7 @@
                   <div class="mb-6 space-y-2">
                     <label
                       class="block text-sm font-medium text-text-main font-body"
-                      >문의 제목 (Subject)</label
+                      >문의 제목</label
                     >
                     <input
                       type="text"
@@ -1067,7 +914,7 @@
                   <div class="mb-6 space-y-2">
                     <label
                       class="block text-sm font-medium text-text-main font-body"
-                      >문의 내용 (Message)</label
+                      >문의 내용</label
                     >
                     <textarea
                       rows="5"
@@ -1090,7 +937,7 @@
 
         <!-- 푸터 -->
         <footer
-          class="relative z-20 bg-background-dark text-[#94a3b8] py-20 border-t border-white/10 font-body h-full"
+          class="relative z-20 bg-background-dark text-[#94a3b8] py-20 border-t border-white/10 font-body h-full selection:bg-zinc-100 selection:text-[#131f1e]"
         >
           <div
             class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-start"
@@ -1100,8 +947,14 @@
                 <p>
                   (주)더다올디앤씨 | 대표: 박규원 | 사업자등록번호: 000-00-00000
                 </p>
-                <p>주소: 서울특별시 금천구 가산디지털1로 204, 8층 802호</p>
-                <p>Tel: 02-1234-5678 | Email: contact@daoldnc.com</p>
+                <p>
+                  주소: 서울특별시 금천구 가산디지털1로 204, 아이비밸리 8층
+                  802호
+                </p>
+                <p>
+                  Tel: 02-2088-6058 | Fax: 0503-8379-3581 | Email:
+                  contact@thedaol.com
+                </p>
               </div>
             </div>
             <div class="h-24 flex flex-col justify-between">
