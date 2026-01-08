@@ -24,3 +24,16 @@
   writing-mode: vertical-rl;
   text-orientation: mixed;
 }
+
+.marquee-container:hover .animate-scroll {
+  animation-play-state: paused;
+}
+
+.bg-grid-mask-light {
+  mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(
+    circle at center,
+    black 40%,
+    transparent 80%
+  );
+}
