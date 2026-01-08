@@ -6,21 +6,10 @@
     <title>더다올디앤씨</title>
     <link rel="icon" href="./favicon.ico" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <!-- 폰트 -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="./fonts.css" rel="stylesheet" />
     <link href="./index.css" rel="stylesheet" />
+
     <!-- tailwindcss -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
@@ -49,7 +38,8 @@
             fontFamily: {
               sans: ["Montserrat", '"Noto Sans KR"', "Inter", "sans-serif"],
               display: ["Montserrat", "sans-serif"],
-              body: ["Noto Sans KR", "sans-serif"],
+              body: ["Montserrat", "Pretendard", "Noto Sans KR", "sans-serif"],
+              pretendard: ["Pretendard"],
             },
             borderRadius: {
               DEFAULT: "0.25rem",
@@ -83,6 +73,7 @@
         },
       };
     </script>
+
     <!-- emailjs -->
     <script
       type="text/javascript"
@@ -101,9 +92,6 @@
         <div
           class="absolute inset-0 z-10 opacity-30 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[length:40px_40px] bg-grid-mask-light"
         ></div>
-        <!-- <div
-          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[50rem] bg-[rgba(11,189,180,0.025)] rounded-full blur-[6.25rem] z-0"
-        ></div> -->
       </div>
       <!-- GNB -->
       <header
@@ -201,7 +189,7 @@
                 Better Tomorrow.
               </h1>
               <p
-                class="text-text-sub text-lg md:text-xl font-normal leading-relaxed max-w-2xl mx-auto"
+                class="text-text-sub text-lg md:text-xl font-normal leading-relaxed max-w-2xl mx-auto font-pretendard"
               >
                 안전하고 신뢰할 수 있는 시스템 구축 및 운영 관리, <br />
                 그리고 혁신적인 AI 기술로<br class="hidden md:block" />
@@ -854,7 +842,9 @@
                       >
                         주소
                       </p>
-                      <p class="text-base font-bold text-text-main font-sans">
+                      <p
+                        class="text-base font-bold text-text-main font-sans break-keep"
+                      >
                         서울특별시 금천구 가산디지털1로 204, 아이비밸리 8층
                         802호
                       </p>
