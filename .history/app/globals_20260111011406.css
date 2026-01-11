@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@import "tailwindcss";
+
+/* v4에서는 @theme 블록 안에 CSS 변수로 커스텀 설정을 정의합니다.
+  기존 config의 내용을 그대로 옮겨왔습니다.
+*/
+@theme {
+  /* 1. Colors (색상) */
+  --color-primary: #0bbdb4;
+  --color-primary-dark: #0a9c94;
+  --color-secondary: #213b8a;
+  --color-secondary-light: #2f4fb3;
+  --color-background-light: #fafafa;
+  --color-background-dark: #131f1e;
+  --color-surface-light: #f8fafc;
+  --color-text-main: #1e293b;
+  --color-text-sub: #64748b;
+
+  /* 2. Fonts (폰트) - Next.js의 CSS 변수와 연결 */
+  /* layout.tsx에서 정의한 --font-montserrat, --font-pretendard를 여기서 사용 */
+  --font-sans: var(--font-montserrat), "Inter", sans-serif;
+  --font-display: var(--font-montserrat), sans-serif;
+  --font-body: var(--font-montserrat), var(--font-pretendard), sans-serif;
+  --font-pretendard: var(--font-pretendard);
+
+  /* 3. Border Radius */
+  --radius: 0.25rem; /* DEFAULT */
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  /* 4. Animations (애니메이션 정의) */
+  --animate-spin-slow: spin 60s linear infinite;
+  --animate-spin-reverse-slow: spin 60s linear infinite reverse;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-fade-in-up: fadeInUp 1s ease-out forwards;
+  --animate-marquee: marquee 60s linear infinite;
+
+  /* 5. Keyframes (키프레임 연결) */
+  /* v4는 표준 CSS @keyframes를 그대로 인식합니다. 아래에 정의한 이름을 위에서 씁니다. */
+}
+
+/* @keyframes는 @theme 블록 밖이나 안이나 상관없지만, 
+  표준 CSS 문법처럼 바깥에 두는 것이 일반적입니다. 
+*/
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+}

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Contact - 더다올디앤씨</title>
+    <link rel="icon" href="../favicon.ico" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="../fonts.css" rel="stylesheet" />
+    <link href="../index.css" rel="stylesheet" />
+
+    <!-- tailwindcss -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0bbdb4",
+              "primary-dark": "#0a9c94",
+              secondary: "#213b8a",
+              "secondary-light": "#2f4fb3",
+              "background-light": "#fafafa",
+              "background-dark": "#131f1e",
+              "surface-light": "#f8fafc",
+              "text-main": "#1e293b",
+              "text-sub": "#64748b",
+            },
+            fontFamily: {
+              sans: ["Montserrat", "Inter", "sans-serif"],
+              display: ["Montserrat", "sans-serif"],
+              body: ["Montserrat", "Pretendard", "sans-serif"],
+              pretendard: ["Pretendard"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-background-light font-body text-text-main antialiased">
+    <div class="relative min-h-screen flex flex-col">
+      <!-- GNB -->
+      <header
+        class="header-nav fixed z-50 w-full bg-white/50 hover:bg-white backdrop-blur-md border-b border-gray-200 transition-all duration-300"
+      >
+        <div class="max-w-5xl mx-auto px-6">
+          <div class="flex justify-between relative">
+            <div class="flex items-start py-3 min-h-9">
+              <a class="flex items-center py-3 gap-2" href="../index.html">
+                <img
+                  alt="Company Logo"
+                  class="h-5 w-auto"
+                  src="../images/logo-icon.png"
+                />
+                <div class="flex flex-col leading-none">
+                  <img
+                    alt="Company Logo"
+                    class="h-4 w-auto"
+                    src="../images/logo-black.png"
+                  />
+                </div>
+              </a>
+            </div>
+
+            <div class="hidden md:flex flex-col items-start">
+              <nav class="py-3 min-h-9 flex items-center">
+                <ul class="flex items-center space-x-2">
+                  <li class="nav-item">
+                    <a href="../company/about.html" class="nav-link">Company</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../business/ai.html" class="nav-link">Business</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../projects/index.html" class="nav-link">Projects</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../contact/index.html" class="nav-link" style="color: #0bbdb4">Contact</a>
+                  </li>
+                </ul>
+              </nav>
+
+              <div class="submenu-container w-full">
+                <div class="flex items-start gap-12 pb-6 pl-2">
+                  <div class="submenu-section">
+                    <ul class="submenu-list">
+                      <li><a href="../company/about.html" class="submenu-item">회사소개</a></li>
+                      <li><a href="../company/history.html" class="submenu-item">연혁</a></li>
+                      <li><a href="../company/organization.html" class="submenu-item">조직도</a></li>
+                      <li><a href="../company/partnership.html" class="submenu-item">협력사</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="submenu-section">
+                    <ul class="submenu-list">
+                      <li><a href="../business/ai.html" class="submenu-item">AI Solution</a></li>
+                      <li><a href="../business/si-sm.html" class="submenu-item">SI/SM</a></li>
+                      <li><a href="../business/consulting.html" class="submenu-item">IT Consulting</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center py-3 min-h-9 md:hidden">
+              <button
+                class="text-text-main hover:text-primary transition-colors"
+              >
+                <span class="material-symbols-outlined">menu</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="flex-grow pt-[4.5rem]">
+        <!-- Hero Section -->
+        <section
+          class="relative bg-slate-900 py-24 sm:py-32 overflow-hidden max-h-[352px]"
+        >
+          <div class="absolute inset-0 z-0">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#2a4167] to-black"
+            ></div>
+          </div>
+          <div class="relative z-10 max-w-5xl mx-auto px-6 h-full flex flex-col justify-center">
+            <span class="text-primary font-bold tracking-widest uppercase text-sm font-display mb-4 block">
+              Get In Touch
+            </span>
+            <h1 class="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">
+              Contact Us
+            </h1>
+            <p class="text-lg text-slate-300 max-w-2xl leading-relaxed font-pretendard">
+              프로젝트 문의나 기술 상담이 필요하시다면 언제든 연락주세요.
+            </p>
+          </div>
+        </section>
+
+        <!-- Content Layout with Sidebar -->
+        <div class="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16">
+          <!-- Sidebar -->
+          <aside class="w-full md:w-56 flex-shrink-0">
+            <div class="sticky top-28">
+              <h3 class="font-bold text-2xl text-text-main mb-6">Contact</h3>
+            </div>
+          </aside>
+
+          <!-- Main Content -->
+          <div class="flex-1 min-w-0 space-y-24">
+            <!-- Location -->
+            <section>
+               <div class="flex items-center gap-4 mb-8">
+                  <span class="text-secondary font-bold tracking-widest uppercase text-sm font-display">Location</span>
+                  <div class="h-px bg-gray-200 flex-1"></div>
+               </div>
+               <h2 class="text-3xl font-bold text-text-main mb-10">Office Map</h2>
+               
+               <div class="w-full h-96 bg-gray-200 rounded-2xl overflow-hidden relative shadow-inner border border-gray-200 group">
+                   <div class="absolute inset-0 flex items-center justify-center text-gray-400 bg-gray-100 group-hover:bg-gray-50 transition-colors">
+                      <div class="text-center">
+                        <span class="material-symbols-outlined text-4xl mb-2 text-gray-300">map</span>
+                        <p class="text-sm text-gray-500">지도가 로드되는 영역입니다<br>(Google Map API 연동 필요)</p>
+                      </div>
+                   </div>
+               </div>
+            </section>
+            
+            <!-- Contact Info -->
+            <section>
+               <div class="flex items-center gap-4 mb-8">
+                  <span class="text-primary font-bold tracking-widest uppercase text-sm font-display">Information</span>
+                  <div class="h-px bg-gray-200 flex-1"></div>
+               </div>
+               <h2 class="text-3xl font-bold text-text-main mb-10">Contact Info</h2>
+               
+               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                 <div class="bg-white p-6 rounded-xl border border-gray-100 flex items-start gap-4 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="size-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary">
+                      <span class="material-symbols-outlined">mail</span>
+                    </div>
+                    <div>
+                      <p class="text-sm font-bold text-text-sub uppercase tracking-wide mb-1">이메일</p>
+                      <p class="text-base font-bold text-text-main font-sans">business@thedaol.com</p>
+                    </div>
+                 </div>
+
+                 <div class="bg-white p-6 rounded-xl border border-gray-100 flex items-start gap-4 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="size-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary">
+                      <span class="material-symbols-outlined">call</span>
+                    </div>
+                    <div>
+                      <p class="text-sm font-bold text-text-sub uppercase tracking-wide mb-1">전화번호</p>
+                      <p class="text-base font-bold text-text-main font-sans">02-2088-6058</p>
+                    </div>
+                 </div>
+
+                 <div class="bg-white p-6 rounded-xl border border-gray-100 flex items-start gap-4 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="size-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary">
+                      <span class="material-symbols-outlined">print</span>
+                    </div>
+                    <div>
+                      <p class="text-sm font-bold text-text-sub uppercase tracking-wide mb-1">팩스</p>
+                      <p class="text-base font-bold text-text-main font-sans">0503-8379-3581</p>
+                    </div>
+                 </div>
+
+                 <div class="bg-white p-6 rounded-xl border border-gray-100 flex items-start gap-4 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="size-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary">
+                      <span class="material-symbols-outlined">location_on</span>
+                    </div>
+                    <div>
+                      <p class="text-sm font-bold text-text-sub uppercase tracking-wide mb-1">주소</p>
+                      <p class="text-base font-bold text-text-main font-sans break-keep leading-snug">서울특별시 금천구 가산디지털1로 204, 아이비밸리 8층 802호</p>
+                    </div>
+                 </div>
+               </div>
+            </section>
+
+            <!-- Inquiry Form -->
+            <section>
+              <div class="flex items-center gap-4 mb-8">
+                  <span class="text-primary font-bold tracking-widest uppercase text-sm font-display">Inquiry</span>
+                  <div class="h-px bg-gray-200 flex-1"></div>
+               </div>
+               <h2 class="text-3xl font-bold text-text-main mb-10">Send a Message</h2>
+               
+               <form id="contact-form" class="bg-white p-8 lg:p-10 rounded-2xl border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.05)]">
+                  <div class="flex justify-end mb-6">
+                    <p class="text-xs font-medium text-primary bg-primary/5 px-3 py-1 rounded-full">* 필수 입력 항목</p>
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="space-y-2">
+                       <label class="block text-sm font-semibold text-text-main">성함 <span class="text-primary">*</span></label>
+                       <input type="text" class="w-full px-4 py-3 bg-gray-50 border border-slate-200 rounded-lg focus:border-primary focus:bg-white focus:outline-none transition-colors" placeholder="홍길동" required>
+                    </div>
+                    <div class="space-y-2">
+                       <label class="block text-sm font-semibold text-text-main">이메일 <span class="text-primary">*</span></label>
+                       <input type="email" class="w-full px-4 py-3 bg-gray-50 border border-slate-200 rounded-lg focus:border-primary focus:bg-white focus:outline-none transition-colors" placeholder="example@company.com" required>
+                    </div>
+                  </div>
+                  <div class="mb-6 space-y-2">
+                    <label class="block text-sm font-semibold text-text-main">제목 <span class="text-primary">*</span></label>
+                    <input type="text" class="w-full px-4 py-3 bg-gray-50 border border-slate-200 rounded-lg focus:border-primary focus:bg-white focus:outline-none transition-colors" placeholder="프로젝트 문의입니다." required>
+                  </div>
+                  <div class="mb-6 space-y-2">
+                    <label class="block text-sm font-semibold text-text-main">문의 내용 <span class="text-primary">*</span></label>
+                    <textarea rows="5" class="w-full px-4 py-3 bg-gray-50 border border-slate-200 rounded-lg focus:border-primary focus:bg-white focus:outline-none resize-none transition-colors" placeholder="문의 내용을 입력해주세요." required></textarea>
+                  </div>
+                  <button type="submit" class="w-full py-4 bg-text-main hover:bg-[#090d14] text-white font-bold rounded-lg transition-colors shadow-lg flex items-center justify-center gap-2 group">
+                    문의하기
+                  </button>
+                </form>
+            </section>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer
+          class="bg-background-dark text-[#94a3b8] py-20 px-[5%] border-t border-white/10 font-body selection:bg-zinc-100 selection:text-[#131f1e]"
+        >
+          <div
+            class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-start"
+          >
+            <div class="mb-8 md:mb-0">
+              <div class="text-sm leading-loose space-y-1">
+                <p>
+                  (주)더다올디앤씨 | 대표: 박규원 | 사업자등록번호: 150-86-02724
+                </p>
+                <p>
+                  <strong class="font-bold">주소</strong>: 서울특별시 금천구
+                  가산디지털1로 204, 아이비밸리 8층 802호
+                </p>
+                <p>
+                  <strong class="font-bold">Tel</strong>: 02-2088-6058 |
+                  <strong class="font-bold">Fax</strong>: 0503-8379-3581 |
+                  <strong class="font-bold">Email</strong>: business@thedaol.com
+                </p>
+              </div>
+            </div>
+            <div class="text-xs text-[#64748b]">
+              Copyright © 주식회사 더다올디앤씨 All Rights Reserved.
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
