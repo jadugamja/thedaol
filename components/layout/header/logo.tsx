@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Logo() {
   return (
     <div className="flex items-start py-3 min-h-9">
-      <a className="flex items-center py-3 gap-2" href="/">
+      <Link className="flex items-center py-3 gap-2" href="/">
         <Image
           src="/images/logo/icon.webp"
           width={33}
@@ -19,7 +20,7 @@ export default function Logo() {
             alt="Company Logo Text"
           />
         </div>
-      </a>
+      </Link>
     </div>
   );
 }

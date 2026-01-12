@@ -1,8 +1,19 @@
-export default function Home() {
+import HomeHero from "./_sections/hero";
+import HomeAbout from "./_sections/about";
+import HomeBusiness from "./_sections/business";
+import HomePortfolio from "./_sections/portfolio";
+import HomePartners from "./_sections/partners";
+import HomeContact from "./_sections/contact";
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col">
-      <span className="text-7xl font-sans font-bold">Better Tomorrow</span>
-      <span className="font-pretendard">테스트</span>
-    </div>
+    <>
+      <HomeHero />
+      <HomeAbout />
+      <HomeBusiness />
+      <HomePortfolio />
+      <HomePartners />
+      <HomeContact />
+    </>
   );
 }

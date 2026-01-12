@@ -1,0 +1,177 @@
+import { MdOutlineCall, MdOutlineEmail, MdOutlineLocationOn, MdOutlinePrint } from "react-icons/md";
+
+export default function HomeContact() {
+  return (
+    <section
+      id="contact"
+      className="relative z-20 py-24 lg:py-32 px-[5%] bg-white border-t border-slate-100"
+    >
+      <div className="max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-24">
+          <div className="lg:col-span-2 space-y-10">
+            <h2
+              className="text-3xl md:text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-4xl"
+            >
+              문의하기
+            </h2>
+            <p className="text-text-sub text-base leading-relaxed break-keep">
+              프로젝트 문의나 기술 상담이 필요하시다면 언제든 연락주세요.<br />
+              담당자가 확인 후 신속하게 답변 드리겠습니다.
+            </p>
+
+            <div className="space-y-9">
+              <div className="flex items-start gap-4">
+                <div
+                  className="size-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary"
+                >
+                  <MdOutlineEmail className="text-xl" />
+                </div>
+                <div className="space-y-[2px]">
+                  <p
+                    className="text-sm font-bold text-text-sub uppercase tracking-wide"
+                  >
+                    이메일
+                  </p>
+                  <p className="text-base font-bold text-text-main font-sans">
+                    business@thedaol.com
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div
+                  className="size-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary"
+                >
+                  <MdOutlineCall className="text-xl" />
+                </div>
+                <div className="space-y-[2px]">
+                  <p
+                    className="text-sm font-bold text-text-sub uppercase tracking-wide"
+                  >
+                    전화번호
+                  </p>
+                  <p className="text-base font-bold text-text-main font-sans">
+                    02-2088-6058
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div
+                  className="size-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary"
+                >
+                  <MdOutlinePrint className="text-xl" />
+                </div>
+                <div className="space-y-[2px]">
+                  <p
+                    className="text-sm font-bold text-text-sub uppercase tracking-wide"
+                  >
+                    팩스
+                  </p>
+                  <p className="text-base font-bold text-text-main font-sans">
+                    0503-8379-3581
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div
+                  className="size-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary"
+                >
+                  <MdOutlineLocationOn className="text-xl" />
+                </div>
+                <div className="space-y-[2px]">
+                  <p
+                    className="text-sm font-bold text-text-sub uppercase tracking-wide"
+                  >
+                    주소
+                  </p>
+                  <p
+                    className="text-base font-bold text-text-main font-sans break-keep"
+                  >
+                    서울특별시 금천구 가산디지털1로 204, 아이비밸리 8층
+                    802호
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-3">
+            <form
+              id="contact-form"
+              className="bg-white p-8 lg:p-10 rounded-2xl border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
+            >
+              <div className="flex justify-end mb-6">
+                <p
+                  className="text-xs font-medium text-primary bg-primary/5 px-3 py-1 rounded-full"
+                >
+                  * 필수 입력 항목
+                </p>
+              </div>
+              <div
+                className="grid grid-cols-1 md:md:grid-cols-[3.5fr_6.5fr] gap-6 mb-6"
+              >
+                <div className="space-y-2">
+                  <label className="block text-sm font-semibold text-text-main"
+                    >성함 <span className="text-primary">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    className="w-full px-4 py-3 bg-gray-50 border border-slate-200 rounded-lg text-text-main text-base transition-all duration-300 focus:outline-none focus:border-primary focus:bg-white"
+                    placeholder="홍길동"
+                    required
+                />
+                </div>
+                <div className="space-y-2">
+                  <label className="block text-sm font-semibold text-text-main"
+                    >이메일 <span className="text-primary">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    className="w-full px-4 py-3 bg-gray-50 border border-slate-200 rounded-lg text-text-main text-base transition-all duration-300 focus:outline-none focus:border-primary focus:bg-white"
+                    placeholder="example@company.com"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="mb-6 space-y-2">
+                <label className="block text-sm font-semibold text-text-main"
+                  >제목 <span className="text-primary">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="title"
+                  className="w-full px-4 py-3 bg-gray-50 border border-slate-200 rounded-lg text-text-main text-base transition-all duration-300 focus:outline-none focus:border-primary focus:bg-white"
+                  placeholder="프로젝트 문의합니다."
+                  required
+                />
+              </div>
+
+              <div className="mb-6 space-y-2">
+                <label className="block text-sm font-semibold text-text-main"
+                  >문의 내용 <span className="text-primary">*</span>
+                </label>
+                <textarea
+                  name="message"
+                  rows={5}
+                  className="w-full px-4 py-3 bg-gray-50 border border-slate-200 rounded-lg text-text-main text-base transition-all duration-300 focus:outline-none focus:border-primary focus:bg-white resize-none"
+                  placeholder="프로젝트 내용이나 궁금하신 점을 적어주세요."
+                  required
+                />
+              </div>
+
+              <button
+                id="submit-btn"
+                type="submit"
+                className="max-h-12 w-full py-3.5 bg-text-main hover:bg-[#090d14] text-white font-bold text-lg rounded-lg transition-colors duration-300 mt-2 font-display shadow-lg shadow-gray-200 flex justify-center items-center cursor-pointer"
+              >
+                문의하기
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
