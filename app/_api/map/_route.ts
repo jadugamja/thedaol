@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  
+
   // 쿼리 파라미터
   const width = searchParams.get("w") || "800";
   const height = searchParams.get("h") || "400";
