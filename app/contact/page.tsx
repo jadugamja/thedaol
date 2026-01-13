@@ -107,8 +107,14 @@ export default function ContactPage() {
             </h2>
 
             <div className="w-full h-96 rounded-2xl overflow-hidden shadow-inner border border-gray-200 relative bg-gray-100">
-              <Image
+              {/* <Image
                 src={`/api/map?w=800&h=400&center=${COMPANY_LOCATION.lng},${COMPANY_LOCATION.lat}`}
+                alt="회사 위치 지도"
+                fill
+                className="object-cover"
+              /> */}
+              <Image
+                src={`/images/location.png`}
                 alt="회사 위치 지도"
                 fill
                 className="object-cover"

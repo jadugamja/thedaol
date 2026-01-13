@@ -10,10 +10,10 @@ export async function GET(request: NextRequest) {
   const height = searchParams.get("h") || "400";
   const center = searchParams.get("center") || "126.881038151818,37.4835033620443";
   const level = searchParams.get("level") || "16";
-  const markers = searchParams.get("markers") || `type:d|size:mid|color:Blue|pos:126.881038151818 37.4835033620443|label:더다올디앤씨`;
+  // const markers = searchParams.get("markers") || `type:d|size:mid|color:Blue|pos:126.881038151818 37.4835033620443|label:더다올디앤씨`;
 
   const url = 'https://maps.apigw.ntruss.com/map-static/v2/raster';
-  const params = `?w=${width}&h=${height}&center=${center}&level=${level}&markers=${encodeURIComponent(markers)}`;
+  const params = `?w=${width}&h=${height}&center=${center}&level=${level}`;
 
   try {
     const response = await fetch(url + params, {
