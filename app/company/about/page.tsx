@@ -1,3 +1,4 @@
+import DetailHero from "@/components/layout/detail/hero";
 import Sidebar from "@/components/layout/sidebar";
 import { COMPANY_MENU } from "@/lib/menu";
 import Image from "next/image";
@@ -7,30 +8,13 @@ import { MdOutlineHandshake, MdOutlineRocketLaunch } from "react-icons/md";
 export default function CompanyAboutPage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative bg-slate-900 py-24 sm:py-32 overflow-hidden max-h-[352px]">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 to-slate-800/90 mix-blend-multiply"></div>
-          <img
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
-            alt="Office background"
-            className="w-full h-full object-cover opacity-30"
-          />
-        </div>
-        <div className="relative z-10 max-w-5xl mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 font-display">
-            About Us
-          </h1>
-          <p className="text-lg text-slate-300 max-w-2xl leading-relaxed font-pretendard">
-            더다올디앤씨는 혁신적인 기술과 신뢰를 바탕으로
-            <br className="hidden sm:block" />
-            고객의 비즈니스 가치를 극대화하는 디지털 파트너입니다.
-          </p>
-        </div>
-      </section>
+      <DetailHero
+        imgSrc="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
+        title="About Us"
+        description="더다올디앤씨는 혁신적인 기술과 신뢰를 바탕으로 고객의 비즈니스 가치를 극대화하는 디지털 파트너입니다."
+      />
 
-      <div className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16">
-        {/* Sidebar */}
+      <div className="max-w-5xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16">
         <Sidebar title="Company" menu={COMPANY_MENU} current="/company/about" />
 
         <div className="flex-1 space-y-20">
@@ -47,10 +31,10 @@ export default function CompanyAboutPage() {
                   Better Tomorrow
                 </h2>
                 <p className="text-text-sub leading-relaxed font-pretendard break-keep">
-                  우리는 끊임없이 변화하는 IT 환경 속에서, 고객이 직면한
-                  문제를 기술로 해결하고 더 나은 미래를 만들어갑니다. 단순한
-                  시스템 구축을 넘어, 비즈니스의 본질적인 성장을 돕는 파트너가
-                  되는 것이 우리의 목표입니다.
+                  우리는 끊임없이 변화하는 IT 환경 속에서, 고객이 직면한 문제를
+                  기술로 해결하고 더 나은 미래를 만들어갑니다. 단순한 시스템
+                  구축을 넘어, 비즈니스의 본질적인 성장을 돕는 파트너가 되는
+                  것이 우리의 목표입니다.
                 </p>
               </div>
               <div className="grid grid-cols-1 gap-6">
@@ -99,14 +83,14 @@ export default function CompanyAboutPage() {
           >
             <div className="flex flex-col lg:flex-row gap-12 items-center">
               <div className="w-full lg:w-1/3 flex justify-center">
-                <div className="w-1/2 lg:w-[90%] aspect-[4/5] bg-gray-200 rounded-2xl overflow-hidden relative shadow-lg">
+                <div className="w-1/2 lg:w-[90%] aspect-4/5 bg-gray-200 rounded-2xl overflow-hidden relative shadow-lg">
                   <Image
                     src="/images/ceo.webp"
                     alt="CEO Image"
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent text-white">
+                  <div className="absolute bottom-0 left-0 w-full p-6 bg-linear-to-t from-black/80 to-transparent text-white">
                     <p className="text-sm opacity-80 mb-1">대표이사</p>
                     <p className="text-xl font-bold">박 규 원</p>
                   </div>
@@ -116,23 +100,21 @@ export default function CompanyAboutPage() {
                 <span className="text-secondary font-bold tracking-widest uppercase text-sm font-display mb-2 block">
                   CEO Message
                 </span>
-                <h2 className="text-xl md:text-3xl font-bold mb-8 text-text-main">
+                <h2 className="text-xl md:text-2xl font-bold mb-8 text-text-main">
                   "고객의 요구를 정확히 이해하고, <br />
                   최적의 솔루션을 제공합니다."
                 </h2>
-                <div className="space-y-6 text-text-sub leading-relaxed font-pretendard text-base md:text-lg">
+                <div className="space-y-6 text-text-sub leading-relaxed font-pretendard text-base">
+                  <p>안녕하세요. 더다올디앤씨를 찾아주신 여러분 환영합니다.</p>
                   <p>
-                    안녕하세요. 더다올디앤씨를 찾아주신 여러분 환영합니다.
-                  </p>
-                  <p>
-                    저희는 정보시스템 기획·설계부터 맞춤형 프로그램 개발,
-                    시스템 유지보수까지 전문적으로 수행하고 있습니다.
+                    저희는 정보시스템 기획·설계부터 맞춤형 프로그램 개발, 시스템
+                    유지보수까지 전문적으로 수행하고 있습니다.
                   </p>
                   <p>
                     솔루션 중심의 시스템 통합 전략을 바탕으로
-                    공공·금융·제조·물류 등 다양한 산업 분야에서 사업을
-                    전개하고 있으며, 축적된 SI·컨설팅·AI 기술력으로 고객의
-                    디지털 혁신을 지원합니다.
+                    공공·금융·제조·물류 등 다양한 산업 분야에서 사업을 전개하고
+                    있으며, 축적된 SI·컨설팅·AI 기술력으로 고객의 디지털 혁신을
+                    지원합니다.
                   </p>
                   <p>감사합니다.</p>
                 </div>

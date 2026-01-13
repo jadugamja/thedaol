@@ -22,7 +22,7 @@ export default function CompanyPartnersPage() {
         title="Partnership"
         description="더다올디앤씨와 함께 성장하는 신뢰받는 파트너를 소개합니다." />
 
-      <div className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16 min-h-124">
+      <div className="max-w-5xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16 min-h-124">
         <Sidebar title="Company" menu={COMPANY_MENU} current="/company/partners" />
 
         {/* Main Content - Partner Logos Grid */}

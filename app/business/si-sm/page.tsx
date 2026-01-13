@@ -73,7 +73,7 @@ export default function BusinessSiSmPage() {
         description="고객의 비즈니스 가치를 극대화하는 맞춤형 시스템 구축 및 운영 서비스"
       />
 
-      <div className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16 min-h-124">
+      <div className="max-w-5xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16 min-h-124">
         <Sidebar title="Business" menu={BUSINESS_MENU} current="/business/si-sm" />
 
         <div className="flex-1 space-y-20">
@@ -133,6 +133,7 @@ export default function BusinessSiSmPage() {
     </>
   );
 }
+
 const SICard = ({ icon, title, items }: { icon: React.ReactNode; title: string; items: string[] }) => {
   return (
     <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all group">

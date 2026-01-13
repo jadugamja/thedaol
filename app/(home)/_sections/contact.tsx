@@ -1,6 +1,51 @@
-import { MdOutlineCall, MdOutlineEmail, MdOutlineLocationOn, MdOutlinePrint } from "react-icons/md";
+"use client";
+
+import { FormEvent, useState } from "react";
+import {
+  MdOutlineCall,
+  MdOutlineEmail,
+  MdOutlineLocationOn,
+  MdOutlinePrint,
+} from "react-icons/md";
+import emailjs from "@emailjs/browser";
+import { CgSpinner } from "react-icons/cg";
 
 export default function HomeContact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    title: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          name: formData.name,
+          email: formData.email,
+          title: formData.title,
+          message: formData.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      alert("문의가 접수되었습니다!");
+      setFormData({ name: "", email: "", title: "", message: "" });
+    } catch (error) {
+      console.error("메일 전송 실패:", error);
+      alert("메일 전송에 실패했습니다. 다시 시도해주세요.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -9,27 +54,22 @@ export default function HomeContact() {
       <div className="max-w-5xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-24">
           <div className="lg:col-span-2 space-y-10">
-            <h2
-              className="text-3xl md:text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-4xl"
-            >
+            <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-4xl">
               문의하기
             </h2>
             <p className="text-text-sub text-base leading-relaxed break-keep">
-              프로젝트 문의나 기술 상담이 필요하시다면 언제든 연락주세요.<br />
+              프로젝트 문의나 기술 상담이 필요하시다면 언제든 연락주세요.
+              <br />
               담당자가 확인 후 신속하게 답변 드리겠습니다.
             </p>
 
             <div className="space-y-9">
               <div className="flex items-start gap-4">
-                <div
-                  className="size-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary"
-                >
+                <div className="size-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary">
                   <MdOutlineEmail className="text-xl" />
                 </div>
-                <div className="space-y-[2px]">
-                  <p
-                    className="text-sm font-bold text-text-sub uppercase tracking-wide"
-                  >
+                <div className="space-y-0.5">
+                  <p className="text-sm font-bold text-text-sub uppercase tracking-wide">
                     이메일
                   </p>
                   <p className="text-base font-bold text-text-main font-sans">
@@ -38,15 +78,11 @@ export default function HomeContact() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div
-                  className="size-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary"
-                >
+                <div className="size-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary">
                   <MdOutlineCall className="text-xl" />
                 </div>
-                <div className="space-y-[2px]">
-                  <p
-                    className="text-sm font-bold text-text-sub uppercase tracking-wide"
-                  >
+                <div className="space-y-0.5">
+                  <p className="text-sm font-bold text-text-sub uppercase tracking-wide">
                     전화번호
                   </p>
                   <p className="text-base font-bold text-text-main font-sans">
@@ -55,15 +91,11 @@ export default function HomeContact() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div
-                  className="size-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary"
-                >
+                <div className="size-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary">
                   <MdOutlinePrint className="text-xl" />
                 </div>
-                <div className="space-y-[2px]">
-                  <p
-                    className="text-sm font-bold text-text-sub uppercase tracking-wide"
-                  >
+                <div className="space-y-0.5">
+                  <p className="text-sm font-bold text-text-sub uppercase tracking-wide">
                     팩스
                   </p>
                   <p className="text-base font-bold text-text-main font-sans">
@@ -72,22 +104,15 @@ export default function HomeContact() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div
-                  className="size-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary"
-                >
+                <div className="size-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary">
                   <MdOutlineLocationOn className="text-xl" />
                 </div>
-                <div className="space-y-[2px]">
-                  <p
-                    className="text-sm font-bold text-text-sub uppercase tracking-wide"
-                  >
+                <div className="space-y-0.5">
+                  <p className="text-sm font-bold text-text-sub uppercase tracking-wide">
                     주소
                   </p>
-                  <p
-                    className="text-base font-bold text-text-main font-sans break-keep"
-                  >
-                    서울특별시 금천구 가산디지털1로 204, 아이비밸리 8층
-                    802호
+                  <p className="text-base font-bold text-text-main font-sans break-keep">
+                    서울특별시 금천구 가산디지털1로 204, 아이비밸리 8층 802호
                   </p>
                 </div>
               </div>
@@ -98,20 +123,17 @@ export default function HomeContact() {
             <form
               id="contact-form"
               className="bg-white p-8 lg:p-10 rounded-2xl border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
+              onSubmit={handleSubmit}
             >
               <div className="flex justify-end mb-6">
-                <p
-                  className="text-xs font-medium text-primary bg-primary/5 px-3 py-1 rounded-full"
-                >
+                <p className="text-xs font-medium text-primary bg-primary/5 px-3 py-1 rounded-full">
                   * 필수 입력 항목
                 </p>
               </div>
-              <div
-                className="grid grid-cols-1 md:md:grid-cols-[3.5fr_6.5fr] gap-6 mb-6"
-              >
+              <div className="grid grid-cols-1 md:md:grid-cols-[3.5fr_6.5fr] gap-6 mb-6">
                 <div className="space-y-2">
-                  <label className="block text-sm font-semibold text-text-main"
-                    >성함 <span className="text-primary">*</span>
+                  <label className="block text-sm font-semibold text-text-main">
+                    성함 <span className="text-primary">*</span>
                   </label>
                   <input
                     type="text"
@@ -119,11 +141,13 @@ export default function HomeContact() {
                     className="w-full px-4 py-3 bg-gray-50 border border-slate-200 rounded-lg text-text-main text-base transition-all duration-300 focus:outline-none focus:border-primary focus:bg-white"
                     placeholder="홍길동"
                     required
-                />
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  />
                 </div>
                 <div className="space-y-2">
-                  <label className="block text-sm font-semibold text-text-main"
-                    >이메일 <span className="text-primary">*</span>
+                  <label className="block text-sm font-semibold text-text-main">
+                    이메일 <span className="text-primary">*</span>
                   </label>
                   <input
                     type="email"
@@ -131,13 +155,15 @@ export default function HomeContact() {
                     className="w-full px-4 py-3 bg-gray-50 border border-slate-200 rounded-lg text-text-main text-base transition-all duration-300 focus:outline-none focus:border-primary focus:bg-white"
                     placeholder="example@company.com"
                     required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   />
                 </div>
               </div>
 
               <div className="mb-6 space-y-2">
-                <label className="block text-sm font-semibold text-text-main"
-                  >제목 <span className="text-primary">*</span>
+                <label className="block text-sm font-semibold text-text-main">
+                  제목 <span className="text-primary">*</span>
                 </label>
                 <input
                   type="text"
@@ -145,12 +171,14 @@ export default function HomeContact() {
                   className="w-full px-4 py-3 bg-gray-50 border border-slate-200 rounded-lg text-text-main text-base transition-all duration-300 focus:outline-none focus:border-primary focus:bg-white"
                   placeholder="프로젝트 문의합니다."
                   required
+                  value={formData.title}
+                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                 />
               </div>
 
               <div className="mb-6 space-y-2">
-                <label className="block text-sm font-semibold text-text-main"
-                  >문의 내용 <span className="text-primary">*</span>
+                <label className="block text-sm font-semibold text-text-main">
+                  문의 내용 <span className="text-primary">*</span>
                 </label>
                 <textarea
                   name="message"
@@ -158,15 +186,21 @@ export default function HomeContact() {
                   className="w-full px-4 py-3 bg-gray-50 border border-slate-200 rounded-lg text-text-main text-base transition-all duration-300 focus:outline-none focus:border-primary focus:bg-white resize-none"
                   placeholder="프로젝트 내용이나 궁금하신 점을 적어주세요."
                   required
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 />
               </div>
 
               <button
                 id="submit-btn"
                 type="submit"
-                className="max-h-12 w-full py-3.5 bg-text-main hover:bg-[#090d14] text-white font-bold text-lg rounded-lg transition-colors duration-300 mt-2 font-display shadow-lg shadow-gray-200 flex justify-center items-center cursor-pointer"
+                className="h-12 w-full py-3.5 bg-text-main hover:bg-[#090d14] text-white font-bold text-lg rounded-lg transition-colors duration-300 mt-2 font-display shadow-lg shadow-gray-200 flex justify-center items-center cursor-pointer"
               >
-                문의하기
+                {isSubmitting ? (
+                  <CgSpinner className="animate-spin" />
+                ) : (
+                  "문의하기"
+                )}
               </button>
             </form>
           </div>

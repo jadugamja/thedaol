@@ -12,10 +12,10 @@ export default function BusinessConsultingPage() {
         description="성공적인 디지털 전환을 위한 최적의 IT 전략과 로드맵을 제시합니다"
       />
 
-      <div className="max-w-6xl mx-auto px-6 py-24 flex flex-col md:flex-row gap-16 items-start min-h-124">
+      <div className="max-w-5xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16 items-start min-h-124">
         <Sidebar title="Business" menu={BUSINESS_MENU} current="/business/consulting" />
 
-        <div className="flex-1 min-w-0 space-y-24">
+        <div className="flex-1 min-w-0 space-y-20">
           {/* Consulting Fields */}
           <section>
             <div className="flex items-center gap-4 mb-8">
@@ -131,7 +131,7 @@ export default function BusinessConsultingPage() {
                 </div>
 
                 {/* Arrow for Desktop */}
-                <div className="hidden md:flex absolute top-1/2 left-[33%] -translate-y-1/2 text-gray-300">
+                <div className="hidden md:flex absolute top-1/2 left-[26%] -translate-y-1/2 text-gray-300">
                   <MdChevronRight className="text-4xl" />
                 </div>
 
@@ -151,7 +151,7 @@ export default function BusinessConsultingPage() {
                 </div>
 
                 {/* Arrow for Desktop */}
-                <div className="hidden md:flex absolute top-1/2 right-[33%] -translate-y-1/2 text-gray-300">
+                <div className="hidden md:flex absolute top-1/2 right-[28%] -translate-y-1/2 text-gray-300">
                   <MdChevronRight className="text-4xl" />
                 </div>
 

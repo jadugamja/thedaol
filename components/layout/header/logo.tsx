@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Logo() {
+export default function Logo({ onClick }: { onClick?: () => void }) {
   return (
     <div className="flex items-start py-3 min-h-9">
-      <Link className="flex items-center py-3 gap-2" href="/">
+      <Link className="flex items-center py-3 gap-2" href="/" onClick={onClick}>
         <Image
           src="/images/logo/icon.webp"
           width={33}

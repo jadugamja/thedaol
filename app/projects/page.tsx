@@ -50,14 +50,11 @@ export default function ProjectsPage() {
   return (
     <>
       {/* 1. Hero Section */}
-      <section className="relative bg-slate-900 py-24 sm:py-32 overflow-hidden max-h-[352px]">
+      <section className="relative bg-slate-900 py-24 sm:py-32 overflow-hidden max-h-88">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#2a4167] to-black"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-slate-900 via-[#2a4167] to-black"></div>
         </div>
         <div className="relative z-10 max-w-5xl mx-auto px-6 h-full flex flex-col justify-center">
-          {/* <span className="text-primary font-bold tracking-widest uppercase text-sm font-display mb-4 block">
-            Portfolio
-          </span> */}
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">
             Major Projects
           </h1>
@@ -67,8 +64,7 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <div className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16">
-        {/* Sidebar */}
+      <div className="max-w-5xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16">
         <Sidebar title="Projects" />
 
         {/* Main Content */}

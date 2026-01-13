@@ -1,5 +1,17 @@
+"use client";
+
+import { FormEvent, useState } from "react";
+import Image from "next/image";
 import Sidebar from "@/components/layout/sidebar";
-import { MdCall, MdEmail, MdLocationOn, MdMap, MdPrint } from "react-icons/md";
+import { MdCall, MdEmail, MdLocationOn, MdPrint } from "react-icons/md";
+import { CgSpinner } from "react-icons/cg";
+import emailjs from "@emailjs/browser";
+
+// 회사 좌표
+const COMPANY_LOCATION = {
+  lat: 37.4835033620443,
+  lng: 126.881038151818,
+};
 
 const CONTACT_INFO = [
   {
@@ -25,6 +37,41 @@ const CONTACT_INFO = [
 ];
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    title: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          name: formData.name,
+          email: formData.email,
+          title: formData.title,
+          message: formData.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      alert("문의가 접수되었습니다!");
+      setFormData({ name: "", email: "", title: "", message: "" });
+    } catch (error) {
+      console.error("메일 전송 실패:", error);
+      alert("메일 전송에 실패했습니다. 다시 시도해주세요.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <>
       {/* Hero Section */}
@@ -33,9 +80,6 @@ export default function ContactPage() {
           <div className="absolute inset-0 bg-linear-to-br from-slate-900 via-[#2a4167] to-black"></div>
         </div>
         <div className="relative z-10 max-w-5xl mx-auto px-6 h-full flex flex-col justify-center">
-          <span className="text-primary font-bold tracking-widest uppercase text-sm font-display mb-4 block">
-            Get In Touch
-          </span>
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">
             Contact Us
           </h1>
@@ -45,7 +89,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <div className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16 min-h-124">
+      <div className="max-w-5xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16 min-h-124">
         <Sidebar title="Contact" />
 
         {/* Main Content */}
@@ -62,17 +106,13 @@ export default function ContactPage() {
               Office Map
             </h2>
 
-            <div className="w-full h-96 bg-gray-200 rounded-2xl overflow-hidden relative shadow-inner border border-gray-200 group">
-              <div className="absolute inset-0 flex items-center justify-center text-gray-400 bg-gray-100 group-hover:bg-gray-50 transition-colors">
-                <div className="text-center">
-                  <MdMap className="text-4xl mb-2 text-gray-300 mx-auto" />
-                  <p className="text-sm text-gray-500">
-                    지도가 로드되는 영역입니다
-                    <br />
-                    (Google Map API)
-                  </p>
-                </div>
-              </div>
+            <div className="w-full h-96 rounded-2xl overflow-hidden shadow-inner border border-gray-200 relative bg-gray-100">
+              <Image
+                src={`/api/map?w=800&h=400&center=${COMPANY_LOCATION.lng},${COMPANY_LOCATION.lat}`}
+                alt="회사 위치 지도"
+                fill
+                className="object-cover"
+              />
             </div>
           </section>
 
@@ -125,6 +165,7 @@ export default function ContactPage() {
             <form
               id="contact-form"
               className="bg-white p-8 lg:p-10 rounded-2xl border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
+              onSubmit={handleSubmit}
             >
               <div className="flex justify-end mb-6">
                 <p className="text-xs font-medium text-primary bg-primary/5 px-3 py-1 rounded-full">
@@ -141,6 +182,8 @@ export default function ContactPage() {
                     className="w-full px-4 py-3 bg-gray-50 border border-slate-200 rounded-lg focus:border-[#5887c2] focus:bg-white focus:outline-none transition-colors"
                     placeholder="홍길동"
                     required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   />
                 </div>
                 <div className="space-y-2">
@@ -152,6 +195,8 @@ export default function ContactPage() {
                     className="w-full px-4 py-3 bg-gray-50 border border-slate-200 rounded-lg focus:border-[#5887c2] focus:bg-white focus:outline-none transition-colors"
                     placeholder="example@company.com"
                     required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   />
                 </div>
               </div>
@@ -164,6 +209,8 @@ export default function ContactPage() {
                   className="w-full px-4 py-3 bg-gray-50 border border-slate-200 rounded-lg focus:border-[#5887c2] focus:bg-white focus:outline-none transition-colors"
                   placeholder="프로젝트 문의입니다."
                   required
+                  value={formData.title}
+                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                 />
               </div>
               <div className="mb-6 space-y-2">
@@ -175,13 +222,20 @@ export default function ContactPage() {
                   className="w-full px-4 py-3 bg-gray-50 border border-slate-200 rounded-lg focus:border-[#5887c2] focus:bg-white focus:outline-none resize-none transition-colors"
                   placeholder="문의 내용을 입력해주세요."
                   required
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 />
               </div>
               <button
                 type="submit"
-                className="w-full py-4 bg-text-main hover:bg-[#090d14] text-white font-bold rounded-lg transition-colors shadow-lg flex items-center justify-center gap-2 group cursor-pointer"
+                disabled={isSubmitting}
+                className="h-12 w-full py-4 bg-text-main hover:bg-[#090d14] disabled:bg-gray-400 text-white font-bold rounded-lg transition-colors shadow-lg flex items-center justify-center gap-2 group cursor-pointer"
               >
-                문의하기
+                {isSubmitting ? (
+                  <CgSpinner className="animate-spin text-2xl" />
+                ) : (
+                  "문의하기"
+                )}
               </button>
             </form>
           </section>

@@ -1,10 +1,33 @@
 "use client";
 
+import DetailHero from "@/components/layout/detail/hero";
 import Sidebar from "@/components/layout/sidebar";
 import { BUSINESS_MENU } from "@/lib/menu";
+import { cn } from "@/lib/utils";
 import { useEffect } from "react";
 import { MdChatBubbleOutline, MdOutlineVisibility } from "react-icons/md";
 import { RiDatabase2Line } from "react-icons/ri";
+
+const TECH_CARDS = [
+  { 
+    icon: <RiDatabase2Line className="text-blue-600 text-3xl" />,
+    color: "blue",
+    title: "Big Data",
+    description: "대용량 데이터의 수집, 저장, 처리를 위한 분산 처리 시스템 구축 및 데이터 파이프라인 최적화"
+   },
+  { 
+    icon: <MdChatBubbleOutline className="text-purple-600 text-3xl" />,
+    color: "purple",
+    title: "NLP",
+    description: "텍스트 분석, 감성 분석, 챗봇 등 인간의 언어를 이해하고 처리하는 자연어 처리 기술"
+  },
+  { 
+    icon: <MdOutlineVisibility className="text-teal-600 text-3xl" />,
+    color: "teal",
+    title: "Computer Vision",
+    description: "객체 인식, 이미지 분석 및 생성 등 이미지 데이터를 처리하는 컴퓨터 비전 기술"
+  },
+]
 
 export default function BusinessAiPage() {
   useEffect(() => {
@@ -60,27 +83,13 @@ export default function BusinessAiPage() {
 
   return (
     <>
-      {/* 1. Hero Section */}
-      <section className="relative bg-slate-900 py-24 sm:py-32 overflow-hidden max-h-[352px]">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 to-slate-800/90 mix-blend-multiply"></div>
-          <img
-            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200"
-            alt="AI Solution"
-            className="w-full h-full object-cover opacity-30"
-          />
-        </div>
-        <div className="relative z-10 max-w-5xl mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 font-display">
-            AI Solution
-          </h1>
-          <p className="text-lg text-slate-300 max-w-2xl leading-relaxed font-pretendard">
-            데이터의 가치를 발견하고, 비즈니스의 미래를 예측하는 지능형 솔루션
-          </p>
-        </div>
-      </section>
+     <DetailHero
+      imgSrc="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200" 
+      title="AI Solution" 
+      description="데이터의 가치를 발견하고, 비즈니스의 미래를 예측하는 지능형 솔루션"
+    />
 
-      <div className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16">
+      <div className="max-w-5xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16">
         <Sidebar title="Business" menu={BUSINESS_MENU} current="/business/ai" />
 
         {/* Main Content */}
@@ -95,50 +104,16 @@ export default function BusinessAiPage() {
             <h2 className="text-3xl font-bold text-text-main mb-6">
               Advanced AI Tech
             </h2>
-            <p className="text-text-sub leading-relaxed mb-10">
+            <p className="text-text-sub leading-relaxed mb-10 break-keep">
               최신 딥러닝 알고리즘과 빅데이터 처리 기술을 결합하여 고객 맞춤형
               AI 모델을 개발합니다. 자연어 처리부터 컴퓨터 비전까지 폭넓은
               기술 스펙트럼을 보유하고 있습니다.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Big Data */}
-              <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all group">
-                <div className="size-14 rounded-xl bg-blue-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <RiDatabase2Line className="text-blue-600 text-3xl" />
-                </div>
-                <h3 className="font-bold text-xl mb-3 text-gray-900">Big Data</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  대용량 데이터의 수집, 저장, 처리를 위한 분산 처리 시스템
-                  구축 및 데이터 파이프라인 최적화
-                </p>
-              </div>
-
-              {/* NLP */}
-              <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all group">
-                <div className="size-14 rounded-xl bg-purple-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <MdChatBubbleOutline className="text-purple-600 text-3xl" />
-                </div>
-                <h3 className="font-bold text-xl mb-3 text-gray-900">NLP</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  텍스트 분석, 감성 분석, 챗봇 등 인간의 언어를 이해하고
-                  처리하는 자연어 처리 기술
-                </p>
-              </div>
-
-              {/* Vision */}
-              <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all group">
-                <div className="size-14 rounded-xl bg-teal-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <MdOutlineVisibility className="text-teal-600 text-3xl" />
-                </div>
-                <h3 className="font-bold text-xl mb-3 text-gray-900">
-                  Computer Vision
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  이미지 및 영상 데이터 분석을 통한 객체 인식, 이상 탐지, 안면
-                  인식 솔루션 제공
-                </p>
-              </div>
+              {TECH_CARDS.map((card, index) => (
+                <TechCard key={index} {...card} />
+              ))}
             </div>
           </section>
 
@@ -226,5 +201,32 @@ export default function BusinessAiPage() {
         </div>
       </div>
     </>
+  );
+}
+
+const TechCard = ({ icon, title, description, color }: { icon: React.ReactNode; title: string; description: string; color: string }) => {
+  const getBgColor = (color: string) => {
+    if (color === "blue") {
+      return "bg-blue-50";
+    } else if (color === "purple") {
+      return "bg-purple-50";
+    } else if (color === "teal") {
+      return "bg-teal-50";
+    }
+  }
+
+  return (
+    <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all group">
+      <div className={cn(
+        "size-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300", 
+        getBgColor(color))}
+      >
+        {icon}  
+      </div>
+      <h3 className="font-bold text-xl mb-3 text-gray-900">{title}</h3>
+      <p className="text-sm text-gray-500 leading-relaxed break-keep">
+        {description}
+      </p>
+    </div>
   );
 }

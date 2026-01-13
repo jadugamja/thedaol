@@ -39,7 +39,7 @@ export default function CompanyHistoryPage() {
         title="History"
         description="더다올디앤씨가 걸어온 길과 앞으로 나아갈 비전을 소개합니다. 끊임없는 도전과 혁신으로 성장해왔습니다."
       />
-      <div className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16">
+      <div className="max-w-5xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16">
         <Sidebar title="Company" menu={COMPANY_MENU} current="/company/history" />
 
         {/* Main Content - Timeline */}

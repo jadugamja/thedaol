@@ -10,7 +10,7 @@ export default function CompanyOrganizationPage() {
         title="Organization" 
         description="효율적인 의사결정과 전문성을 갖춘 조직 구성" />  
 
-      <div className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16 min-h-124">
+      <div className="max-w-5xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16 min-h-124">
         <Sidebar title="Company" menu={COMPANY_MENU} current="/company/organization" />
 
         <section className="flex-1 mt-4">
