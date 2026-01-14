@@ -1,46 +1,52 @@
 import DetailHero from "@/components/layout/detail/hero";
 import Sidebar from "@/components/layout/sidebar";
-import { COMPANY_MENU } from "@/lib/menu";
+import { COMPANY_MENU } from "@/constants/menu";
 
 const HISTORY = [
   {
     year: "2025",
     events: [
-      "지능형 AI 관제 솔루션 상용화",
-      "공공기관 클라우드 전환 지원사업 주관기업 선정",
+      "09. 국회 e-의안시스템 차세대 분석/설계",
     ],
   },
   {
     year: "2024",
     events: [
-      "AI 기반 금융 리스크 관리 시스템 고도화",
-      "공공기관 차세대 시스템 구축 사업 수주",
+      "12. 관세청 상용솔루션 성능 및 기능 검증",
+      "04. SNET 중고차 및 강원랜드 유지보수",
     ],
   },
   {
     year: "2023",
     events: [
-      "기업부설연구소 설립 및 벤처기업 인증",
-      "자체 AI 솔루션 'Daol-AI' Beta 출시",
-      "기술혁신형 중소기업(Inno-Biz) 인증 획득",
+      "11. SNET 강원랜드 유지보수",
+      "06. CBTI 진단 시스템 구축",
+      "03. 사회연대은행 구축 제안",
     ],
   },
   {
     year: "2022",
-    events: ["주식회사 더다올디앤씨 설립"],
+    events: [
+      "08. 국회입안지원 시스템 고도화 구축",
+      "07. 인디에프 통합관리 시스템 연계 수행",
+      "06. 주식회사 더다올디앤씨 설립"],
   },
 ];
 
 export default function CompanyHistoryPage() {
   return (
     <>
-      <DetailHero 
+      <DetailHero
         imgSrc="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80"
         title="History"
         description="더다올디앤씨가 걸어온 길과 앞으로 나아갈 비전을 소개합니다. 끊임없는 도전과 혁신으로 성장해왔습니다."
       />
       <div className="max-w-5xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16">
-        <Sidebar title="Company" menu={COMPANY_MENU} current="/company/history" />
+        <Sidebar
+          title="Company"
+          menu={COMPANY_MENU}
+          current="/company/history"
+        />
 
         {/* Main Content - Timeline */}
         <section className="flex-1">
@@ -55,12 +61,24 @@ export default function CompanyHistoryPage() {
                       {year}
                     </span>
                     <ul className="space-y-3 text-text-sub font-pretendard flex-1">
-                      {events.map((event, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <span className="mt-2 size-1.5 bg-text-sub rounded-full shrink-0"></span>
-                          <span>{event}</span>
-                        </li>
-                      ))}
+                      {events.map((event, idx) => {
+                        const match = event.match(/^(\d{2})\.\s*(.+)$/);
+                        const month = match ? match[1] : null;
+                        const description = match ? match[2] : event;
+
+                        return (
+                          <li key={idx} className="leading-relaxed">
+                            {month ? (
+                              <>
+                                <span className="text-slate-600 font-semibold mr-2">{month}월</span>
+                                <span>{description}</span>
+                              </>
+                            ) : (
+                              <span>{event}</span>
+                            )}
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                 </div>

@@ -1,6 +1,6 @@
 import DetailHero from "@/components/layout/detail/hero";
 import Sidebar from "@/components/layout/sidebar";
-import { COMPANY_MENU } from "@/lib/menu";
+import { COMPANY_MENU } from "@/constants/menu";
 import Image from "next/image";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { MdOutlineHandshake, MdOutlineRocketLaunch } from "react-icons/md";

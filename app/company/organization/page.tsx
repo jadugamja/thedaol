@@ -1,17 +1,22 @@
 import DetailHero from "@/components/layout/detail/hero";
 import Sidebar from "@/components/layout/sidebar";
-import { COMPANY_MENU } from "@/lib/menu";
+import { COMPANY_MENU } from "@/constants/menu";
 
 export default function CompanyOrganizationPage() {
   return (
     <>
       <DetailHero
-        imgSrc="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200" 
-        title="Organization" 
-        description="효율적인 의사결정과 전문성을 갖춘 조직 구성" />  
+        imgSrc="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200"
+        title="Organization"
+        description="효율적인 의사결정과 전문성을 갖춘 조직 구성"
+      />
 
       <div className="max-w-5xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16 min-h-124">
-        <Sidebar title="Company" menu={COMPANY_MENU} current="/company/organization" />
+        <Sidebar
+          title="Company"
+          menu={COMPANY_MENU}
+          current="/company/organization"
+        />
 
         <section className="flex-1 mt-4">
           <div className="flex flex-col items-center w-full max-w-3xl mx-auto">
@@ -76,9 +81,7 @@ export default function CompanyOrganizationPage() {
                 </div>
 
                 <div className="w-full md:w-44 p-4 bg-white border border-gray-200 rounded-lg text-center shadow-sm hover:shadow-md transition-shadow">
-                  <h4 className="font-bold text-text-main text-base">
-                    영업부
-                  </h4>
+                  <h4 className="font-bold text-text-main text-base">영업부</h4>
                 </div>
                 <div className="w-full h-8 relative">
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0.5 h-full bg-gray-300"></div>

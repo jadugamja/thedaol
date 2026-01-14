@@ -1,6 +1,6 @@
 import DetailHero from "@/components/layout/detail/hero";
 import Sidebar from "@/components/layout/sidebar";
-import { BUSINESS_MENU } from "@/lib/menu";
+import { BUSINESS_MENU } from "@/constants/menu";
 import { MdChevronRight } from "react-icons/md";
 
 export default function BusinessConsultingPage() {
@@ -13,7 +13,11 @@ export default function BusinessConsultingPage() {
       />
 
       <div className="max-w-5xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16 items-start min-h-124">
-        <Sidebar title="Business" menu={BUSINESS_MENU} current="/business/consulting" />
+        <Sidebar
+          title="Business"
+          menu={BUSINESS_MENU}
+          current="/business/consulting"
+        />
 
         <div className="flex-1 min-w-0 space-y-20">
           {/* Consulting Fields */}
@@ -124,8 +128,10 @@ export default function BusinessConsultingPage() {
                     1. 환경 분석 (Analyze)
                   </h4>
                   <p className="text-sm text-text-sub leading-relaxed">
-                    대내외 환경 분석<br />
-                    현황 진단 및 이슈 도출<br />
+                    대내외 환경 분석
+                    <br />
+                    현황 진단 및 이슈 도출
+                    <br />
                     벤치마킹
                   </p>
                 </div>
@@ -144,8 +150,10 @@ export default function BusinessConsultingPage() {
                     2. 목표 수립 (Design)
                   </h4>
                   <p className="text-sm text-text-sub leading-relaxed">
-                    비전 및 전략 수립<br />
-                    목표 모델(To-Be) 설계<br />
+                    비전 및 전략 수립
+                    <br />
+                    목표 모델(To-Be) 설계
+                    <br />
                     Gap 분석
                   </p>
                 </div>
@@ -160,10 +168,14 @@ export default function BusinessConsultingPage() {
                   <div className="size-20 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 mx-auto text-3xl group-hover:scale-110 transition-transform duration-300">
                     🚀
                   </div>
-                  <h4 className="font-bold text-lg mb-3">3. 이행 계획 (Plan)</h4>
+                  <h4 className="font-bold text-lg mb-3">
+                    3. 이행 계획 (Plan)
+                  </h4>
                   <p className="text-sm text-text-sub leading-relaxed">
-                    이행 로드맵 수립<br />
-                    소요 예산 및 인력 산정<br />
+                    이행 로드맵 수립
+                    <br />
+                    소요 예산 및 인력 산정
+                    <br />
                     기대 효과 분석
                   </p>
                 </div>

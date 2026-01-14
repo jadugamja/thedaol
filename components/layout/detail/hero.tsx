@@ -9,7 +9,7 @@ export default function DetailHero({ imgSrc, title, description }: { imgSrc: str
           className="size-full object-cover opacity-30"
         />
       </div>
-      <div className="relative z-10 max-w-5xl mx-auto px-6">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 selection:bg-zinc-100 selection:text-[#131f1e]">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 font-display">
           {title}
         </h1>

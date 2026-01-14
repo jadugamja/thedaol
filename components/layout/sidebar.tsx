@@ -1,11 +1,11 @@
-import { MenuItem } from "@/lib/menu";
+import { MenuItem } from "@/constants/menu";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 export default function Sidebar({
   title,
   menu,
-  current
+  current,
 }: {
   title: string;
   menu?: MenuItem[];
@@ -25,7 +25,8 @@ export default function Sidebar({
               {menu.map(({ name, href }) => (
                 <li key={name}>
                   <Link
-                    className={cn("block hover:text-primary dark:hover:text-primary transition-colors py-1",
+                    className={cn(
+                      "block hover:text-primary dark:hover:text-primary transition-colors py-1",
                       current === href && "text-primary font-bold"
                     )}
                     href={href}

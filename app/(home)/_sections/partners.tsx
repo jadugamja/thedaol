@@ -1,15 +1,5 @@
+import { PARTNERS } from "@/constants/partners";
 import Image from "next/image";
-
-const PARTNERS = [
-  { name: "국회", image: "/images/ci/national-assembly.webp" },
-  { name: "함께 만드는 세상", image: "/images/ci/together.webp" },
-  { name: "NH농축협", image: "/images/ci/nh.webp" },
-  { name: "BNK부산은행", image: "/images/ci/bnk.webp" },
-  { name: "Posco DX", image: "/images/ci/posco.webp" },
-  { name: "LG CNS", image: "/images/ci/lg-cns.webp" },
-  { name: "Hyundai Card", image: "/images/ci/hyundai-card.webp" },
-  { name: "KT DS", image: "/images/ci/kt-ds.webp" },
-]
 
 export default function HomePartners() {
   return (

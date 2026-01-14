@@ -2,7 +2,7 @@ import { MdArrowForward, MdOutlineFileDownload } from "react-icons/md";
 
 export default function HomeHero() {
   return (
-    <section className="relative z-40 h-[calc(100vh-4.5rem)] grow flex items-center justify-center px-6 py-20 lg:pt-[12.5rem] lg:pb-32 overflow-hidden">
+    <section className="relative z-40 h-[calc(100vh-10rem)] lg:h-[calc(100vh-4.5rem)] grow flex items-center justify-center px-6 py-20 lg:pt-[12.5rem] lg:pb-32 overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none select-none">
         {/* background 도형 */}
         <div className="relative size-100 md:size-175 lg:size-200 animate-spin-slow">
