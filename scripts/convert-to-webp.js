@@ -6,8 +6,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 async function convertToWebP() {
-  const inputPath = path.join(__dirname, 'public/images/thumbnail/customs.png');
-  const outputPath = path.join(__dirname, 'public/images/thumbnail/customs.webp');
+  const inputPath = path.join(__dirname, 'public/images/thumbnail/cbti.png');
+  const outputPath = path.join(__dirname, 'public/images/thumbnail/cbti.webp');
 
   console.log('🔄 Converting:', inputPath);
   console.log('📝 Output:', outputPath);
@@ -17,7 +17,7 @@ async function convertToWebP() {
       .webp({ quality: 80 }) // 80% 품질로 압축
       .toFile(outputPath);
     
-    console.log('✅ Successfully converted nia.png to nia.webp');
+    console.log('✅ Successfully converted png to webp');
   } catch (error) {
     console.error('❌ Error converting image:', error);
   }
