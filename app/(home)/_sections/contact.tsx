@@ -66,7 +66,7 @@ export default function HomeContact() {
             <div className="space-y-9">
               <div className="flex items-start gap-4">
                 <div className="size-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary">
-                  <MdOutlineEmail className="text-xl" />
+                  <MdOutlineEmail className="text-2xl" />
                 </div>
                 <div className="space-y-0.5">
                   <p className="text-sm font-bold text-text-sub uppercase tracking-wide">
@@ -79,7 +79,7 @@ export default function HomeContact() {
               </div>
               <div className="flex items-start gap-4">
                 <div className="size-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary">
-                  <MdOutlineCall className="text-xl" />
+                  <MdOutlineCall className="text-2xl" />
                 </div>
                 <div className="space-y-0.5">
                   <p className="text-sm font-bold text-text-sub uppercase tracking-wide">
@@ -92,7 +92,7 @@ export default function HomeContact() {
               </div>
               <div className="flex items-start gap-4">
                 <div className="size-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary">
-                  <MdOutlinePrint className="text-xl" />
+                  <MdOutlinePrint className="text-2xl" />
                 </div>
                 <div className="space-y-0.5">
                   <p className="text-sm font-bold text-text-sub uppercase tracking-wide">
@@ -105,7 +105,7 @@ export default function HomeContact() {
               </div>
               <div className="flex items-start gap-4">
                 <div className="size-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary">
-                  <MdOutlineLocationOn className="text-xl" />
+                  <MdOutlineLocationOn className="text-2xl" />
                 </div>
                 <div className="space-y-0.5">
                   <p className="text-sm font-bold text-text-sub uppercase tracking-wide">
@@ -142,7 +142,9 @@ export default function HomeContact() {
                     placeholder="홍길동"
                     required
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={e =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                   />
                 </div>
                 <div className="space-y-2">
@@ -156,7 +158,9 @@ export default function HomeContact() {
                     placeholder="example@company.com"
                     required
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={e =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                   />
                 </div>
               </div>
@@ -172,7 +176,9 @@ export default function HomeContact() {
                   placeholder="프로젝트 문의합니다."
                   required
                   value={formData.title}
-                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                  onChange={e =>
+                    setFormData({ ...formData, title: e.target.value })
+                  }
                 />
               </div>
 
@@ -187,7 +193,9 @@ export default function HomeContact() {
                   placeholder="프로젝트 내용이나 궁금하신 점을 적어주세요."
                   required
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  onChange={e =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                 />
               </div>
 

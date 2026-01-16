@@ -21,7 +21,7 @@ export default function BusinessCard({
       <h3 className="text-xl font-bold text-text-main mb-3 font-display">
         {title}
       </h3>
-      <p className="text-text-sub leading-relaxed text-sm mb-5 break-keep">
+      <p className="text-text-sub leading-relaxed text-base mb-5 break-keep">
         {description}
       </p>
       <ul className="space-y-2 text-sm text-text-main border-t border-gray-100 pt-5">

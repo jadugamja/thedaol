@@ -11,21 +11,21 @@ const BUSINESS_ITEMS = [
     description: "데이터 기반의 AI 기술을 도입하여 미래 지향적인 가치를 창출합니다.",
     item1: "빅데이터 분석/처리",
     item2: "AI 모델링 및 서비스",
-    icon: <PiHeadCircuit className="-scale-x-100 h-6 w-auto" />,
+    icon: <PiHeadCircuit className="-scale-x-100 h-8 w-auto" />,
   },
   {
     title: "SI / SM",
     description: "비즈니스 환경에 맞는 시스템 구축 및 운영 서비스를 지원합니다.",
     item1: "공공·금융·제조 분야 시스템 통합 구축",
     item2: "통합 유지보수 및 시스템 운영",
-    icon: <MdOutlineHub className="size-6" />,
+    icon: <MdOutlineHub className="size-8" />,
   },
   {
     title: "IT Consulting",
     description: "디지털 전환(DX)을 위한 최적의 IT 전략과 로드맵을 제시합니다.",
     item1: "IT 인프라 진단 및 전략 수립",
     item2: "최적의 시스템 아키텍처 설계",
-    icon: <MdOutlineLightbulb className="size-6" />,
+    icon: <MdOutlineLightbulb className="size-8" />,
   },
 ];
 
