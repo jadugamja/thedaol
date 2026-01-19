@@ -12,4 +12,4 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
 };
 
-export default nextConfig;  
+export default nextConfig;

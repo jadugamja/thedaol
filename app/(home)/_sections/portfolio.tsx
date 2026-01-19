@@ -15,14 +15,8 @@ export default function HomePortfolio() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {PROJECTS.map(({ title, description, image, category }) => (
-            <PortfolioCard
-              key={title}
-              title={title}
-              description={description}
-              image={image}
-              category={category}
-            />
+          {PROJECTS.map((project) => (
+            <PortfolioCard key={project.title} {...project} />
           ))}
         </div>
       </div>
