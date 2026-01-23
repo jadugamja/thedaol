@@ -23,12 +23,12 @@ export default function NaverMap() {
         // 2. 지도 생성
         const location = new window.naver.maps.LatLng(
           37.4835033620443, // 위도
-          126.881038151818, // 경도
+          126.881038151818 // 경도
         );
 
         const mapOptions = {
           center: location,
-          zoom: 17,
+          zoom: 16,
           zoomControl: true,
           zoomControlOptions: {
             position: window.naver.maps.Position.TOP_RIGHT,
