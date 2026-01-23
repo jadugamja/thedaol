@@ -6,6 +6,7 @@ import Sidebar from "@/components/layout/sidebar";
 import { MdCall, MdEmail, MdLocationOn, MdPrint } from "react-icons/md";
 import { CgSpinner } from "react-icons/cg";
 import emailjs from "@emailjs/browser";
+import NaverMap from "@/components/utils/NaverMap";
 
 // 회사 좌표
 const COMPANY_LOCATION = {
@@ -59,7 +60,7 @@ export default function ContactPage() {
           title: formData.title,
           message: formData.message,
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
       );
 
       alert("문의가 접수되었습니다!");
@@ -107,18 +108,13 @@ export default function ContactPage() {
             </h2>
 
             <div className="w-full h-96 rounded-2xl overflow-hidden shadow-inner border border-gray-200 relative bg-gray-100">
+              <NaverMap />
               {/* <Image
                 src={`/api/map?w=800&h=400&center=${COMPANY_LOCATION.lng},${COMPANY_LOCATION.lat}`}
                 alt="회사 위치 지도"
                 fill
                 className="object-cover"
               /> */}
-              <Image
-                src={`/images/location.png`}
-                alt="회사 위치 지도"
-                fill
-                className="object-cover"
-              />
             </div>
           </section>
 
@@ -189,7 +185,9 @@ export default function ContactPage() {
                     placeholder="홍길동"
                     required
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                   />
                 </div>
                 <div className="space-y-2">
@@ -202,7 +200,9 @@ export default function ContactPage() {
                     placeholder="example@company.com"
                     required
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                   />
                 </div>
               </div>
@@ -216,7 +216,9 @@ export default function ContactPage() {
                   placeholder="프로젝트 문의입니다."
                   required
                   value={formData.title}
-                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, title: e.target.value })
+                  }
                 />
               </div>
               <div className="mb-6 space-y-2">
@@ -229,7 +231,9 @@ export default function ContactPage() {
                   placeholder="문의 내용을 입력해주세요."
                   required
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                 />
               </div>
               <button

@@ -1,5 +1,5 @@
+import PortfolioCard from "@/app/(home)/_components/portfolio-card";
 import Sidebar from "@/components/layout/sidebar";
-import PortfolioCard from "../(home)/_components/portfolio-card";
 import { PROJECTS } from "@/constants/projects";
 
 export default function ProjectsPage() {
@@ -53,14 +53,8 @@ export default function ProjectsPage() {
 
           {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {PROJECTS.map(({ title, description, image, category }) => (
-              <PortfolioCard
-                key={title}
-                title={title}
-                description={description}
-                image={image}
-                category={category}
-              />
+            {PROJECTS.map((project) => (
+              <PortfolioCard key={project.title} {...project} />
             ))}
           </div>
         </div>
