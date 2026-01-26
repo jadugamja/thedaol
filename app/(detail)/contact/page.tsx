@@ -1,37 +1,30 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-import Image from "next/image";
 import Sidebar from "@/components/layout/sidebar";
-import { MdCall, MdEmail, MdLocationOn, MdPrint } from "react-icons/md";
-import { CgSpinner } from "react-icons/cg";
-import emailjs from "@emailjs/browser";
 import NaverMap from "@/components/utils/NaverMap";
-
-// 회사 좌표
-const COMPANY_LOCATION = {
-  lat: 37.4835033620443,
-  lng: 126.881038151818,
-};
+import emailjs from "@emailjs/browser";
+import { FormEvent, useState } from "react";
+import { CgSpinner } from "react-icons/cg";
+import { MdCall, MdEmail, MdLocationOn, MdPrint } from "react-icons/md";
 
 const CONTACT_INFO = [
   {
-    icon: <MdEmail className="text-lg" />,
+    icon: <MdEmail className="text-xl" />,
     label: "이메일",
     value: "business@thedaol.com",
   },
   {
-    icon: <MdCall className="text-lg" />,
+    icon: <MdCall className="text-xl" />,
     label: "전화번호",
     value: "02-2088-6058",
   },
   {
-    icon: <MdPrint className="text-lg" />,
+    icon: <MdPrint className="text-xl" />,
     label: "팩스",
     value: "0503-8379-3581",
   },
   {
-    icon: <MdLocationOn className="text-lg " />,
+    icon: <MdLocationOn className="text-xl " />,
     label: "주소",
     value: "서울특별시 금천구 가산디지털1로 204, 아이비밸리 8층 802호",
   },

@@ -4,13 +4,13 @@ import { useEffect, useRef } from "react";
 
 declare global {
   interface Window {
-    naver: any;
+    naver: typeof naver;
   }
 }
 
 export default function NaverMap() {
   const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstanceRef = useRef<any>(null);
+  const mapInstanceRef = useRef<naver.maps.Map>(null);
 
   useEffect(() => {
     // 1. 네이버 지도 스크립트 동적 로드
@@ -23,7 +23,7 @@ export default function NaverMap() {
         // 2. 지도 생성
         const location = new window.naver.maps.LatLng(
           37.4835033620443, // 위도
-          126.881038151818 // 경도
+          126.881038151818, // 경도
         );
 
         const mapOptions = {
@@ -38,7 +38,7 @@ export default function NaverMap() {
         const map = new window.naver.maps.Map(mapRef.current, mapOptions);
         mapInstanceRef.current = map;
 
-        // 3. 마커 추가
+        // 3. 마커
         const marker = new window.naver.maps.Marker({
           position: location,
           map: map,
@@ -48,8 +48,8 @@ export default function NaverMap() {
         // 4. 정보창 추가
         const infowindow = new window.naver.maps.InfoWindow({
           content: `
-            <div style="padding: 15px; min-width: 200px;">
-              <h3 style="margin: 0 0 10px 0; font-size: 16px; font-weight: bold;">더다올디앤씨</h3>
+            <div style="padding: 12px;">
+              <h3 style="font-size: 16px; font-weight: bold;">더다올디앤씨</h3>
             </div>
           `,
         });
