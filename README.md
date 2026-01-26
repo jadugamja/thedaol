@@ -12,10 +12,10 @@
 
 #### 레이아웃
 
-- **app/(home)** - 랜딩 페이지 레이아웃
+- `app/(home)` - 랜딩 페이지 레이아웃
   - Hero, About, Business, Portfolio, Partners, Contact 섹션
 
-- **app/(detail)** - 상세 페이지 레이아웃
+- `app/(detail)` - 상세 페이지 레이아웃
   - `/company/*` - 회사 정보 페이지
   - `/business/*` - 사업 소개 페이지
   - `/projects` - 프로젝트 목록 페이지
