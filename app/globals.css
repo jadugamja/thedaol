@@ -10,6 +10,7 @@
   --color-surface-light: #f8fafc;
   --color-text-main: #1e293b;
   --color-text-sub: #64748b;
+  --color-accent: oklch(0.71 0.21 355.65);
 
   --font-sans: var(--font-montserrat), "Inter", sans-serif;
   --font-display: var(--font-montserrat), sans-serif;
@@ -148,7 +149,8 @@
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    transition:
+      max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
       opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
