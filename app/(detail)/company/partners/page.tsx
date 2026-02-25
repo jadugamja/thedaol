@@ -10,7 +10,7 @@ export default function CompanyPartnersPage() {
       <DetailHero
         imgSrc="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200"
         title="Partnership"
-        description="더다올디앤씨와 함께 성장하는 신뢰받는 파트너를 소개합니다."
+        description="더다올디앤씨와 함께 성장하는 파트너를 소개합니다."
       />
 
       <div className="max-w-5xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16 min-h-124">
