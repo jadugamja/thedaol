@@ -2,31 +2,32 @@
 
 import Sidebar from "@/components/layout/sidebar";
 import NaverMap from "@/components/utils/NaverMap";
+import { COMPANY_ADDRESS } from "@/constants/company";
 import emailjs from "@emailjs/browser";
 import { FormEvent, useState } from "react";
 import { CgSpinner } from "react-icons/cg";
-import { MdCall, MdEmail, MdLocationOn, MdPrint } from "react-icons/md";
+import { FiMail, FiMapPin, FiPhone, FiPrinter } from "react-icons/fi";
 
 const CONTACT_INFO = [
   {
-    icon: <MdEmail className="text-xl" />,
+    icon: <FiMail className="text-lg" aria-hidden="true" />,
     label: "이메일",
     value: "business@thedaol.com",
   },
   {
-    icon: <MdCall className="text-xl" />,
+    icon: <FiPhone className="text-lg" aria-hidden="true" />,
     label: "전화번호",
     value: "02-2088-6058",
   },
   {
-    icon: <MdPrint className="text-xl" />,
+    icon: <FiPrinter className="text-lg" aria-hidden="true" />,
     label: "팩스",
     value: "0503-8379-3581",
   },
   {
-    icon: <MdLocationOn className="text-xl " />,
+    icon: <FiMapPin className="text-lg" aria-hidden="true" />,
     label: "주소",
-    value: "서울특별시 금천구 가산디지털1로 204, 아이비밸리 8층 802호",
+    value: COMPANY_ADDRESS,
   },
 ];
 
@@ -169,11 +170,16 @@ export default function ContactPage() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div className="space-y-2">
-                  <label className="block text-sm font-semibold text-text-main">
+                  <label
+                    htmlFor="contact-name"
+                    className="block text-sm font-semibold text-text-main"
+                  >
                     성함 <span className="text-primary">*</span>
                   </label>
                   <input
                     type="text"
+                    id="contact-name"
+                    name="name"
                     className="w-full px-4 py-3 bg-gray-50 border border-slate-200 rounded-lg focus:border-[#5887c2] focus:bg-white focus:outline-none transition-colors"
                     placeholder="홍길동"
                     required
@@ -184,11 +190,16 @@ export default function ContactPage() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="block text-sm font-semibold text-text-main">
+                  <label
+                    htmlFor="contact-email"
+                    className="block text-sm font-semibold text-text-main"
+                  >
                     이메일 <span className="text-primary">*</span>
                   </label>
                   <input
                     type="email"
+                    id="contact-email"
+                    name="email"
                     className="w-full px-4 py-3 bg-gray-50 border border-slate-200 rounded-lg focus:border-[#5887c2] focus:bg-white focus:outline-none transition-colors"
                     placeholder="example@company.com"
                     required
@@ -200,11 +211,16 @@ export default function ContactPage() {
                 </div>
               </div>
               <div className="mb-6 space-y-2">
-                <label className="block text-sm font-semibold text-text-main">
+                <label
+                  htmlFor="contact-title"
+                  className="block text-sm font-semibold text-text-main"
+                >
                   제목 <span className="text-primary">*</span>
                 </label>
                 <input
                   type="text"
+                  id="contact-title"
+                  name="title"
                   className="w-full px-4 py-3 bg-gray-50 border border-slate-200 rounded-lg focus:border-[#5887c2] focus:bg-white focus:outline-none transition-colors"
                   placeholder="프로젝트 문의입니다."
                   required
@@ -215,10 +231,15 @@ export default function ContactPage() {
                 />
               </div>
               <div className="mb-6 space-y-2">
-                <label className="block text-sm font-semibold text-text-main">
+                <label
+                  htmlFor="contact-message"
+                  className="block text-sm font-semibold text-text-main"
+                >
                   문의 내용 <span className="text-primary">*</span>
                 </label>
                 <textarea
+                  id="contact-message"
+                  name="message"
                   rows={5}
                   className="w-full px-4 py-3 bg-gray-50 border border-slate-200 rounded-lg focus:border-[#5887c2] focus:bg-white focus:outline-none resize-none transition-colors"
                   placeholder="문의 내용을 입력해주세요."
@@ -232,10 +253,17 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="h-12 w-full py-4 bg-text-main hover:bg-[#090d14] disabled:bg-gray-400 text-white font-bold rounded-lg transition-colors shadow-lg flex items-center justify-center gap-2 group cursor-pointer"
+                aria-busy={isSubmitting}
+                className="h-12 w-full py-4 bg-text-main hover:bg-[#090d14] disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold rounded-lg transition-colors shadow-lg flex items-center justify-center gap-2 group cursor-pointer"
               >
                 {isSubmitting ? (
-                  <CgSpinner className="animate-spin text-2xl" />
+                  <>
+                    <CgSpinner
+                      className="animate-spin text-2xl"
+                      aria-hidden="true"
+                    />
+                    <span className="sr-only">전송 중</span>
+                  </>
                 ) : (
                   "문의하기"
                 )}

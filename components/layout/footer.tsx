@@ -1,3 +1,4 @@
+import { COMPANY_ADDRESS } from "@/constants/company";
 import Image from "next/image";
 
 export default function Footer() {
@@ -10,8 +11,7 @@ export default function Footer() {
               (주)더다올디앤씨 | 대표: 박규원 | 사업자등록번호: 150-86-02724
             </p>
             <p>
-              <strong className="font-bold">주소</strong>: 서울특별시 금천구
-              가산디지털1로 204, 아이비밸리 8층 802호
+              <strong className="font-bold">주소</strong>: {COMPANY_ADDRESS}
             </p>
             <p>
               <strong className="font-bold">Tel</strong>: 02-2088-6058 |&nbsp;
@@ -30,7 +30,14 @@ export default function Footer() {
             />
           </div>
           <div className="pt-2 border-t border-white/10 text-xs text-[#64748b]">
-            Copyright © 주식회사 더다올디앤씨 All Rights Reserved.
+            <span>Copyright © 주식회사 더다올디앤씨 All Rights Reserved.</span>
+            <span aria-hidden="true"> · </span>
+            <a
+              href="/images/projects/ATTRIBUTION.md"
+              className="transition-colors hover:text-white"
+            >
+              프로젝트 이미지 출처
+            </a>
           </div>
         </div>
       </div>

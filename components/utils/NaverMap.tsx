@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { COMPANY_ADDRESS, COMPANY_LOCATION } from "@/constants/company";
+import { useEffect, useRef, useState } from "react";
 
 declare global {
   interface Window {
@@ -8,79 +9,109 @@ declare global {
   }
 }
 
+const NAVER_MAP_CLIENT_ID = process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID;
+
 export default function NaverMap() {
-  const mapRef = useRef<HTMLDivElement>(null); // DOM
+  const mapRef = useRef<HTMLDivElement>(null);
+  const [hasScriptError, setHasScriptError] = useState(false);
 
   useEffect(() => {
-    // 1. 네이버 지도 스크립트 동적 로드
-    const script = document.createElement("script");
-    script.src = `https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID}`;
-    script.async = true;
+    if (!NAVER_MAP_CLIENT_ID) {
+      return;
+    }
 
-    script.onload = () => {
+    const initializeMap = () => {
       const { naver } = window;
-      if (mapRef.current && naver) {
-        // 2. 지도 생성
-        const location = new naver.maps.LatLng(
-          37.4835033620443, // 위도
-          126.881038151818, // 경도
-        );
 
-        const mapOptions = {
-          center: location,
-          zoom: 16,
-          zoomControl: true,
-          zoomControlOptions: {
-            position: naver.maps.Position.TOP_RIGHT,
-          },
-        };
-
-        const map = new naver.maps.Map(mapRef.current, mapOptions);
-
-        // 3. 마커
-        const marker = new naver.maps.Marker({
-          position: location,
-          map: map,
-          title: "더다올디앤씨",
-        });
-
-        // 4. 정보창
-        const infowindow = new naver.maps.InfoWindow({
-          content: `
-            <div style="padding: 12px;">
-              <h3 style="font-size: 16px; font-weight: bold;">더다올디앤씨</h3>
-            </div>
-          `,
-        });
-
-        // 5. 마커 클릭 이벤트 -> 정보창 열림
-        naver.maps.Event.addListener(marker, "click", () => {
-          if (infowindow.getMap()) {
-            infowindow.close();
-          } else {
-            infowindow.open(map, marker);
-          }
-        });
+      if (!mapRef.current || !naver?.maps) {
+        setHasScriptError(true);
+        return;
       }
+
+      const location = new naver.maps.LatLng(
+        COMPANY_LOCATION.lat,
+        COMPANY_LOCATION.lng,
+      );
+      const map = new naver.maps.Map(mapRef.current, {
+        center: location,
+        zoom: 16,
+        zoomControl: true,
+        zoomControlOptions: {
+          position: naver.maps.Position.TOP_RIGHT,
+        },
+      });
+      const marker = new naver.maps.Marker({
+        position: location,
+        map,
+        title: "더다올디앤씨",
+      });
+      const infowindow = new naver.maps.InfoWindow({
+        content: `
+          <div style="padding: 12px;">
+            <strong style="font-size: 16px;">더다올디앤씨</strong>
+          </div>
+        `,
+      });
+
+      naver.maps.Event.addListener(marker, "click", () => {
+        if (infowindow.getMap()) {
+          infowindow.close();
+          return;
+        }
+
+        infowindow.open(map, marker);
+      });
     };
+
+    if (window.naver?.maps) {
+      initializeMap();
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = `https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${NAVER_MAP_CLIENT_ID}`;
+    script.async = true;
+    script.onload = initializeMap;
+    script.onerror = () => setHasScriptError(true);
 
     document.head.appendChild(script);
 
     return () => {
-      // 컴포넌트 언마운트 시 스크립트 제거
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
+      script.remove();
     };
   }, []);
+
+  if (!NAVER_MAP_CLIENT_ID || hasScriptError) {
+    const mapSearchUrl = `https://map.naver.com/p/search/${encodeURIComponent(COMPANY_ADDRESS)}`;
+
+    return (
+      <div
+        role="status"
+        className="flex h-full w-full flex-col items-center justify-center gap-4 px-6 text-center"
+      >
+        <p className="text-sm leading-relaxed text-text-sub break-keep">
+          지도를 불러오지 못했습니다.
+          <br />
+          {COMPANY_ADDRESS}
+        </p>
+        <a
+          href={mapSearchUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="rounded-lg bg-primary px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-primary-dark"
+        >
+          네이버 지도에서 보기
+        </a>
+      </div>
+    );
+  }
 
   return (
     <div
       ref={mapRef}
-      style={{
-        width: "100%",
-        height: "400px",
-      }}
+      role="region"
+      aria-label={`더다올디앤씨 위치 지도: ${COMPANY_ADDRESS}`}
+      className="h-full w-full"
     />
   );
 }
