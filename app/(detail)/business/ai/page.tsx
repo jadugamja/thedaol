@@ -1,247 +1,196 @@
-"use client";
-
 import DetailHero from "@/components/layout/detail/hero";
 import Sidebar from "@/components/layout/sidebar";
 import { BUSINESS_MENU } from "@/constants/menu";
-import { cn } from "@/lib/utils";
-import { useEffect } from "react";
-import { MdChatBubbleOutline, MdOutlineVisibility } from "react-icons/md";
-import { RiDatabase2Line } from "react-icons/ri";
 
-const TECH_CARDS = [
+const AI_CAPABILITIES = [
   {
-    icon: <RiDatabase2Line className="text-blue-600 text-3xl" />,
-    color: "blue",
-    title: "Big Data",
+    title: "Document Intelligence",
+    label: "문서 인텔리전스",
     description:
-      "대용량 데이터의 수집, 저장, 처리를 위한 분산 처리 시스템 구축 및 데이터 파이프라인 최적화",
+      "다양한 형식의 문서를 읽을 수 있는 데이터로 바꾸고, 검색과 생성에 적합한 지식 구조로 정리합니다.",
+    details: ["OCR·문서 구조 인식", "청킹·임베딩", "문서 메타데이터 자동분류"],
   },
   {
-    icon: <MdChatBubbleOutline className="text-purple-600 text-3xl" />,
-    color: "purple",
-    title: "NLP",
+    title: "Language & Retrieval",
+    label: "언어 모델과 검색",
     description:
-      "텍스트 분석, 감성 분석, 챗봇 등 인간의 언어를 이해하고 처리하는 자연어 처리 기술",
+      "로컬 LLM과 벡터 검색을 연결해 질문의 맥락을 이해하고, 근거 문서를 바탕으로 답변을 생성합니다.",
+    details: ["로컬 LLM·프롬프트 설계", "RAG 문서 검색", "질의응답·자동요약"],
   },
   {
-    icon: <MdOutlineVisibility className="text-teal-600 text-3xl" />,
-    color: "teal",
-    title: "Computer Vision",
+    title: "AI Quality Operations",
+    label: "AI 품질 운영",
     description:
-      "객체 인식, 이미지 분석 및 생성 등 이미지 데이터를 처리하는 컴퓨터 비전 기술",
+      "검색과 생성 결과를 정해진 평가 기준으로 점검하고, 운영 과정의 변화를 추적해 품질을 지속적으로 개선합니다.",
+    details: ["AI 평가 데이터셋", "검색 정확도·답변 품질 평가", "모델·프롬프트 이력 관리"],
   },
-];
+] as const;
+
+const AI_PROCESS_STEPS = [
+  {
+    title: "Consulting",
+    label: "AI 과제 정의",
+    description:
+      "업무 흐름과 문서 유형을 분석해 AI 적용 범위를 정하고, 사용 시나리오와 품질 목표를 구체화합니다.",
+    details: ["업무·사용자 시나리오 분석", "데이터와 LLM 적용성 검토", "정확도·응답 품질 기준 수립"],
+  },
+  {
+    title: "Modeling",
+    label: "데이터·모델 설계",
+    description:
+      "문서가 AI 지식으로 변환되는 흐름을 설계하고, 과제에 맞는 로컬 LLM과 검색 구조를 구성합니다.",
+    details: ["OCR·전처리·임베딩 설계", "Vector DB 검색 구조", "로컬 LLM·프롬프트 설계"],
+  },
+  {
+    title: "Development",
+    label: "AI 기능 구현",
+    description:
+      "RAG 검색과 생성 모델을 연결해 근거 기반 질의응답, 문서 요약, 자동분류 기능을 구현합니다.",
+    details: ["RAG 문서 검색·질의응답", "업로드 문서 자동요약", "문서 유형·메타데이터 자동분류"],
+  },
+  {
+    title: "Deployment",
+    label: "AI 평가·운영",
+    description:
+      "실제 업무 기준으로 검색과 답변 품질을 평가하고, 모델과 프롬프트의 변경 이력을 관리합니다.",
+    details: ["검색 정확도·근거 일치 평가", "환각·응답 안전성 점검", "품질 모니터링·지속 개선"],
+  },
+] as const;
 
 export default function BusinessAiPage() {
-  useEffect(() => {
-    const steps = document.querySelectorAll(".process-step");
-    if (!steps.length) return;
-
-    let currentIndex = -1;
-
-    function activateStep(index: number) {
-      steps.forEach((step, i) => {
-        const circle = step.querySelector(".step-circle");
-        const number = step.querySelector(".number");
-        const box = step.querySelector(".step-box");
-
-        if (i === index) {
-          // Active State
-          circle?.classList.remove("bg-white", "border-gray-200");
-          circle?.classList.add("bg-primary", "border-primary", "scale-110");
-
-          number?.classList.remove("text-text-main");
-          number?.classList.add("text-white");
-
-          box?.classList.remove("bg-white", "border-gray-100");
-          box?.classList.add("bg-surface-light", "border-primary", "shadow-sm");
-        } else {
-          // Inactive State
-          circle?.classList.add("bg-white", "border-gray-200");
-          circle?.classList.remove("bg-primary", "border-primary", "scale-110");
-
-          number?.classList.add("text-text-main");
-          number?.classList.remove("text-white");
-
-          box?.classList.add("bg-white", "border-gray-100");
-          box?.classList.remove(
-            "bg-surface-light",
-            "border-primary",
-            "shadow-sm"
-          );
-        }
-      });
-    }
-
-    currentIndex = 0;
-    activateStep(currentIndex);
-
-    const interval = setInterval(() => {
-      currentIndex = (currentIndex + 1) % steps.length;
-      activateStep(currentIndex);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <>
       <DetailHero
         imgSrc="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200"
         title="AI Solution"
-        description="데이터의 가치를 발견하고, 비즈니스의 미래를 예측하는 지능형 솔루션"
+        description="문서와 업무 데이터를 이해하고, 근거 있는 답변과 자동화 결과로 연결하는 AI 솔루션"
       />
 
-      <div className="max-w-5xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16">
+      <div className="mx-auto flex max-w-5xl flex-col gap-16 px-6 py-20 md:flex-row">
         <Sidebar title="Business" menu={BUSINESS_MENU} current="/business/ai" />
 
-        {/* Main Content */}
-        <div className="grow space-y-20">
-          <section>
-            <div className="flex items-center gap-4 mb-8">
-              <span className="text-primary font-bold tracking-widest uppercase text-sm font-display">
-                Core Technology
-              </span>
-              <div className="h-px bg-gray-200 flex-1"></div>
-            </div>
-            <h2 className="text-3xl font-bold text-text-main mb-6">
+        <main className="min-w-0 grow space-y-24">
+          <section aria-labelledby="ai-technology-heading">
+            <SectionLabel>Core Technology</SectionLabel>
+            <h2
+              id="ai-technology-heading"
+              className="mb-6 text-3xl font-bold text-text-main"
+            >
               Advanced AI Tech
             </h2>
-            <p className="text-text-sub leading-relaxed mb-10 break-keep">
-              최신 딥러닝 알고리즘과 빅데이터 처리 기술을 결합하여 고객 맞춤형
-              AI 모델을 개발합니다. 자연어 처리부터 컴퓨터 비전까지 폭넓은 기술
-              스펙트럼을 보유하고 있습니다.
+            <p className="mb-12 max-w-2xl break-keep text-text-sub leading-relaxed">
+              문서를 읽고 찾고 답하는 전 과정을 하나의 AI 흐름으로 연결합니다.
+              OCR·임베딩·로컬 LLM·RAG를 중심으로 설계하고, 요약과 분류
+              결과를 품질 기준에 따라 검증합니다.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {TECH_CARDS.map((card, index) => (
-                <TechCard key={index} {...card} />
+            <ol className="border-y border-slate-300">
+              {AI_CAPABILITIES.map((capability, index) => (
+                <li
+                  key={capability.title}
+                  className="grid gap-4 border-b border-slate-200 py-8 last:border-b-0 md:grid-cols-[3.5rem_9rem_minmax(0,1fr)] md:gap-6"
+                >
+                  <p className="font-display text-sm font-semibold tabular-nums tracking-widest text-primary">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <p className="break-keep text-sm font-semibold text-text-main">
+                    {capability.label}
+                  </p>
+                  <div>
+                    <h3 className="mb-3 text-xl font-bold text-text-main">
+                      {capability.title}
+                    </h3>
+                    <p className="break-keep text-sm leading-7 text-text-sub">
+                      {capability.description}
+                    </p>
+                    <DetailList items={capability.details} />
+                  </div>
+                </li>
               ))}
-            </div>
+            </ol>
           </section>
 
-          <section>
-            <div className="flex items-center gap-4 mb-8">
-              <span className="text-secondary font-bold tracking-widest uppercase text-sm font-display">
-                Implementation
-              </span>
-              <div className="h-px bg-gray-200 flex-1"></div>
-            </div>
-            <h2 className="text-3xl font-bold text-text-main mb-12">
+          <section aria-labelledby="ai-process-heading">
+            <SectionLabel tone="secondary">Implementation</SectionLabel>
+            <h2
+              id="ai-process-heading"
+              className="mb-6 text-3xl font-bold text-text-main"
+            >
               AI Development Process
             </h2>
+            <p className="mb-12 max-w-2xl break-keep text-text-sub leading-relaxed">
+              AI 과제 정의부터 데이터·모델 설계, 핵심 기능 구현, 품질 평가와
+              운영까지 네 단계로 진행합니다.
+            </p>
 
-            <div className="relative">
-              <div className="hidden md:block absolute top-[28px] left-0 w-full h-0.5 bg-gray-100 z-0"></div>
-
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
-                {/* Step 1 */}
-                <div className="group process-step" data-index="0">
-                  <div className="step-circle size-14 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center mb-6 mx-auto relative z-10 transition-all duration-500">
-                    <span className="number font-bold text-lg text-text-main transition-colors duration-500">
-                      01
-                    </span>
-                  </div>
-                  <div className="step-box text-center bg-white p-6 rounded-xl border border-gray-100 transition-all duration-500">
-                    <h4 className="font-bold text-lg mb-2">Consulting</h4>
-                    <p className="text-sm text-text-sub">
-                      요구사항 분석 및<br />
-                      데이터 타당성 검토
+            <ol className="border-t border-slate-300">
+              {AI_PROCESS_STEPS.map((step, index) => (
+                <li
+                  key={step.title}
+                  className="grid gap-4 border-b border-slate-300 py-9 md:grid-cols-[4.5rem_10rem_minmax(0,1fr)] md:gap-6"
+                >
+                  <p className="font-display text-3xl font-light tabular-nums text-slate-300">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <div>
+                    <p className="mb-2 break-keep text-sm font-semibold text-secondary">
+                      {step.label}
                     </p>
+                    <h3 className="break-keep text-lg font-bold text-text-main">
+                      {step.title}
+                    </h3>
                   </div>
-                </div>
-
-                {/* Step 2 */}
-                <div className="group process-step" data-index="1">
-                  <div className="step-circle size-14 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center mb-6 mx-auto relative z-10 transition-all duration-500">
-                    <span className="number font-bold text-lg text-text-main transition-colors duration-500">
-                      02
-                    </span>
-                  </div>
-                  <div className="step-box text-center bg-white p-6 rounded-xl border border-gray-100 transition-all duration-500">
-                    <h4 className="font-bold text-lg mb-2">Modeling</h4>
-                    <p className="text-sm text-text-sub">
-                      데이터 전처리 및<br />
-                      최적 AI 모델 학습
+                  <div>
+                    <p className="break-keep text-sm leading-7 text-text-sub">
+                      {step.description}
                     </p>
+                    <DetailList items={step.details} />
                   </div>
-                </div>
-
-                {/* Step 3 */}
-                <div className="group process-step" data-index="2">
-                  <div className="step-circle size-14 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center mb-6 mx-auto relative z-10 transition-all duration-500">
-                    <span className="number font-bold text-lg text-text-main transition-colors duration-500">
-                      03
-                    </span>
-                  </div>
-                  <div className="step-box text-center bg-white p-6 rounded-xl border border-gray-100 transition-all duration-500">
-                    <h4 className="font-bold text-lg mb-2">Development</h4>
-                    <p className="text-sm text-text-sub">
-                      시스템 개발 및<br />
-                      AI 모델 연동
-                    </p>
-                  </div>
-                </div>
-
-                {/* Step 4 */}
-                <div className="group process-step" data-index="3">
-                  <div className="step-circle size-14 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center mb-6 mx-auto relative z-10 transition-all duration-500">
-                    <span className="number font-bold text-lg text-text-main transition-colors duration-500">
-                      04
-                    </span>
-                  </div>
-                  <div className="step-box text-center bg-white p-6 rounded-xl border border-gray-100 transition-all duration-500">
-                    <h4 className="font-bold text-lg mb-2">Deployment</h4>
-                    <p className="text-sm text-text-sub">
-                      서비스 배포 및<br />
-                      지속적 성능 개선
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+                </li>
+              ))}
+            </ol>
           </section>
-        </div>
+        </main>
       </div>
     </>
   );
 }
 
-const TechCard = ({
-  icon,
-  title,
-  description,
-  color,
+function SectionLabel({
+  children,
+  tone = "primary",
 }: {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  color: string;
-}) => {
-  const getBgColor = (color: string) => {
-    if (color === "blue") {
-      return "bg-blue-50";
-    } else if (color === "purple") {
-      return "bg-purple-50";
-    } else if (color === "teal") {
-      return "bg-teal-50";
-    }
-  };
-
+  children: string;
+  tone?: "primary" | "secondary";
+}) {
   return (
-    <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all group">
-      <div
-        className={cn(
-          "size-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300",
-          getBgColor(color)
-        )}
+    <div className="mb-8 flex items-center gap-4">
+      <span
+        className={`font-display text-sm font-bold uppercase tracking-widest ${
+          tone === "primary" ? "text-primary" : "text-secondary"
+        }`}
       >
-        {icon}
-      </div>
-      <h3 className="font-bold text-xl mb-3 text-gray-900">{title}</h3>
-      <p className="text-sm text-gray-500 leading-relaxed break-keep">
-        {description}
-      </p>
+        {children}
+      </span>
+      <span className="h-px flex-1 bg-slate-200" aria-hidden="true" />
     </div>
   );
-};
+}
+
+function DetailList({ items }: { items: readonly string[] }) {
+  return (
+    <ul className="mt-5 grid gap-x-6 gap-y-2 sm:grid-cols-2">
+      {items.map((item) => (
+        <li
+          key={item}
+          className="flex gap-3 break-keep text-sm leading-6 text-slate-600"
+        >
+          <span className="text-slate-400" aria-hidden="true">
+            —
+          </span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}

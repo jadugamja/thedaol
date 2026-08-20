@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { BUSINESS_MENU, COMPANY_MENU } from "@/constants/menu";
 import Link from "next/link";
+import { useState } from "react";
 import Logo from "./logo";
 import MainMenu from "./main-menu";
 import SubMenu from "./sub-menu";
@@ -10,22 +11,13 @@ import { MdMenu, MdClose, MdChevronRight } from "react-icons/md";
 const MOBILE_MENU_SECTIONS = [
   {
     title: "Company",
-    items: [
-      { label: "회사소개", href: "/company/about" },
-      { label: "연혁", href: "/company/history" },
-      { label: "조직도", href: "/company/organization" },
-      { label: "협력사", href: "/company/partners" },
-    ],
+    items: COMPANY_MENU,
   },
   {
     title: "Business",
-    items: [
-      { label: "AI Solution", href: "/business/ai" },
-      { label: "SI / SM", href: "/business/si-sm" },
-      { label: "IT Consulting", href: "/business/consulting" },
-    ],
+    items: BUSINESS_MENU,
   },
-];
+] as const;
 
 export default function Header() {
   const [isSubmenuVisible, setIsSubmenuVisible] = useState(true);
@@ -52,7 +44,10 @@ export default function Header() {
             <Logo onClick={handleLinkClick} />
             <div className="hidden md:flex flex-col items-start">
               <MainMenu onLinkClick={handleLinkClick} />
-              <SubMenu isVisible={isSubmenuVisible} onLinkClick={handleLinkClick} />
+              <SubMenu
+                isVisible={isSubmenuVisible}
+                onLinkClick={handleLinkClick}
+              />
             </div>
 
             <div className="flex items-center py-2 min-h-9 md:hidden">
@@ -111,7 +106,7 @@ export default function Header() {
                           onClick={handleMobileLinkClick}
                           className="flex items-center justify-between text-text-main hover:text-primary transition-colors py-2"
                         >
-                          <span>{item.label}</span>
+                          <span>{item.name}</span>
                           <MdChevronRight className="text-xl opacity-30" />
                         </Link>
                       </li>

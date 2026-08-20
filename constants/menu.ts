@@ -15,3 +15,14 @@ export const BUSINESS_MENU: MenuItem[] = [
   { name: "SI / SM", href: "/business/si-sm" },
   { name: "IT Consulting", href: "/business/consulting" },
 ] as const;
+
+export const PROJECTS_MENU: MenuItem[] = [
+  { name: "Project Gallery", href: "/projects" },
+  { name: "로컬 LLM", href: "/projects/local-llm" },
+  { name: "AX Consulting", href: "/projects/ax-consulting" },
+  { name: "마케팅 컨설팅", href: "/projects/marketing-consulting" },
+  {
+    name: "지방의회 의안관리 솔루션",
+    href: "/projects/local-council-solution",
+  },
+] as const;

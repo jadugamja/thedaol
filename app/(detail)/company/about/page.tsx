@@ -1,9 +1,9 @@
 import DetailHero from "@/components/layout/detail/hero";
 import Sidebar from "@/components/layout/sidebar";
+import { COMPANY_ADDRESS } from "@/constants/company";
 import { COMPANY_MENU } from "@/constants/menu";
 import Image from "next/image";
-import { HiOutlineUserGroup } from "react-icons/hi";
-import { MdOutlineHandshake, MdOutlineRocketLaunch } from "react-icons/md";
+import { FiShield, FiTrendingUp, FiUsers } from "react-icons/fi";
 
 export default function CompanyAboutPage() {
   return (
@@ -40,7 +40,7 @@ export default function CompanyAboutPage() {
               <div className="grid grid-cols-1 gap-6">
                 <div className="flex gap-4 p-6 rounded-xl bg-surface-light border border-slate-100 items-start">
                   <div className="size-12 rounded-lg bg-white shadow-sm flex items-center justify-center text-primary shrink-0">
-                    <MdOutlineRocketLaunch className="text-2xl" />
+                    <FiTrendingUp className="text-xl" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-2">Innovation</h3>
@@ -51,7 +51,7 @@ export default function CompanyAboutPage() {
                 </div>
                 <div className="flex gap-4 p-6 rounded-xl bg-surface-light border border-slate-100 items-start">
                   <div className="size-12 rounded-lg bg-white shadow-sm flex items-center justify-center text-secondary shrink-0">
-                    <MdOutlineHandshake className="text-2xl" />
+                    <FiShield className="text-xl" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-2">Trust</h3>
@@ -63,7 +63,7 @@ export default function CompanyAboutPage() {
                 </div>
                 <div className="flex gap-4 p-6 rounded-xl bg-surface-light border border-slate-100 items-start">
                   <div className="size-12 rounded-lg bg-white shadow-sm flex items-center justify-center text-primary shrink-0">
-                    <HiOutlineUserGroup className="text-2xl" />
+                    <FiUsers className="text-xl" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-2">Expertise</h3>
@@ -86,7 +86,7 @@ export default function CompanyAboutPage() {
                 <div className="w-1/2 lg:w-[90%] aspect-4/5 bg-gray-200 rounded-2xl overflow-hidden relative shadow-lg">
                   <Image
                     src="/images/ceo.webp"
-                    alt="CEO Image"
+                    alt="박규원 대표이사"
                     fill
                     className="object-cover"
                   />
@@ -175,7 +175,7 @@ export default function CompanyAboutPage() {
                   소재지
                 </div>
                 <div className="px-6 py-4 text-text-sub">
-                  서울특별시 금천구 가산디지털1로 204, 아이비밸리 8층 802호
+                  {COMPANY_ADDRESS}
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] border-b border-gray-100">

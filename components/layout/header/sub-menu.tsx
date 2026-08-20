@@ -1,18 +1,10 @@
+import { BUSINESS_MENU, COMPANY_MENU } from "@/constants/menu";
 import Link from "next/link";
 
-const SUB_MENU_ITEMS = {
-  company: [
-    { href: "/company/about", label: "회사소개" },
-    { href: "/company/history", label: "연혁" },
-    { href: "/company/organization", label: "조직도" },
-    { href: "/company/partners", label: "협력사" },
-  ],
-  business: [
-    { href: "/business/ai", label: "AI Solution" },
-    { href: "/business/si-sm", label: "SI / SM" },
-    { href: "/business/consulting", label: "IT Consulting" },
-  ],
-};
+const SUB_MENU_SECTIONS = [
+  { title: "Company", items: COMPANY_MENU },
+  { title: "Business", items: BUSINESS_MENU },
+] as const;
 
 export default function SubMenu({
   isVisible,
@@ -28,31 +20,20 @@ export default function SubMenu({
       }`}
     >
       <div className="flex items-start gap-12 pb-6 pl-2">
-        <div className="submenu-section">
-          <ul className="submenu-list">
-            {SUB_MENU_ITEMS["company"].map(({ href, label }) => (
-              <SubMenuLink
-                key={label}
-                href={href}
-                label={label}
-                onClick={onLinkClick}
-              />
-            ))}
-          </ul>
-        </div>
-
-        <div className="submenu-section">
-          <ul className="submenu-list">
-            {SUB_MENU_ITEMS["business"].map(({ href, label }) => (
-              <SubMenuLink
-                key={label}
-                href={href}
-                label={label}
-                onClick={onLinkClick}
-              />
-            ))}
-          </ul>
-        </div>
+        {SUB_MENU_SECTIONS.map(({ title, items }) => (
+          <div key={title} className="submenu-section">
+            <ul className="submenu-list" aria-label={`${title} 하위 메뉴`}>
+              {items.map(({ href, name }) => (
+                <SubMenuLink
+                  key={href}
+                  href={href}
+                  label={name}
+                  onClick={onLinkClick}
+                />
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </div>
   );

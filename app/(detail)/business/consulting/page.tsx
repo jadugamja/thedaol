@@ -1,7 +1,62 @@
 import DetailHero from "@/components/layout/detail/hero";
 import Sidebar from "@/components/layout/sidebar";
 import { BUSINESS_MENU } from "@/constants/menu";
-import { MdChevronRight } from "react-icons/md";
+
+const CONSULTING_SERVICES = [
+  {
+    number: "01",
+    title: "ISP (정보전략계획)",
+    description: "경영 전략과 연계된 중장기 정보화 마스터플랜을 수립합니다.",
+    items: ["정보화 환경 분석", "미래 모델 설계", "이행 계획 수립"],
+  },
+  {
+    number: "02",
+    title: "BPR / PI (업무혁신)",
+    description: "비효율적인 업무 프로세스를 재설계하여 생산성을 극대화합니다.",
+    items: [
+      "As-Is 프로세스 진단",
+      "To-Be 프로세스 정의",
+      "변화 관리(Change Management)",
+    ],
+  },
+  {
+    number: "03",
+    title: "EA / ITA (아키텍처)",
+    description: "복잡한 IT 자원을 체계적으로 관리하기 위한 아키텍처를 수립합니다.",
+    items: [
+      "비즈니스/데이터/앱/기술 아키텍처",
+      "상호 운용성 확보",
+      "IT 거버넌스 체계 수립",
+    ],
+  },
+  {
+    number: "04",
+    title: "PMO (프로젝트 관리)",
+    description: "프로젝트의 성공적인 수행을 위한 전문적인 관리 서비스를 제공합니다.",
+    items: ["진척/위험/품질 관리", "이슈 해결 지원", "산출물 관리"],
+  },
+] as const;
+
+const CONSULTING_PHASES = [
+  {
+    number: "01",
+    title: "환경 분석",
+    titleEn: "Analyze",
+    items: ["대내외 환경 분석", "현황 진단 및 이슈 도출", "벤치마킹"],
+  },
+  {
+    number: "02",
+    title: "목표 수립",
+    titleEn: "Design",
+    items: ["비전 및 전략 수립", "목표 모델(To-Be) 설계", "Gap 분석"],
+  },
+  {
+    number: "03",
+    title: "이행 계획",
+    titleEn: "Plan",
+    items: ["이행 로드맵 수립", "소요 예산 및 인력 산정", "기대 효과 분석"],
+  },
+] as const;
 
 export default function BusinessConsultingPage() {
   return (
@@ -12,178 +67,120 @@ export default function BusinessConsultingPage() {
         description="성공적인 디지털 전환을 위한 최적의 IT 전략과 로드맵을 제시합니다"
       />
 
-      <div className="max-w-5xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-16 items-start min-h-124">
+      <div className="mx-auto flex min-h-124 max-w-5xl flex-col items-start gap-16 px-6 py-20 md:flex-row">
         <Sidebar
           title="Business"
           menu={BUSINESS_MENU}
           current="/business/consulting"
         />
 
-        <div className="flex-1 min-w-0 space-y-20">
-          {/* Consulting Fields */}
+        <div className="min-w-0 flex-1 space-y-20">
           <section>
-            <div className="flex items-center gap-4 mb-8">
-              <span className="text-primary font-bold tracking-widest uppercase text-sm font-display">
-                Service Areas
-              </span>
-              <div className="h-px bg-gray-200 flex-1"></div>
-            </div>
-            <h2 className="text-3xl font-bold text-text-main mb-6">
+            <SectionLabel label="Service Areas" tone="primary" />
+            <h2 className="mb-6 text-3xl font-bold text-text-main">
               Consulting Service
             </h2>
-            <p className="text-text-sub leading-relaxed mb-10">
+            <p className="mb-12 break-keep leading-relaxed text-text-sub">
               기업의 비즈니스 목표 달성을 위해 IT 현황을 진단하고, 최신 기술
               트렌드를 반영한 미래 모델과 실행 계획을 수립합니다.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* ISP */}
-              <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:border-primary/30 group">
-                <h3 className="font-bold text-xl mb-3 flex items-center gap-3">
-                  <span className="w-2 h-8 bg-primary rounded-[2px]" />
-                  ISP (정보전략계획)
-                </h3>
-                <p className="text-sm text-text-sub leading-relaxed mb-4">
-                  경영 전략과 연계된 중장기 정보화 마스터플랜을 수립합니다.
-                </p>
-                <ul className="text-sm text-text-sub space-y-2 list-disc pl-5">
-                  <li>정보화 환경 분석</li>
-                  <li>미래 모델 설계</li>
-                  <li>이행 계획 수립</li>
-                </ul>
-              </div>
-
-              {/* BPR/PI */}
-              <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:border-primary/30 group">
-                <h3 className="font-bold text-xl mb-3 flex items-center gap-3">
-                  <span className="w-2 h-8 bg-secondary rounded-[2px]" />
-                  BPR / PI (업무혁신)
-                </h3>
-                <p className="text-sm text-text-sub leading-relaxed mb-4">
-                  비효율적인 업무 프로세스를 재설계하여 생산성을 극대화합니다.
-                </p>
-                <ul className="text-sm text-text-sub space-y-2 list-disc pl-5">
-                  <li>As-Is 프로세스 진단</li>
-                  <li>To-Be 프로세스 정의</li>
-                  <li>변화 관리(Change Management)</li>
-                </ul>
-              </div>
-
-              {/* EA/ITA */}
-              <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:border-primary/30 group">
-                <h3 className="font-bold text-xl mb-3 flex items-center gap-3">
-                  <span className="w-2 h-8 bg-gray-800 rounded-[2px]" />
-                  EA / ITA (아키텍처)
-                </h3>
-                <p className="text-sm text-text-sub leading-relaxed mb-4">
-                  복잡한 IT 자원을 체계적으로 관리하기 위한 아키텍처를
-                  수립합니다.
-                </p>
-                <ul className="text-sm text-text-sub space-y-2 list-disc pl-5">
-                  <li>비즈니스/데이터/앱/기술 아키텍처</li>
-                  <li>상호 운용성 확보</li>
-                  <li>IT 거버넌스 체계 수립</li>
-                </ul>
-              </div>
-
-              {/* PMO */}
-              <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all hover:border-primary/30 group">
-                <h3 className="font-bold text-xl mb-3 flex items-center gap-3">
-                  <span className="w-2 h-8 bg-gray-400 rounded-[2px]" />
-                  PMO (프로젝트 관리)
-                </h3>
-                <p className="text-sm text-text-sub leading-relaxed mb-4">
-                  프로젝트의 성공적인 수행을 위한 전문적인 관리 서비스를
-                  제공합니다.
-                </p>
-                <ul className="text-sm text-text-sub space-y-2 list-disc pl-5">
-                  <li>진척/위험/품질 관리</li>
-                  <li>이슈 해결 지원</li>
-                  <li>산출물 관리</li>
-                </ul>
-              </div>
-            </div>
+            <ol
+              className="border-t border-slate-300"
+              aria-label="컨설팅 서비스 분야"
+            >
+              {CONSULTING_SERVICES.map((service) => (
+                <li
+                  key={service.number}
+                  className="grid gap-4 border-b border-slate-200 py-8 sm:grid-cols-[3rem_1fr] lg:grid-cols-[3rem_1.1fr_1fr] lg:gap-6"
+                >
+                  <span className="font-display text-sm font-bold tabular-nums text-primary">
+                    {service.number}
+                  </span>
+                  <div>
+                    <h3 className="mb-3 text-lg font-bold text-text-main">
+                      {service.title}
+                    </h3>
+                    <p className="break-keep text-sm leading-relaxed text-text-sub">
+                      {service.description}
+                    </p>
+                  </div>
+                  <ul className="space-y-2 text-sm leading-relaxed text-text-sub sm:col-start-2 lg:col-start-auto">
+                    {service.items.map((item) => (
+                      <li key={item} className="flex gap-3">
+                        <span
+                          className="mt-[0.7em] h-px w-3 shrink-0 bg-slate-400"
+                          aria-hidden="true"
+                        />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ol>
           </section>
 
-          {/* Methodology */}
           <section>
-            <div className="flex items-center gap-4 mb-8">
-              <span className="text-secondary font-bold tracking-widest uppercase text-sm font-display">
-                Methodology
-              </span>
-              <div className="h-px bg-gray-200 flex-1"></div>
-            </div>
-            <h2 className="text-3xl font-bold text-text-main mb-12">
+            <SectionLabel label="Methodology" tone="secondary" />
+            <h2 className="mb-12 text-3xl font-bold text-text-main">
               Consulting Methodology
             </h2>
 
-            <div className="relative bg-surface-light rounded-3xl p-8 lg:p-12 border border-slate-100">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-                {/* Phase 1 */}
-                <div className="text-center group">
-                  <div className="size-20 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 mx-auto text-3xl group-hover:scale-110 transition-transform duration-300">
-                    🔍
-                  </div>
-                  <h4 className="font-bold text-lg mb-3">
-                    1. 환경 분석 (Analyze)
-                  </h4>
-                  <p className="text-sm text-text-sub leading-relaxed">
-                    대내외 환경 분석
-                    <br />
-                    현황 진단 및 이슈 도출
-                    <br />
-                    벤치마킹
-                  </p>
-                </div>
-
-                {/* Arrow for Desktop */}
-                <div className="hidden md:flex absolute top-1/2 left-[26%] -translate-y-1/2 text-gray-300">
-                  <MdChevronRight className="text-4xl" />
-                </div>
-
-                {/* Phase 2 */}
-                <div className="text-center group">
-                  <div className="size-20 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 mx-auto text-3xl group-hover:scale-110 transition-transform duration-300">
-                    💡
-                  </div>
-                  <h4 className="font-bold text-lg mb-3">
-                    2. 목표 수립 (Design)
-                  </h4>
-                  <p className="text-sm text-text-sub leading-relaxed">
-                    비전 및 전략 수립
-                    <br />
-                    목표 모델(To-Be) 설계
-                    <br />
-                    Gap 분석
-                  </p>
-                </div>
-
-                {/* Arrow for Desktop */}
-                <div className="hidden md:flex absolute top-1/2 right-[28%] -translate-y-1/2 text-gray-300">
-                  <MdChevronRight className="text-4xl" />
-                </div>
-
-                {/* Phase 3 */}
-                <div className="text-center group">
-                  <div className="size-20 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 mx-auto text-3xl group-hover:scale-110 transition-transform duration-300">
-                    🚀
-                  </div>
-                  <h4 className="font-bold text-lg mb-3">
-                    3. 이행 계획 (Plan)
-                  </h4>
-                  <p className="text-sm text-text-sub leading-relaxed">
-                    이행 로드맵 수립
-                    <br />
-                    소요 예산 및 인력 산정
-                    <br />
-                    기대 효과 분석
-                  </p>
-                </div>
-              </div>
-            </div>
+            <ol
+              className="grid border-y border-slate-300 md:grid-cols-3"
+              aria-label="컨설팅 수행 절차"
+            >
+              {CONSULTING_PHASES.map((phase, index) => (
+                <li
+                  key={phase.number}
+                  className={`py-8 md:px-6 ${
+                    index === 0
+                      ? ""
+                      : "border-t border-slate-200 md:border-l md:border-t-0"
+                  }`}
+                >
+                  <span className="mb-8 block font-display text-sm font-bold tabular-nums text-secondary">
+                    {phase.number}
+                  </span>
+                  <h3 className="mb-4 font-bold text-text-main">
+                    {phase.title}
+                    <span className="ml-2 text-sm font-normal text-text-sub">
+                      {phase.titleEn}
+                    </span>
+                  </h3>
+                  <ul className="space-y-2 text-sm leading-relaxed text-text-sub">
+                    {phase.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ol>
           </section>
         </div>
       </div>
     </>
+  );
+}
+
+function SectionLabel({
+  label,
+  tone,
+}: {
+  label: string;
+  tone: "primary" | "secondary";
+}) {
+  return (
+    <div className="mb-8 flex items-center gap-4">
+      <span
+        className={`font-display text-sm font-bold uppercase tracking-widest ${
+          tone === "primary" ? "text-primary" : "text-secondary"
+        }`}
+      >
+        {label}
+      </span>
+      <div className="h-px flex-1 bg-gray-200" aria-hidden="true" />
+    </div>
   );
 }
